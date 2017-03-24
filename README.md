@@ -1,6 +1,6 @@
 # framework ISCRa
 
-Framework Sirco. Código disponibiliza para o Minicurso da SBRC2017.
+Framework ISCRa. Código disponibiliza para o Minicurso da SBRC2017.
 
 Para mais informações sobre o GNU-Radio acesse: http://gnuradio.org/
 
