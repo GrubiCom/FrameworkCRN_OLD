@@ -1,4 +1,4 @@
-# framework_sirco
+# framework ISCRa
 
 Framework Sirco. Código disponibiliza para o Minicurso da SBRC2017.
 
