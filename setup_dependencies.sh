@@ -4,6 +4,7 @@ sudo apt-get install -y gpsd
 sudo apt-get install -y python-gps
 sudo apt-get install -y gpsd-clients
 sudo apt-get install -y python-pip
+sudo pip install -U scikit-learn
 tar -vzxf dependence.tar.gz 
 cd dependence
 cd ./gr-foo
