@@ -1,9 +1,9 @@
 #!/bin/bash
 
-
+tar -xzf dependence.tar.gz
 grcc dependence/gr-ieee802-15-4/examples/ieee802_15_4_OQPSK_PHY.grc
 
-grcc /gr-pmt_cpp/grc/802.15.4_Cog.grc
+grcc gr-pmt_cpp/grc/802.15.4_Cog.grc
 
 grcc gr-pmt_cpp/grc/sbrc17/mobility_master.grc
 grcc gr-pmt_cpp/grc/sbrc17/share_master.grc
