@@ -2,7 +2,7 @@
 ##################################################
 # Gnuradio Python Flow Graph
 # Title: IEEE 802.15.4 Transceiver using OQPSK PHY
-# Generated: Thu Mar  9 09:18:27 2017
+# Generated: Wed Mar 29 16:23:37 2017
 ##################################################
 
 # Call XInitThreads as the _very_ first thing.
@@ -16,7 +16,7 @@ if sys.platform.startswith('linux'):
     except:
         print "Warning: failed to XInitThreads()"
 
-execfile("/home/vanet2/.grc_gnuradio/IEEE_802_15_4.py")
+execfile("/home/gnuradio/.grc_gnuradio/IEEE_802_15_4.py")
 from gnuradio import eng_notation
 from gnuradio import gr
 from gnuradio import uhd

@@ -1,23 +1,23 @@
-<?xml version='1.0' encoding='utf-8'?>
-<?grc format='1' created='3.7.9'?>
+<?xml version='1.0' encoding='ASCII'?>
+<?grc format='1' created='3.7.7'?>
 <flow_graph>
-  <timestamp>Wed Dec 21 10:24:15 2016</timestamp>
+  <timestamp>Mon Mar 27 17:39:16 2017</timestamp>
   <block>
     <key>options</key>
     <param>
+      <key>id</key>
+      <value>spectrum_sharing</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>title</key>
+      <value>spectrum_sharing</value>
+    </param>
+    <param>
       <key>author</key>
-      <value></value>
-    </param>
-    <param>
-      <key>window_size</key>
-      <value></value>
-    </param>
-    <param>
-      <key>category</key>
-      <value>Custom</value>
-    </param>
-    <param>
-      <key>comment</key>
       <value></value>
     </param>
     <param>
@@ -25,44 +25,16 @@
       <value></value>
     </param>
     <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(8, 8)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
+      <key>window_size</key>
+      <value>1280, 1024</value>
     </param>
     <param>
       <key>generate_options</key>
       <value>hb</value>
     </param>
     <param>
-      <key>hier_block_src_path</key>
-      <value>.:</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>spectrum_sharing</value>
-    </param>
-    <param>
-      <key>max_nouts</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>qt_qss_theme</key>
-      <value></value>
-    </param>
-    <param>
-      <key>realtime_scheduling</key>
-      <value></value>
-    </param>
-    <param>
-      <key>run_command</key>
-      <value>{python} -u {filename}</value>
+      <key>category</key>
+      <value>Custom</value>
     </param>
     <param>
       <key>run_options</key>
@@ -73,72 +45,76 @@
       <value>True</value>
     </param>
     <param>
-      <key>thread_safe_setters</key>
+      <key>max_nouts</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>realtime_scheduling</key>
       <value></value>
     </param>
     <param>
-      <key>title</key>
-      <value>spectrum_sharing</value>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(10, 10)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
     </param>
   </block>
   <block>
     <key>variable</key>
     <param>
-      <key>comment</key>
-      <value></value>
+      <key>id</key>
+      <value>samp_rate</value>
     </param>
     <param>
       <key>_enabled</key>
       <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(8, 160)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>samp_rate</value>
     </param>
     <param>
       <key>value</key>
       <value>32000</value>
     </param>
-  </block>
-  <block>
-    <key>pad_sink</key>
     <param>
-      <key>comment</key>
+      <key>alias</key>
       <value></value>
     </param>
     <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
       <key>_coordinate</key>
-      <value>(728, 276)</value>
+      <value>(10, 170)</value>
     </param>
     <param>
       <key>_rotation</key>
       <value>0</value>
     </param>
+  </block>
+  <block>
+    <key>pad_sink</key>
     <param>
       <key>id</key>
-      <value>pad_sink_0</value>
+      <value>pad_sink_1</value>
     </param>
     <param>
-      <key>type</key>
-      <value>message</value>
+      <key>_enabled</key>
+      <value>True</value>
     </param>
     <param>
       <key>label</key>
       <value>bool</value>
     </param>
     <param>
+      <key>type</key>
+      <value>message</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
       <key>num_streams</key>
       <value>1</value>
     </param>
@@ -147,41 +123,37 @@
       <value>False</value>
     </param>
     <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-  </block>
-  <block>
-    <key>pad_sink</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
       <key>_coordinate</key>
-      <value>(744, 212)</value>
+      <value>(544, 275)</value>
     </param>
     <param>
       <key>_rotation</key>
       <value>0</value>
     </param>
+  </block>
+  <block>
+    <key>pad_sink</key>
     <param>
       <key>id</key>
-      <value>pad_sink_1</value>
+      <value>pad_sink_0</value>
     </param>
     <param>
-      <key>type</key>
-      <value>message</value>
+      <key>_enabled</key>
+      <value>True</value>
     </param>
     <param>
       <key>label</key>
       <value>new_freq</value>
     </param>
     <param>
+      <key>type</key>
+      <value>message</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
       <key>num_streams</key>
       <value>1</value>
     </param>
@@ -190,43 +162,27 @@
       <value>False</value>
     </param>
     <param>
-      <key>vlen</key>
-      <value>1</value>
+      <key>_coordinate</key>
+      <value>(544, 211)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
     </param>
   </block>
   <block>
     <key>pad_source</key>
     <param>
-      <key>comment</key>
-      <value></value>
+      <key>id</key>
+      <value>pad_source_0</value>
     </param>
     <param>
       <key>_enabled</key>
       <value>True</value>
     </param>
     <param>
-      <key>_coordinate</key>
-      <value>(288, 244)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>pad_source_0</value>
-    </param>
-    <param>
       <key>label</key>
       <value>sharing_message</value>
-    </param>
-    <param>
-      <key>num_streams</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>optional</key>
-      <value>False</value>
     </param>
     <param>
       <key>type</key>
@@ -236,15 +192,35 @@
       <key>vlen</key>
       <value>1</value>
     </param>
+    <param>
+      <key>num_streams</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>optional</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(128, 243)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
   </block>
   <block>
     <key>pmt_cpp_start_share</key>
     <param>
-      <key>alias</key>
-      <value></value>
+      <key>id</key>
+      <value>pmt_cpp_start_share_0</value>
     </param>
     <param>
-      <key>comment</key>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>alias</key>
       <value></value>
     </param>
     <param>
@@ -252,46 +228,38 @@
       <value></value>
     </param>
     <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(480, 217)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
+      <key>minoutbuf</key>
       <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>pmt_cpp_start_share_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
       <value>0</value>
     </param>
     <param>
-      <key>minoutbuf</key>
+      <key>_coordinate</key>
+      <value>(344, 216)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
       <value>0</value>
     </param>
   </block>
   <connection>
-    <source_block_id>pad_source_0</source_block_id>
-    <sink_block_id>pmt_cpp_start_share_0</sink_block_id>
-    <source_key>out</source_key>
-    <sink_key>pmt::dict</sink_key>
+    <source_block_id>pmt_cpp_start_share_0</source_block_id>
+    <sink_block_id>pad_sink_1</sink_block_id>
+    <source_key>bool</source_key>
+    <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>pmt_cpp_start_share_0</source_block_id>
     <sink_block_id>pad_sink_0</sink_block_id>
-    <source_key>bool</source_key>
-    <sink_key>in</sink_key>
+    <source_key>pmt::mp</source_key>
+    <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>pmt_cpp_start_share_0</source_block_id>
-    <sink_block_id>pad_sink_1</sink_block_id>
-    <source_key>pmt::mp</source_key>
-    <sink_key>in</sink_key>
+    <source_block_id>pad_source_0</source_block_id>
+    <sink_block_id>pmt_cpp_start_share_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>pmt::dict</sink_key>
   </connection>
 </flow_graph>

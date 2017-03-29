@@ -1,23 +1,23 @@
-<?xml version='1.0' encoding='utf-8'?>
-<?grc format='1' created='3.7.9'?>
+<?xml version='1.0' encoding='ASCII'?>
+<?grc format='1' created='3.7.7'?>
 <flow_graph>
-  <timestamp>Mon Dec 15 13:46:31 2014</timestamp>
+  <timestamp>Mon Mar 27 17:59:57 2017</timestamp>
   <block>
     <key>options</key>
     <param>
+      <key>id</key>
+      <value>master</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>title</key>
+      <value>IEEE 802.15.4 Transceiver using OQPSK PHY</value>
+    </param>
+    <param>
       <key>author</key>
-      <value></value>
-    </param>
-    <param>
-      <key>window_size</key>
-      <value>1280, 1024</value>
-    </param>
-    <param>
-      <key>category</key>
-      <value>Custom</value>
-    </param>
-    <param>
-      <key>comment</key>
       <value></value>
     </param>
     <param>
@@ -25,44 +25,16 @@
       <value></value>
     </param>
     <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(936, 3)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
+      <key>window_size</key>
+      <value>1280, 1024</value>
     </param>
     <param>
       <key>generate_options</key>
       <value>wx_gui</value>
     </param>
     <param>
-      <key>hier_block_src_path</key>
-      <value>.:</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>master</value>
-    </param>
-    <param>
-      <key>max_nouts</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>qt_qss_theme</key>
-      <value></value>
-    </param>
-    <param>
-      <key>realtime_scheduling</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>run_command</key>
-      <value>{python} -u {filename}</value>
+      <key>category</key>
+      <value>Custom</value>
     </param>
     <param>
       <key>run_options</key>
@@ -73,118 +45,51 @@
       <value>True</value>
     </param>
     <param>
-      <key>thread_safe_setters</key>
+      <key>max_nouts</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>realtime_scheduling</key>
       <value></value>
     </param>
     <param>
-      <key>title</key>
-      <value>IEEE 802.15.4 Transceiver using OQPSK PHY</value>
-    </param>
-  </block>
-  <block>
-    <key>variable_chooser</key>
-    <param>
-      <key>choices</key>
-      <value>[1000000 * (2400 + 5 * (i - 10)) for i in range(11, 27)]</value>
-    </param>
-    <param>
-      <key>comment</key>
+      <key>alias</key>
       <value></value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>2000000000</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>False</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1104, 11)</value>
+      <value>(10, 10)</value>
     </param>
     <param>
       <key>_rotation</key>
       <value>0</value>
     </param>
-    <param>
-      <key>grid_pos</key>
-      <value></value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>freq</value>
-    </param>
-    <param>
-      <key>label</key>
-      <value>Channel</value>
-    </param>
-    <param>
-      <key>labels</key>
-      <value>[i for i in range(11, 27)]</value>
-    </param>
-    <param>
-      <key>notebook</key>
-      <value></value>
-    </param>
-    <param>
-      <key>style</key>
-      <value>wx.RA_HORIZONTAL</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>radio_buttons</value>
-    </param>
   </block>
   <block>
     <key>variable_slider</key>
     <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>converver</key>
-      <value>float_converter</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>89</value>
+      <key>id</key>
+      <value>gain</value>
     </param>
     <param>
       <key>_enabled</key>
       <value>True</value>
     </param>
     <param>
-      <key>_coordinate</key>
-      <value>(824, 3)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>grid_pos</key>
-      <value></value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>gain</value>
-    </param>
-    <param>
       <key>label</key>
       <value></value>
     </param>
     <param>
-      <key>max</key>
-      <value>100</value>
+      <key>value</key>
+      <value>86</value>
     </param>
     <param>
       <key>min</key>
       <value>0</value>
     </param>
     <param>
-      <key>notebook</key>
-      <value></value>
+      <key>max</key>
+      <value>100</value>
     </param>
     <param>
       <key>num_steps</key>
@@ -194,590 +99,43 @@
       <key>style</key>
       <value>wx.SL_HORIZONTAL</value>
     </param>
-  </block>
-  <block>
-    <key>IEEE_802_15_4</key>
+    <param>
+      <key>converver</key>
+      <value>float_converter</value>
+    </param>
+    <param>
+      <key>grid_pos</key>
+      <value></value>
+    </param>
+    <param>
+      <key>notebook</key>
+      <value></value>
+    </param>
     <param>
       <key>alias</key>
       <value></value>
     </param>
     <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
       <key>_coordinate</key>
-      <value>(624, 313)</value>
+      <value>(208, 11)</value>
     </param>
     <param>
       <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>IEEE_802_15_4_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_message_strobe</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(88, 163)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>blocks_message_strobe_0_3</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>msg</key>
-      <value>pmt.intern("&lt;1:2:2,4:2,5&gt;")</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>period</key>
-      <value>1000</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_socket_pdu</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(358, 116)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>180</value>
-    </param>
-    <param>
-      <key>host</key>
-      <value></value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>blocks_socket_pdu_0_0</value>
-    </param>
-    <param>
-      <key>mtu</key>
-      <value>10000</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>port</key>
-      <value>52001</value>
-    </param>
-    <param>
-      <key>tcp_no_delay</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>"UDP_SERVER"</value>
-    </param>
-  </block>
-  <block>
-    <key>foo_periodic_msg_source</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>debug</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(16, 123)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>foo_periodic_msg_source_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>msg</key>
-      <value>pmt.intern("&lt;1:2:0,8:1,1&gt;")</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>num</key>
-      <value>10</value>
-    </param>
-    <param>
-      <key>interval</key>
-      <value>500</value>
-    </param>
-    <param>
-      <key>quit</key>
-      <value>True</value>
-    </param>
-  </block>
-  <block>
-    <key>ieee802_15_4_mac</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>debug</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(360, 376)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>180</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>ieee802_15_4_mac_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>ieee802_15_4_oqpsk_phy</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(344, 472)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>ieee802_15_4_oqpsk_phy_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>ieee802_15_4_rime_stack</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bc_channels</key>
-      <value>[129]</value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(352, 224)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>ieee802_15_4_rime_stack_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>rime_add</key>
-      <value>[23,42]</value>
-    </param>
-    <param>
-      <key>ruc_channels</key>
-      <value>[132]</value>
-    </param>
-    <param>
-      <key>uc_channels</key>
-      <value>[131]</value>
-    </param>
-  </block>
-  <block>
-    <key>pmt_cpp_ahp</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(1088, 312)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>90</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>pmt_cpp_ahp_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>pmt_cpp_annp</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(1024, 312)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>90</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>pmt_cpp_annp_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>pmt_cpp_message_generation</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(432, 48)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>270</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>pmt_cpp_message_generation_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>pmt_cpp_pmt_extract_master</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(240, 193)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>180</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>pmt_cpp_pmt_extract_master_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>pmt_cpp_set_ccc</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(168, 64)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>pmt_cpp_set_ccc_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>pmt_cpp_start_share</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(712, 224)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>pmt_cpp_start_share_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
       <value>0</value>
     </param>
   </block>
   <block>
     <key>pmt_cpp_time_transmission_cycle</key>
     <param>
-      <key>alias</key>
-      <value></value>
+      <key>id</key>
+      <value>pmt_cpp_time_transmission_cycle_0</value>
     </param>
     <param>
-      <key>comment</key>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>alias</key>
       <value></value>
     </param>
     <param>
@@ -785,77 +143,34 @@
       <value></value>
     </param>
     <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(216, 145)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
+      <key>minoutbuf</key>
       <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>pmt_cpp_time_transmission_cycle_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
       <value>0</value>
     </param>
     <param>
-      <key>minoutbuf</key>
+      <key>_coordinate</key>
+      <value>(560, 48)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
       <value>0</value>
     </param>
   </block>
   <block>
     <key>spectrum_decision</key>
     <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(528, 505)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
       <key>id</key>
       <value>spectrum_decision_0</value>
     </param>
     <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
+      <key>_enabled</key>
+      <value>True</value>
     </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>spectrum_mobility_M</key>
     <param>
       <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
       <value></value>
     </param>
     <param>
@@ -863,38 +178,34 @@
       <value></value>
     </param>
     <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(200, 41)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
+      <key>minoutbuf</key>
       <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>spectrum_mobility_M_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
       <value>0</value>
     </param>
     <param>
-      <key>minoutbuf</key>
-      <value>0</value>
+      <key>_coordinate</key>
+      <value>(1064, 224)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>90</value>
     </param>
   </block>
   <block>
     <key>spectrum_sensing_M</key>
     <param>
-      <key>alias</key>
-      <value></value>
+      <key>id</key>
+      <value>spectrum_sensing_M_0</value>
     </param>
     <param>
-      <key>comment</key>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>alias</key>
       <value></value>
     </param>
     <param>
@@ -902,38 +213,34 @@
       <value></value>
     </param>
     <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(272, 449)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
+      <key>minoutbuf</key>
       <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>spectrum_sensing_M_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
       <value>0</value>
     </param>
     <param>
-      <key>minoutbuf</key>
+      <key>_coordinate</key>
+      <value>(864, 344)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
       <value>0</value>
     </param>
   </block>
   <block>
     <key>spectrum_sharing_M</key>
     <param>
-      <key>alias</key>
-      <value></value>
+      <key>id</key>
+      <value>spectrum_sharing_M_0</value>
     </param>
     <param>
-      <key>comment</key>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>alias</key>
       <value></value>
     </param>
     <param>
@@ -941,38 +248,104 @@
       <value></value>
     </param>
     <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(232, 377)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
+      <key>minoutbuf</key>
       <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>spectrum_sharing_M_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
       <value>0</value>
     </param>
     <param>
+      <key>_coordinate</key>
+      <value>(872, 8)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>IEEE_802_15_4</key>
+    <param>
+      <key>id</key>
+      <value>IEEE_802_15_4_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
       <key>minoutbuf</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(608, 304)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>pmt_cpp_pmt_extract_master</key>
+    <param>
+      <key>id</key>
+      <value>pmt_cpp_pmt_extract_master_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(568, 96)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
     </param>
   </block>
   <block>
     <key>usrp</key>
     <param>
-      <key>alias</key>
-      <value></value>
+      <key>id</key>
+      <value>usrp_0</value>
     </param>
     <param>
-      <key>comment</key>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>alias</key>
       <value></value>
     </param>
     <param>
@@ -980,125 +353,109 @@
       <value></value>
     </param>
     <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(688, 121)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
+      <key>minoutbuf</key>
       <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>usrp_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
       <value>0</value>
     </param>
     <param>
+      <key>_coordinate</key>
+      <value>(624, 416)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
+    </param>
+  </block>
+  <block>
+    <key>spectrum_mobility_M</key>
+    <param>
+      <key>id</key>
+      <value>spectrum_mobility_M_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
       <key>minoutbuf</key>
       <value>0</value>
     </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(272, 264)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>pmt_cpp_message_generation</key>
+    <param>
+      <key>id</key>
+      <value>pmt_cpp_message_generation_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(800, 112)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>270</value>
+    </param>
   </block>
   <connection>
-    <source_block_id>IEEE_802_15_4_0</source_block_id>
-    <sink_block_id>pmt_cpp_pmt_extract_master_0</sink_block_id>
-    <source_key>rxout</source_key>
-    <sink_key>in_pdu</sink_key>
+    <source_block_id>pmt_cpp_pmt_extract_master_0</source_block_id>
+    <sink_block_id>pmt_cpp_time_transmission_cycle_0</sink_block_id>
+    <source_key>share</source_key>
+    <sink_key>in_signal</sink_key>
   </connection>
   <connection>
-    <source_block_id>IEEE_802_15_4_0</source_block_id>
-    <sink_block_id>usrp_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_message_strobe_0_3</source_block_id>
-    <sink_block_id>ieee802_15_4_rime_stack_0</sink_block_id>
-    <source_key>strobe</source_key>
-    <sink_key>bcin</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_socket_pdu_0_0</source_block_id>
-    <sink_block_id>ieee802_15_4_rime_stack_0</sink_block_id>
-    <source_key>pdus</source_key>
-    <sink_key>bcin</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>foo_periodic_msg_source_0</source_block_id>
+    <source_block_id>pmt_cpp_pmt_extract_master_0</source_block_id>
     <sink_block_id>IEEE_802_15_4_0</sink_block_id>
-    <source_key>out</source_key>
+    <source_key>Ack</source_key>
     <sink_key>msg</sink_key>
   </connection>
   <connection>
-    <source_block_id>foo_periodic_msg_source_0</source_block_id>
-    <sink_block_id>ieee802_15_4_rime_stack_0</sink_block_id>
-    <source_key>out</source_key>
-    <sink_key>bcin</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>ieee802_15_4_mac_0</source_block_id>
-    <sink_block_id>ieee802_15_4_rime_stack_0</sink_block_id>
-    <source_key>app out</source_key>
-    <sink_key>fromMAC</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>ieee802_15_4_mac_0</source_block_id>
-    <sink_block_id>ieee802_15_4_oqpsk_phy_0</sink_block_id>
-    <source_key>pdu out</source_key>
-    <sink_key>txin</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>ieee802_15_4_oqpsk_phy_0</source_block_id>
-    <sink_block_id>ieee802_15_4_mac_0</sink_block_id>
-    <source_key>rxout</source_key>
-    <sink_key>pdu in</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>ieee802_15_4_oqpsk_phy_0</source_block_id>
-    <sink_block_id>pmt_cpp_pmt_extract_master_0</sink_block_id>
-    <source_key>rxout</source_key>
-    <sink_key>in_pdu</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>ieee802_15_4_rime_stack_0</source_block_id>
-    <sink_block_id>blocks_socket_pdu_0_0</sink_block_id>
-    <source_key>bcout</source_key>
-    <sink_key>pdus</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>ieee802_15_4_rime_stack_0</source_block_id>
-    <sink_block_id>ieee802_15_4_mac_0</sink_block_id>
-    <source_key>toMAC</source_key>
-    <sink_key>app in</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pmt_cpp_ahp_0</source_block_id>
-    <sink_block_id>IEEE_802_15_4_0</sink_block_id>
-    <source_key>out</source_key>
-    <sink_key>msg</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pmt_cpp_annp_0</source_block_id>
-    <sink_block_id>IEEE_802_15_4_0</sink_block_id>
-    <source_key>out</source_key>
-    <sink_key>msg</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pmt_cpp_message_generation_0</source_block_id>
-    <sink_block_id>usrp_0</sink_block_id>
-    <source_key>mp</source_key>
-    <sink_key>command_sink</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pmt_cpp_message_generation_0</source_block_id>
-    <sink_block_id>usrp_0</sink_block_id>
-    <source_key>mp</source_key>
-    <sink_key>command_source</sink_key>
+    <source_block_id>pmt_cpp_time_transmission_cycle_0</source_block_id>
+    <sink_block_id>pmt_cpp_message_generation_0</sink_block_id>
+    <source_key>out_signal</source_key>
+    <sink_key>signal</sink_key>
   </connection>
   <connection>
     <source_block_id>pmt_cpp_message_generation_0</source_block_id>
@@ -1107,106 +464,40 @@
     <sink_key>msg</sink_key>
   </connection>
   <connection>
-    <source_block_id>pmt_cpp_pmt_extract_master_0</source_block_id>
+    <source_block_id>usrp_0</source_block_id>
     <sink_block_id>IEEE_802_15_4_0</sink_block_id>
-    <source_key>Ack</source_key>
-    <sink_key>msg</sink_key>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>pmt_cpp_pmt_extract_master_0</source_block_id>
-    <sink_block_id>ieee802_15_4_rime_stack_0</sink_block_id>
-    <source_key>Ack</source_key>
-    <sink_key>bcin</sink_key>
+    <source_block_id>IEEE_802_15_4_0</source_block_id>
+    <sink_block_id>usrp_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>pmt_cpp_pmt_extract_master_0</source_block_id>
-    <sink_block_id>spectrum_sensing_M_0</sink_block_id>
-    <source_key>data</source_key>
-    <sink_key>data_sensing</sink_key>
+    <source_block_id>IEEE_802_15_4_0</source_block_id>
+    <sink_block_id>pmt_cpp_pmt_extract_master_0</sink_block_id>
+    <source_key>rxout</source_key>
+    <sink_key>in_pdu</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>pmt_cpp_message_generation_0</source_block_id>
+    <sink_block_id>usrp_0</sink_block_id>
+    <source_key>mp</source_key>
+    <sink_key>command_source</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>pmt_cpp_message_generation_0</source_block_id>
+    <sink_block_id>usrp_0</sink_block_id>
+    <source_key>mp</source_key>
+    <sink_key>command_sink</sink_key>
   </connection>
   <connection>
     <source_block_id>pmt_cpp_pmt_extract_master_0</source_block_id>
     <sink_block_id>pmt_cpp_time_transmission_cycle_0</sink_block_id>
     <source_key>freq</source_key>
     <sink_key>in_signal</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pmt_cpp_pmt_extract_master_0</source_block_id>
-    <sink_block_id>pmt_cpp_set_ccc_0</sink_block_id>
-    <source_key>share</source_key>
-    <sink_key>flag</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pmt_cpp_pmt_extract_master_0</source_block_id>
-    <sink_block_id>pmt_cpp_start_share_0</sink_block_id>
-    <source_key>share</source_key>
-    <sink_key>pmt::dict</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pmt_cpp_pmt_extract_master_0</source_block_id>
-    <sink_block_id>pmt_cpp_time_transmission_cycle_0</sink_block_id>
-    <source_key>share</source_key>
-    <sink_key>in_signal</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pmt_cpp_pmt_extract_master_0</source_block_id>
-    <sink_block_id>spectrum_mobility_M_0</sink_block_id>
-    <source_key>share</source_key>
-    <sink_key>flag</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pmt_cpp_pmt_extract_master_0</source_block_id>
-    <sink_block_id>spectrum_sharing_M_0</sink_block_id>
-    <source_key>share</source_key>
-    <sink_key>sharing_message</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pmt_cpp_time_transmission_cycle_0</source_block_id>
-    <sink_block_id>pmt_cpp_message_generation_0</sink_block_id>
-    <source_key>out_signal</source_key>
-    <sink_key>signal</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pmt_cpp_time_transmission_cycle_0</source_block_id>
-    <sink_block_id>pmt_cpp_set_ccc_0</sink_block_id>
-    <source_key>out_signal</source_key>
-    <sink_key>flag</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pmt_cpp_time_transmission_cycle_0</source_block_id>
-    <sink_block_id>spectrum_mobility_M_0</sink_block_id>
-    <source_key>out_signal</source_key>
-    <sink_key>flag</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>spectrum_decision_0</source_block_id>
-    <sink_block_id>IEEE_802_15_4_0</sink_block_id>
-    <source_key>out</source_key>
-    <sink_key>msg</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>spectrum_mobility_M_0</source_block_id>
-    <sink_block_id>usrp_0</sink_block_id>
-    <source_key>ccc</source_key>
-    <sink_key>command_sink</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>spectrum_mobility_M_0</source_block_id>
-    <sink_block_id>usrp_0</sink_block_id>
-    <source_key>ccc</source_key>
-    <sink_key>command_source</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>spectrum_mobility_M_0</source_block_id>
-    <sink_block_id>pmt_cpp_message_generation_0</sink_block_id>
-    <source_key>signal</source_key>
-    <sink_key>signal</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>spectrum_sensing_M_0</source_block_id>
-    <sink_block_id>IEEE_802_15_4_0</sink_block_id>
-    <source_key>ack_repeat</source_key>
-    <sink_key>msg</sink_key>
   </connection>
   <connection>
     <source_block_id>spectrum_sensing_M_0</source_block_id>
@@ -1221,15 +512,39 @@
     <sink_key>in</sink_key>
   </connection>
   <connection>
-    <source_block_id>spectrum_sensing_M_0</source_block_id>
-    <sink_block_id>usrp_0</sink_block_id>
-    <source_key>tuned</source_key>
-    <sink_key>command_sink</sink_key>
+    <source_block_id>spectrum_decision_0</source_block_id>
+    <sink_block_id>IEEE_802_15_4_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>msg</sink_key>
   </connection>
   <connection>
     <source_block_id>spectrum_sensing_M_0</source_block_id>
     <sink_block_id>usrp_0</sink_block_id>
     <source_key>tuned</source_key>
+    <sink_key>command_source</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>spectrum_sensing_M_0</source_block_id>
+    <sink_block_id>IEEE_802_15_4_0</sink_block_id>
+    <source_key>ack_repeat</source_key>
+    <sink_key>msg</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>pmt_cpp_pmt_extract_master_0</source_block_id>
+    <sink_block_id>spectrum_sensing_M_0</sink_block_id>
+    <source_key>data</source_key>
+    <sink_key>data_sensing</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>pmt_cpp_pmt_extract_master_0</source_block_id>
+    <sink_block_id>spectrum_sharing_M_0</sink_block_id>
+    <source_key>share</source_key>
+    <sink_key>sharing_message</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>spectrum_sharing_M_0</source_block_id>
+    <sink_block_id>usrp_0</sink_block_id>
+    <source_key>new_frequency</source_key>
     <sink_key>command_source</sink_key>
   </connection>
   <connection>
@@ -1239,21 +554,21 @@
     <sink_key>msg</sink_key>
   </connection>
   <connection>
-    <source_block_id>spectrum_sharing_M_0</source_block_id>
-    <sink_block_id>usrp_0</sink_block_id>
-    <source_key>new_frequency</source_key>
-    <sink_key>command_sink</sink_key>
+    <source_block_id>pmt_cpp_pmt_extract_master_0</source_block_id>
+    <sink_block_id>spectrum_mobility_M_0</sink_block_id>
+    <source_key>share</source_key>
+    <sink_key>flag</sink_key>
   </connection>
   <connection>
-    <source_block_id>spectrum_sharing_M_0</source_block_id>
+    <source_block_id>spectrum_mobility_M_0</source_block_id>
     <sink_block_id>usrp_0</sink_block_id>
-    <source_key>new_frequency</source_key>
+    <source_key>ccc</source_key>
     <sink_key>command_source</sink_key>
   </connection>
   <connection>
-    <source_block_id>usrp_0</source_block_id>
-    <sink_block_id>IEEE_802_15_4_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
+    <source_block_id>spectrum_mobility_M_0</source_block_id>
+    <sink_block_id>pmt_cpp_message_generation_0</sink_block_id>
+    <source_key>signal</source_key>
+    <sink_key>signal</sink_key>
   </connection>
 </flow_graph>
