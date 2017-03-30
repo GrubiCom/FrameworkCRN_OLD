@@ -2,19 +2,11 @@
 ##################################################
 # Gnuradio Python Flow Graph
 # Title: IEEE 802.15.4 Transceiver using OQPSK PHY
-# Generated: Wed Mar 29 16:57:43 2017
+# Generated: Thu Mar 30 12:29:20 2017
 ##################################################
 
 # Call XInitThreads as the _very_ first thing.
 # After some Qt import, it's too late
-import ctypes
-import sys
-if sys.platform.startswith('linux'):
-    try:
-        x11 = ctypes.cdll.LoadLibrary('libX11.so')
-        x11.XInitThreads()
-    except:
-        print "Warning: failed to XInitThreads()"
 
 execfile("/home/gnuradio/.grc_gnuradio/IEEE_802_15_4.py")
 execfile("/home/gnuradio/.grc_gnuradio/spectrum_decision.py")
@@ -26,21 +18,13 @@ from gnuradio import eng_notation
 from gnuradio import gr
 from gnuradio.eng_option import eng_option
 from gnuradio.filter import firdes
-from gnuradio.wxgui import forms
-from grc_gnuradio import wxgui as grc_wxgui
 from optparse import OptionParser
 import pmt_cpp
-import wx
 
-class master(grc_wxgui.top_block_gui):
+class master(gr.top_block):
 
     def __init__(self):
-        grc_wxgui.top_block_gui.__init__(self, title="IEEE 802.15.4 Transceiver using OQPSK PHY")
-
-        ##################################################
-        # Variables
-        ##################################################
-        self.gain = gain = 86
+        gr.top_block.__init__(self, "IEEE 802.15.4 Transceiver using OQPSK PHY")
 
         ##################################################
         # Blocks
@@ -53,29 +37,6 @@ class master(grc_wxgui.top_block_gui):
         self.pmt_cpp_time_transmission_cycle_0 = pmt_cpp.time_transmission_cycle()
         self.pmt_cpp_pmt_extract_master_0 = pmt_cpp.pmt_extract_master()
         self.pmt_cpp_message_generation_0 = pmt_cpp.message_generation()
-        _gain_sizer = wx.BoxSizer(wx.VERTICAL)
-        self._gain_text_box = forms.text_box(
-        	parent=self.GetWin(),
-        	sizer=_gain_sizer,
-        	value=self.gain,
-        	callback=self.set_gain,
-        	label='gain',
-        	converter=forms.float_converter(),
-        	proportion=0,
-        )
-        self._gain_slider = forms.slider(
-        	parent=self.GetWin(),
-        	sizer=_gain_sizer,
-        	value=self.gain,
-        	callback=self.set_gain,
-        	minimum=0,
-        	maximum=100,
-        	num_steps=100,
-        	style=wx.SL_HORIZONTAL,
-        	cast=float,
-        	proportion=1,
-        )
-        self.Add(_gain_sizer)
         self.IEEE_802_15_4_0 = IEEE_802_15_4()
 
         ##################################################
@@ -105,17 +66,14 @@ class master(grc_wxgui.top_block_gui):
         self.connect((self.usrp_0, 0), (self.IEEE_802_15_4_0, 0))    
 
 
-    def get_gain(self):
-        return self.gain
-
-    def set_gain(self, gain):
-        self.gain = gain
-        self._gain_slider.set_value(self.gain)
-        self._gain_text_box.set_value(self.gain)
-
 if __name__ == '__main__':
     parser = OptionParser(option_class=eng_option, usage="%prog: [options]")
     (options, args) = parser.parse_args()
     tb = master()
-    tb.Start(True)
-    tb.Wait()
+    tb.start()
+    try:
+        raw_input('Press Enter to quit: ')
+    except EOFError:
+        pass
+    tb.stop()
+    tb.wait()
