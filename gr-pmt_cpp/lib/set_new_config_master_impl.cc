@@ -71,22 +71,17 @@ namespace gr {
         pmt::pmt_t nChannel = pmt::dict_ref(msg, pmt::string_to_symbol("nChannel"), pmt::PMT_NIL);
         pmt::pmt_t str = pmt::dict_ref(msg, pmt::string_to_symbol("ID"), pmt::PMT_NIL);
         double newChannel = pmt::to_double(nChannel);
-        //message_port_pub(pmt::mp("bool"), pmt::intern("<S:"+pmt::symbol_to_string(str)+":"+boost::to_string(newChannel/1e9)+">")); /* I think is it liba  */
-        //usleep(400000);
+
         message_port_pub(pmt::mp("bool"), pmt::intern("<S:"+pmt::symbol_to_string(str)+":"+boost::to_string(newChannel/1e9)+">"));
-        //std::cout << pmt::print(nChannel)<< " PMT"<< std::endl;
-        //std::cout << "[MASTER][SET NEW CONFIG MASTER]: nChannel: " <<pmt::to_double(nChannel)<< std::endl;
-        //std::cout << "[MASTER][SET NEW CONFIG MASTER]: ID: " <<pmt::symbol_to_string(str)<< std::endl;
-        //sleep(1.6);
+        
         std::fstream out; 
         out.open("/tmp/master_channels.txt", std::ios::out);
         if(out.is_open()){
             out << (pmt::to_double(nChannel)/1e9)<< std::endl;
-            //std::cout << "[MASTER][SET NEW CONFIG MASTER]:SALVANDO "<< std::endl;
+            
             out.close();
         }
         message_port_pub(pmt::mp("pmt::mp"), pmt::cons(pmt::mp("freq"), pmt::mp(pmt::to_double(nChannel))));
-        //sleep(0.4);
         
                    
     }

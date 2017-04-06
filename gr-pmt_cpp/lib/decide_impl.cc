@@ -57,7 +57,7 @@ namespace gr {
         if(pmt::is_bool(msg) && pmt::to_bool(msg)){
             std::ifstream file; // open file
             file.open("../res_sense.txt");
-            std::string messageInput;// = pmt::symbol_to_string(msg); /* Passa a mensagem chegada para um tipo String */
+            std::string messageInput;
             getline(file,messageInput);
             
             int atualPower;
@@ -122,10 +122,6 @@ namespace gr {
             }
             pmt::pmt_t pmt_freq = pmt::intern(freqFinal);
 
-            //message_port_pub(pmt::mp("pmt::freq"), pmt_freq);
-            ////std::cout << "freqFinal: "<<freqFinal<<std::endl; 
-            //std::cout << "std::atoi(freqFinal): "<<std::atoi(freqFinal)<<std::endl;
-            //std::cout << "boost::to_string(std::atoi(freqFinal)/1e9)"<<boost::to_string(std::atoi(freqFinal)/1e9)<<std::endl;
             
             message_port_pub(pmt::mp("pmt::freq"),pmt::intern(freqFinal));
                        

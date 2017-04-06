@@ -67,12 +67,10 @@ namespace gr {
     {
     }
     void ACK_impl::handle_msg(pmt::pmt_t msg) {
-        //<G:id:nro_pacote:info>
-        //std::cout << "Vem do ACK" << std::endl;
-        //char idUsrp = '1';
+        
         pmt::pmt_t ack =  pmt::dict_ref(msg, pmt::string_to_symbol("ack"), pmt::PMT_NIL);
         long number = pmt::to_long(ack);
-        //std::cout << "number "<< number << std::endl;
+  
         std::string line;
         std::ifstream file; // open file
         int acks = 0;
@@ -88,43 +86,42 @@ namespace gr {
         file.close(); file.open("/tmp/send.txt");
         if (file.is_open()){
             bool stop = false;
-           // while(!file.eof()){
+           
+            getline(file,line);
+
+            int pos;
+            pos = line.find(":");
+
+
+            if (number == 0){
+                sleep(0.4);
+                std::cout << number << " Pacote" << " <G:"+boost::to_string(idUsrp)+":" << line << ">" << std::endl; 
+                message_port_pub(pmt::mp("msg"),pmt::intern("<G:"+boost::to_string(idUsrp)+":"+line+">"));
+
+            }
+            file.seekg(0);
+            for (int i = 1; i < acks && !file.eof(); i++){
+
                 getline(file,line);
-                
-                int pos;
-                pos = line.find(":");
-                //int len = std::atoi(line.substr(pos,pos+1).c_str());//get length package
-                
-                
-                if (number == 0){
+
+                if(i == number){//recebo ack 1 envio mensagem 2
                     sleep(0.4);
                     std::cout << number << " Pacote" << " <G:"+boost::to_string(idUsrp)+":" << line << ">" << std::endl; 
-                    message_port_pub(pmt::mp("msg"),pmt::intern("<G:"+boost::to_string(idUsrp)+":"+line+">"));
-                    
+                    message_port_pub(pmt::mp("msg"),pmt::intern("<G:"+boost::to_string(idUsrp)+":"+line+">")); 
+                }if(number == acks) {
+                    stop = true;
                 }
-                file.seekg(0);
-                for (int i = 1; i < acks && !file.eof(); i++){
-                    
-                    getline(file,line);
-                    //std::cout <<"FOR  "<< line << std::endl;
-                    if(i == number){//recebo ack 1 envio mensagem 2
-                        sleep(0.4);
-                        std::cout << number << " Pacote" << " <G:"+boost::to_string(idUsrp)+":" << line << ">" << std::endl; 
-                        message_port_pub(pmt::mp("msg"),pmt::intern("<G:"+boost::to_string(idUsrp)+":"+line+">")); 
-                    }if(number == acks) {
-                        stop = true;
-                    }
-                }
-                file.close();
-                if(stop){
-                    std::cout <<"[SLAVE][SEND PACKET DOWN]: FINISH SEND AND ERASE FILES (SENSE AND SEND).txt" << std::endl; 
-                    //usleep(100000);
-                    remove("/tmp/sense.txt");
-                    //usleep(100000);
-                    remove("/tmp/send.txt");
-                    
-                }
-            //std::cout << "number "<< number << std::endl;
+            }
+            file.close();
+            if(stop){
+                std::cout <<"[SLAVE][SEND PACKET DOWN]: FINISH SEND AND ERASE FILES (SENSE AND SEND).txt" << std::endl; 
+                //usleep(100000);
+                remove("/tmp/sense.txt");
+                //usleep(100000);
+                remove("/tmp/send.txt");
+
+            }
+            
             
         }
     }
@@ -139,10 +136,7 @@ namespace gr {
             std::cout << "Pacote Controle: " << " <K:"+boost::to_string(idUsrp)+":" << boost::to_string(acks) << ">" << std::endl; 
             message_port_pub(pmt::mp("msg"),pmt::intern("<K:"+boost::to_string(idUsrp)+":"+boost::to_string(acks)+">"));
             message_port_pub(pmt::mp("first"),pmt::intern("<K:"+boost::to_string(idUsrp)+":"+boost::to_string(acks)+">"));
-            //std::cout << "SLEEP 10"<< std::endl;
-            //ack_wait(acks); 
-            //TO-DO TIME DO SLAVE. TIME PRO PRIMEIRO PACOTE
-            //std::cout << "SLEEP :("<< std::endl;
+            
         }else{
             std::cerr << "[SLAVE][SEND PACKET DOWN]: file ../send.txt don't exist" << std::endl;
             std::exit(-1);   
@@ -155,7 +149,7 @@ namespace gr {
         while(!ack){
             std::ifstream file; // open file
             file.open("/tmp/ack.txt");
-            //for (int i = 0; i < 20; i++ ){ std::cout << "Sleep "<< i<< std::endl; sleep(0.1);}
+           
             std::cout << "[SLAVE][SEND PACKET DOWN]: Sleep 3 "<<  std::endl;
             sleep(3);
             if (file.is_open()){
@@ -172,7 +166,7 @@ namespace gr {
                     message_port_pub(pmt::mp("msg"),pmt::intern("<K:"+boost::to_string(idUsrp)+":"+boost::to_string(acks)+">"));
             }
         }
-        //std::remove("/home/ariel/Documentos/gr-pmt_cpp/json/ack.txt");
+     
     }
 
 

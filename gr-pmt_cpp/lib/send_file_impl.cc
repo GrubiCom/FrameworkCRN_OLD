@@ -108,7 +108,6 @@ namespace gr {
                             send.append(boost::lexical_cast<std::string>(avg));
                             send.append(";");
                             
-                           // std::cout << send << std::endl;
                             avg = 0;
                             avg += std::strtod(power.c_str(),&sz);
                             freqAnt = freq;
@@ -116,7 +115,6 @@ namespace gr {
                         }
                     }
                 }
-                //file.clear();
                 file.close();
                 std::remove("/tmp/sense.txt"); //remove o arquivo do disco
                 
