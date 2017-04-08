@@ -11,7 +11,7 @@ cd ./gr-foo
 mkdir build
 cd build
 cmake ../
-make 
+make -j8
 sudo make install
 cd ..
 cd ..
@@ -20,7 +20,7 @@ cd ./gr-ieee802-15-4
 mkdir build
 cd build
 cmake ../
-make 
+make -j8
 sudo make install
 cd ..
 cd ..
@@ -29,7 +29,7 @@ cd ./gr-eventstream
 mkdir build
 cd build
 cmake ../
-make 
+make -j8
 sudo make install
 cd ..
 cd ..
@@ -38,7 +38,7 @@ cd ./gr-uhdgps
 mkdir build
 cd build
 cmake ../
-make 
+make -j8
 sudo make install
 cd ..
 cd ..
@@ -47,11 +47,10 @@ cd ./fann
 mkdir build
 cd build
 cmake ../
-make 
+make -j8 
 sudo make install
 cd ..
 cd ..
 
 sudo pip install fann2
 sudo ldconfig
-
