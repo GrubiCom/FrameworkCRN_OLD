@@ -1,13 +1,10 @@
 #!/bin/bash
-sudo apt-get update
 cd gr-pmt_cpp/
 mkdir build
 cd build/
 cmake ../
 make -j8
 sudo make install
-cd ..
-cd ..
 sudo ldconfig
 
 grcc dependencies/gr-ieee802-15-4/examples/ieee802_15_4_OQPSK_PHY.grc

@@ -7,6 +7,13 @@ sudo apt-get install -y python-pip
 sudo pip install -U scikit-learn
 sudo apt-get -y install swig 
 sudo apt-get -y install libboost-all-dev
+sudo apt-get -y install cmake
+sudo add-apt-repository -y ppa:ettusresearch/uhd
+sudo apt-get update
+sudo apt-get -y install libuhd-dev libuhd003 uhd-host
+sudo apt-get -y install gnuradio
+
+
 tar -xzf dependencies.tar.gz
 cd dependencies
 cd ./gr-foo
