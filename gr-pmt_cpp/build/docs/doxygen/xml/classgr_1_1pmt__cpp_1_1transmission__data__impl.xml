@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classgr_1_1pmt__cpp_1_1transmission__data__impl" kind="class" prot="public">
+    <compoundname>gr::pmt_cpp::transmission_data_impl</compoundname>
+    <basecompoundref refid="classgr_1_1pmt__cpp_1_1transmission__data" prot="public" virt="non-virtual">gr::pmt_cpp::transmission_data</basecompoundref>
+    <includes refid="transmission__data__impl_8h" local="no">transmission_data_impl.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classgr_1_1pmt__cpp_1_1transmission__data__impl_1ab2da3c57c1eab68e9196aeebcd2e2b75" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double gr::pmt_cpp::transmission_data_impl::d_power</definition>
+        <argsstring></argsstring>
+        <name>d_power</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/transmission_data_impl.h" line="34" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/transmission_data_impl.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgr_1_1pmt__cpp_1_1transmission__data__impl_1a7cf352aa713998e32dd976b8fd6e8ea4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>gr::pmt_cpp::transmission_data_impl::transmission_data_impl</definition>
+        <argsstring>()</argsstring>
+        <name>transmission_data_impl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/transmission_data_impl.h" line="37" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1pmt__cpp_1_1transmission__data__impl_1a9a192928188c3dfa70a10baa9eeb4059" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>gr::pmt_cpp::transmission_data_impl::~transmission_data_impl</definition>
+        <argsstring>()</argsstring>
+        <name>~transmission_data_impl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/transmission_data_impl.h" line="38" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1pmt__cpp_1_1transmission__data__impl_1a15412659eb59d8c5cce87e748fcd67d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double gr::pmt_cpp::transmission_data_impl::get_power</definition>
+        <argsstring>()</argsstring>
+        <name>get_power</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/transmission_data_impl.h" line="39" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1pmt__cpp_1_1transmission__data__impl_1a2eec42c56812038f1b9e75a0a61336ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gr::pmt_cpp::transmission_data_impl::handle</definition>
+        <argsstring>(pmt::pmt_t pdu)</argsstring>
+        <name>handle</name>
+        <param>
+          <type>pmt::pmt_t</type>
+          <declname>pdu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/transmission_data_impl.h" line="41" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="248">
+        <label>gr::pmt_cpp::transmission_data</label>
+        <link refid="classgr_1_1pmt__cpp_1_1transmission__data"/>
+        <childnode refid="249" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="247">
+        <label>gr::pmt_cpp::transmission_data_impl</label>
+        <link refid="classgr_1_1pmt__cpp_1_1transmission__data__impl"/>
+        <childnode refid="248" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="249">
+        <label>block</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="251">
+        <label>gr::pmt_cpp::transmission_data</label>
+        <link refid="classgr_1_1pmt__cpp_1_1transmission__data"/>
+        <childnode refid="252" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="250">
+        <label>gr::pmt_cpp::transmission_data_impl</label>
+        <link refid="classgr_1_1pmt__cpp_1_1transmission__data__impl"/>
+        <childnode refid="251" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="252">
+        <label>block</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/transmission_data_impl.h" line="31" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/transmission_data_impl.h" bodystart="30" bodyend="43"/>
+    <listofallmembers>
+      <member refid="classgr_1_1pmt__cpp_1_1transmission__data__impl_1ab2da3c57c1eab68e9196aeebcd2e2b75" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::transmission_data_impl</scope><name>d_power</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1transmission__data__impl_1a15412659eb59d8c5cce87e748fcd67d0" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::transmission_data_impl</scope><name>get_power</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1transmission__data__impl_1a2eec42c56812038f1b9e75a0a61336ea" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::transmission_data_impl</scope><name>handle</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1transmission__data_1ab2bdbacf397f9510b76df5990cff39b4" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::transmission_data_impl</scope><name>make</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1transmission__data_1a81798a0bd1aaafd9469e8faac3fd0235" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::transmission_data_impl</scope><name>sptr</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1transmission__data__impl_1a7cf352aa713998e32dd976b8fd6e8ea4" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::transmission_data_impl</scope><name>transmission_data_impl</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1transmission__data__impl_1a9a192928188c3dfa70a10baa9eeb4059" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::transmission_data_impl</scope><name>~transmission_data_impl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

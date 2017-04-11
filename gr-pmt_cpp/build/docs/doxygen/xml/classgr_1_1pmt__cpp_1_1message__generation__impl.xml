@@ -1,0 +1,465 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classgr_1_1pmt__cpp_1_1message__generation__impl" kind="class" prot="public">
+    <compoundname>gr::pmt_cpp::message_generation_impl</compoundname>
+    <basecompoundref refid="classgr_1_1pmt__cpp_1_1message__generation" prot="public" virt="non-virtual">gr::pmt_cpp::message_generation</basecompoundref>
+    <includes refid="message__generation__impl_8h" local="no">message_generation_impl.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a86b8d83d13b38ac01f553a0143879405" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int gr::pmt_cpp::message_generation_impl::d_nmsg_left</definition>
+        <argsstring></argsstring>
+        <name>d_nmsg_left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="33" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a7a467ec264edcbc2bf730536cb324088" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int gr::pmt_cpp::message_generation_impl::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="34" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a3c22e2152024bec9b39d2f71a3ed4118" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int gr::pmt_cpp::message_generation_impl::cycle</definition>
+        <argsstring></argsstring>
+        <name>cycle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="35" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1aa598feba2441c2753335402cebeba890" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int gr::pmt_cpp::message_generation_impl::gain</definition>
+        <argsstring></argsstring>
+        <name>gain</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="36" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1aabbaffd4459b4e43e54b935c32340f70" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool gr::pmt_cpp::message_generation_impl::d_finished</definition>
+        <argsstring></argsstring>
+        <name>d_finished</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="37" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a9a092d1eb3041711d6af7cd27d88ee5a" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int gr::pmt_cpp::message_generation_impl::init</definition>
+        <argsstring></argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="38" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1ac477edef01f70d509fd2fef8270d8b6a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double gr::pmt_cpp::message_generation_impl::new_freq</definition>
+        <argsstring></argsstring>
+        <name>new_freq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="39" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a1baa6d4271b18546c6e36e7ced9d7d97" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double gr::pmt_cpp::message_generation_impl::old_freq</definition>
+        <argsstring></argsstring>
+        <name>old_freq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="40" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a87ab5db325b89209cdec05f7748f3e7f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool gr::pmt_cpp::message_generation_impl::neighbors_msg</definition>
+        <argsstring></argsstring>
+        <name>neighbors_msg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="41" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a03ab4d54d0202f21c85bca6b4f94886e" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float gr::pmt_cpp::message_generation_impl::d_interval</definition>
+        <argsstring></argsstring>
+        <name>d_interval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="42" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1ae5c34338ad97b59df044d295e0aa9c55" prot="private" static="no" mutable="no">
+        <type>pmt::pmt_t</type>
+        <definition>pmt::pmt_t gr::pmt_cpp::message_generation_impl::d_msg</definition>
+        <argsstring></argsstring>
+        <name>d_msg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="43" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a21193f0d35c7bc519caff8605b4714d4" prot="private" static="no" mutable="no">
+        <type>boost::thread *</type>
+        <definition>boost::thread* gr::pmt_cpp::message_generation_impl::d_thread</definition>
+        <argsstring></argsstring>
+        <name>d_thread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="44" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a1bc266071d571e6a30bd3458deeea652" prot="private" static="no" mutable="no">
+        <type>gr::thread::mutex</type>
+        <definition>gr::thread::mutex gr::pmt_cpp::message_generation_impl::d_mutex</definition>
+        <argsstring></argsstring>
+        <name>d_mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="45" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1af5ebc815b875840cea510c4a0eaef302" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double gr::pmt_cpp::message_generation_impl::min</definition>
+        <argsstring></argsstring>
+        <name>min</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="46" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a5f6af1b9a7696f50b980880417da4bb9" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double gr::pmt_cpp::message_generation_impl::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="46" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1aa95bc5a9277508fa339f1b8baa937549" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double gr::pmt_cpp::message_generation_impl::dif</definition>
+        <argsstring></argsstring>
+        <name>dif</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="46" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a68bb80d1aa241d65d37d531cdce9a404" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gr::pmt_cpp::message_generation_impl::run</definition>
+        <argsstring>(message_generation_impl *instance)</argsstring>
+        <name>run</name>
+        <param>
+          <type><ref refid="classgr_1_1pmt__cpp_1_1message__generation__impl" kindref="compound">message_generation_impl</ref> *</type>
+          <declname>instance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="32" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1aa5cb78271cf386f46a6a218dc0138798" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>gr::pmt_cpp::message_generation_impl::message_generation_impl</definition>
+        <argsstring>()</argsstring>
+        <name>message_generation_impl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="48" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a339d193c8e7bdf299cfdccf6388a2efb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>gr::pmt_cpp::message_generation_impl::~message_generation_impl</definition>
+        <argsstring>()</argsstring>
+        <name>~message_generation_impl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="49" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a2ec650bf5dee2821923a4aa181a7acab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gr::pmt_cpp::message_generation_impl::set_nmsg</definition>
+        <argsstring>(int nmsg)</argsstring>
+        <name>set_nmsg</name>
+        <param>
+          <type>int</type>
+          <declname>nmsg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="50" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1ab12a62fe2810abd09bc5f2fb37cb0620" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int gr::pmt_cpp::message_generation_impl::get_nmsg</definition>
+        <argsstring>()</argsstring>
+        <name>get_nmsg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="51" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a85298343ceed60ce0e516ec370f487c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gr::pmt_cpp::message_generation_impl::set_delay</definition>
+        <argsstring>(float delay)</argsstring>
+        <name>set_delay</name>
+        <param>
+          <type>float</type>
+          <declname>delay</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="53" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a9ea4b49363997587ff509e6d2cab29a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float gr::pmt_cpp::message_generation_impl::get_delay</definition>
+        <argsstring>()</argsstring>
+        <name>get_delay</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="54" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a33149ccd6eec75fb188cc5205824ff46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gr::pmt_cpp::message_generation_impl::set_de_finished</definition>
+        <argsstring>(pmt::pmt_t pdu)</argsstring>
+        <name>set_de_finished</name>
+        <param>
+          <type>pmt::pmt_t</type>
+          <declname>pdu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="55" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a45ccbf39a788fc1d70da006d95e2352f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gr::pmt_cpp::message_generation_impl::start_tx</definition>
+        <argsstring>()</argsstring>
+        <name>start_tx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="56" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a06b16af61781388a8e176d31fee08a02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gr::pmt_cpp::message_generation_impl::stop_tx</definition>
+        <argsstring>()</argsstring>
+        <name>stop_tx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="57" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1ad18cd65d740c168e0abbe9961b9be4f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool gr::pmt_cpp::message_generation_impl::is_running</definition>
+        <argsstring>()</argsstring>
+        <name>is_running</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="58" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1pmt__cpp_1_1message__generation__impl_1a7c3af563aed18aca833bc00d6a5bd132" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gr::pmt_cpp::message_generation_impl::send_sense</definition>
+        <argsstring>()</argsstring>
+        <name>send_sense</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="59" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="49">
+        <label>gr::pmt_cpp::message_generation_impl</label>
+        <link refid="classgr_1_1pmt__cpp_1_1message__generation__impl"/>
+        <childnode refid="50" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>block</label>
+      </node>
+      <node id="50">
+        <label>gr::pmt_cpp::message_generation</label>
+        <link refid="classgr_1_1pmt__cpp_1_1message__generation"/>
+        <childnode refid="51" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="52">
+        <label>gr::pmt_cpp::message_generation_impl</label>
+        <link refid="classgr_1_1pmt__cpp_1_1message__generation__impl"/>
+        <childnode refid="53" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>block</label>
+      </node>
+      <node id="53">
+        <label>gr::pmt_cpp::message_generation</label>
+        <link refid="classgr_1_1pmt__cpp_1_1message__generation"/>
+        <childnode refid="54" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" line="30" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/message_generation_impl.h" bodystart="29" bodyend="62"/>
+    <listofallmembers>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a7a467ec264edcbc2bf730536cb324088" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>count</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a3c22e2152024bec9b39d2f71a3ed4118" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>cycle</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1aabbaffd4459b4e43e54b935c32340f70" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>d_finished</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a03ab4d54d0202f21c85bca6b4f94886e" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>d_interval</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1ae5c34338ad97b59df044d295e0aa9c55" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>d_msg</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a1bc266071d571e6a30bd3458deeea652" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>d_mutex</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a86b8d83d13b38ac01f553a0143879405" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>d_nmsg_left</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a21193f0d35c7bc519caff8605b4714d4" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>d_thread</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1aa95bc5a9277508fa339f1b8baa937549" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>dif</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1aa598feba2441c2753335402cebeba890" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>gain</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a9ea4b49363997587ff509e6d2cab29a8" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>get_delay</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1ab12a62fe2810abd09bc5f2fb37cb0620" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>get_nmsg</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a9a092d1eb3041711d6af7cd27d88ee5a" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>init</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1ad18cd65d740c168e0abbe9961b9be4f8" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>is_running</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation_1a88c5aa64aee974a1c5e1b0424326c732" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>make</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a5f6af1b9a7696f50b980880417da4bb9" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>max</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1aa5cb78271cf386f46a6a218dc0138798" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>message_generation_impl</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1af5ebc815b875840cea510c4a0eaef302" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>min</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a87ab5db325b89209cdec05f7748f3e7f" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>neighbors_msg</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1ac477edef01f70d509fd2fef8270d8b6a" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>new_freq</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a1baa6d4271b18546c6e36e7ced9d7d97" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>old_freq</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a68bb80d1aa241d65d37d531cdce9a404" prot="private" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>run</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a7c3af563aed18aca833bc00d6a5bd132" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>send_sense</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a33149ccd6eec75fb188cc5205824ff46" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>set_de_finished</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a85298343ceed60ce0e516ec370f487c5" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>set_delay</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a2ec650bf5dee2821923a4aa181a7acab" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>set_nmsg</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation_1a1760e121b88afe2c523f5a8a8d9eb6d7" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>sptr</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a45ccbf39a788fc1d70da006d95e2352f" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>start_tx</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a06b16af61781388a8e176d31fee08a02" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>stop_tx</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1message__generation__impl_1a339d193c8e7bdf299cfdccf6388a2efb" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::message_generation_impl</scope><name>~message_generation_impl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

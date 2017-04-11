@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="ahp_8h" kind="file">
+    <compoundname>ahp.h</compoundname>
+    <includes refid="api_8h" local="no">pmt_cpp/api.h</includes>
+    <includes local="no">gnuradio/block.h</includes>
+    <includedby refid="ahp__impl_8h" local="no">ahp_impl.h</includedby>
+    <incdepgraph>
+      <node id="14">
+        <label>gnuradio/attributes.h</label>
+      </node>
+      <node id="15">
+        <label>gnuradio/block.h</label>
+      </node>
+      <node id="12">
+        <label>ahp.h</label>
+        <link refid="ahp.h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>pmt_cpp/api.h</label>
+        <link refid="api_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="17">
+        <label>ahp_impl.h</label>
+        <link refid="ahp__impl_8h"/>
+      </node>
+      <node id="16">
+        <label>ahp.h</label>
+        <link refid="ahp.h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classgr_1_1pmt__cpp_1_1ahp" prot="public">gr::pmt_cpp::ahp</innerclass>
+    <innernamespace refid="namespacegr">gr</innernamespace>
+    <innernamespace refid="namespacegr_1_1pmt__cpp">gr::pmt_cpp</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/include/pmt_cpp/ahp.h"/>
+  </compounddef>
+</doxygen>

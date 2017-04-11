@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classgr_1_1pmt__cpp_1_1timer" kind="class" prot="public">
+    <compoundname>gr::pmt_cpp::timer</compoundname>
+    <basecompoundref prot="public" virt="virtual">block</basecompoundref>
+    <derivedcompoundref refid="classgr_1_1pmt__cpp_1_1timer__impl" prot="public" virt="non-virtual">gr::pmt_cpp::timer_impl</derivedcompoundref>
+    <includes refid="timer_8h" local="no">timer.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classgr_1_1pmt__cpp_1_1timer_1a107ba8b427e520303645f25149cd2d4a" prot="public" static="no">
+        <type>boost::shared_ptr&lt; <ref refid="classgr_1_1pmt__cpp_1_1timer" kindref="compound">timer</ref> &gt;</type>
+        <definition>typedef boost::shared_ptr&lt;timer&gt; gr::pmt_cpp::timer::sptr</definition>
+        <argsstring></argsstring>
+        <name>sptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/include/pmt_cpp/timer.h" line="39" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/include/pmt_cpp/timer.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classgr_1_1pmt__cpp_1_1timer_1a82f4b022d1f80c347f095d51d0c920e8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classgr_1_1pmt__cpp_1_1timer_1a107ba8b427e520303645f25149cd2d4a" kindref="member">sptr</ref></type>
+        <definition>static sptr gr::pmt_cpp::timer::make</definition>
+        <argsstring>()</argsstring>
+        <name>make</name>
+        <briefdescription>
+<para>Return a shared_ptr to a new instance of <ref refid="classgr_1_1pmt__cpp_1_1timer" kindref="compound">pmt_cpp::timer</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para>To avoid accidental use of raw pointers, <ref refid="classgr_1_1pmt__cpp_1_1timer" kindref="compound">pmt_cpp::timer</ref>&apos;s constructor is in a private implementation class. <ref refid="classgr_1_1pmt__cpp_1_1timer_1a82f4b022d1f80c347f095d51d0c920e8" kindref="member">pmt_cpp::timer::make</ref> is the public interface for creating new instances. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/include/pmt_cpp/timer.h" line="49" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>&lt;+description of block+&gt; </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="232">
+        <label>block</label>
+      </node>
+      <node id="231">
+        <label>gr::pmt_cpp::timer</label>
+        <link refid="classgr_1_1pmt__cpp_1_1timer"/>
+        <childnode refid="232" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="233">
+        <label>gr::pmt_cpp::timer_impl</label>
+        <link refid="classgr_1_1pmt__cpp_1_1timer__impl"/>
+        <childnode refid="231" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="235">
+        <label>block</label>
+      </node>
+      <node id="234">
+        <label>gr::pmt_cpp::timer</label>
+        <link refid="classgr_1_1pmt__cpp_1_1timer"/>
+        <childnode refid="235" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/include/pmt_cpp/timer.h" line="37" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/include/pmt_cpp/timer.h" bodystart="36" bodyend="50"/>
+    <listofallmembers>
+      <member refid="classgr_1_1pmt__cpp_1_1timer_1a82f4b022d1f80c347f095d51d0c920e8" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::timer</scope><name>make</name></member>
+      <member refid="classgr_1_1pmt__cpp_1_1timer_1a107ba8b427e520303645f25149cd2d4a" prot="public" virt="non-virtual"><scope>gr::pmt_cpp::timer</scope><name>sptr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

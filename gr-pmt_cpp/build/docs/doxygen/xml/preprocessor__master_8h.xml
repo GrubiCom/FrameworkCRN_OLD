@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="preprocessor__master_8h" kind="file">
+    <compoundname>preprocessor_master.h</compoundname>
+    <includes refid="api_8h" local="no">pmt_cpp/api.h</includes>
+    <includes local="no">gnuradio/block.h</includes>
+    <includedby refid="preprocessor__master__impl_8h" local="no">preprocessor_master_impl.h</includedby>
+    <incdepgraph>
+      <node id="199">
+        <label>gnuradio/attributes.h</label>
+      </node>
+      <node id="197">
+        <label>preprocessor_master.h</label>
+        <link refid="preprocessor_master.h"/>
+        <childnode refid="198" relation="include">
+        </childnode>
+        <childnode refid="200" relation="include">
+        </childnode>
+      </node>
+      <node id="200">
+        <label>gnuradio/block.h</label>
+      </node>
+      <node id="198">
+        <label>pmt_cpp/api.h</label>
+        <link refid="api_8h"/>
+        <childnode refid="199" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="202">
+        <label>preprocessor_master_impl.h</label>
+        <link refid="preprocessor__master__impl_8h"/>
+      </node>
+      <node id="201">
+        <label>preprocessor_master.h</label>
+        <link refid="preprocessor_master.h"/>
+        <childnode refid="202" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classgr_1_1pmt__cpp_1_1preprocessor__master" prot="public">gr::pmt_cpp::preprocessor_master</innerclass>
+    <innernamespace refid="namespacegr">gr</innernamespace>
+    <innernamespace refid="namespacegr_1_1pmt__cpp">gr::pmt_cpp</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/include/pmt_cpp/preprocessor_master.h"/>
+  </compounddef>
+</doxygen>

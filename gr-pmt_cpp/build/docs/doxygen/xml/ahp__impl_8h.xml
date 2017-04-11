@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="ahp__impl_8h" kind="file">
+    <compoundname>ahp_impl.h</compoundname>
+    <includes refid="ahp_8h" local="no">pmt_cpp/ahp.h</includes>
+    <includes local="no">fstream</includes>
+    <incdepgraph>
+      <node id="18">
+        <label>ahp_impl.h</label>
+        <link refid="ahp_impl.h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>gnuradio/attributes.h</label>
+      </node>
+      <node id="23">
+        <label>fstream</label>
+      </node>
+      <node id="22">
+        <label>gnuradio/block.h</label>
+      </node>
+      <node id="19">
+        <label>pmt_cpp/ahp.h</label>
+        <link refid="ahp_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>pmt_cpp/api.h</label>
+        <link refid="api_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classgr_1_1pmt__cpp_1_1ahp__impl" prot="public">gr::pmt_cpp::ahp_impl</innerclass>
+    <innernamespace refid="namespacegr">gr</innernamespace>
+    <innernamespace refid="namespacegr_1_1pmt__cpp">gr::pmt_cpp</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="ahp__impl_8h_1a68c7f0498bb1932350eb092be1b5e912" prot="public" static="no">
+        <name>MAX_PARAMETERS</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/ahp_impl.h" line="27" column="9" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/ahp_impl.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ahp__impl_8h_1a0ead1ecf7b7168c862d6d8ce893a5b67" prot="public" static="no">
+        <name>MAX_CHARSTONUMBER</name>
+        <initializer>9</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/ahp_impl.h" line="28" column="9" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/ahp_impl.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ahp__impl_8h_1ab5625ca1bd05a58b600355d9bde1e5ba" prot="public" static="no">
+        <name>AVERAGE_OWNED</name>
+        <initializer>0.62</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/ahp_impl.h" line="29" column="9" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/ahp_impl.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ahp__impl_8h_1a71824fad7dd1953c728ea6b882d7cb24" prot="public" static="no">
+        <name>AVERAGE_RSSI</name>
+        <initializer>0.24</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/ahp_impl.h" line="30" column="9" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/ahp_impl.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ahp__impl_8h_1acf3f3cbe957cb650cc853d05c93ed247" prot="public" static="no">
+        <name>AVERAGE_TIME</name>
+        <initializer>0.13</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/ahp_impl.h" line="31" column="9" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/ahp_impl.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="ahp__impl_8h_1a9b00560b1f3979dd396508eb2d6aac22" prot="public" static="no">
+        <name>table_ids</name>
+        <enumvalue id="ahp__impl_8h_1a9b00560b1f3979dd396508eb2d6aac22a39416373e86c1df7618fc63366c140e0" prot="public">
+          <name>table_RSSI</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ahp__impl_8h_1a9b00560b1f3979dd396508eb2d6aac22a89fc00b28b35facef6d98cff0997ea04" prot="public">
+          <name>table_Time</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ahp__impl_8h_1a9b00560b1f3979dd396508eb2d6aac22ade66541324ef26a9ff70c7755041543b" prot="public">
+          <name>table_Owned</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ahp__impl_8h_1a9b00560b1f3979dd396508eb2d6aac22adbf9d422fcec7c9073949a60852f88ba" prot="public">
+          <name>table_Freq</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/ahp_impl.h" line="33" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/ahp_impl.h" bodystart="33" bodyend="38"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="ahp__impl_8h_1ab3fc2f4b1742dd8a788f9a2e0dc98f13" prot="public" static="no">
+        <type>enum <ref refid="ahp__impl_8h_1a9b00560b1f3979dd396508eb2d6aac22" kindref="member">table_ids</ref></type>
+        <definition>typedef enum table_ids control</definition>
+        <argsstring></argsstring>
+        <name>control</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/ahp_impl.h" line="40" column="1" bodyfile="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/ahp_impl.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/lib/ahp_impl.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="set__ccc__master_8h" kind="file">
+    <compoundname>set_ccc_master.h</compoundname>
+    <includes refid="api_8h" local="no">pmt_cpp/api.h</includes>
+    <includes local="no">gnuradio/block.h</includes>
+    <includedby refid="set__ccc__master__impl_8h" local="no">set_ccc_master_impl.h</includedby>
+    <incdepgraph>
+      <node id="248">
+        <label>gnuradio/attributes.h</label>
+      </node>
+      <node id="246">
+        <label>set_ccc_master.h</label>
+        <link refid="set_ccc_master.h"/>
+        <childnode refid="247" relation="include">
+        </childnode>
+        <childnode refid="249" relation="include">
+        </childnode>
+      </node>
+      <node id="249">
+        <label>gnuradio/block.h</label>
+      </node>
+      <node id="247">
+        <label>pmt_cpp/api.h</label>
+        <link refid="api_8h"/>
+        <childnode refid="248" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="251">
+        <label>set_ccc_master_impl.h</label>
+        <link refid="set__ccc__master__impl_8h"/>
+      </node>
+      <node id="250">
+        <label>set_ccc_master.h</label>
+        <link refid="set_ccc_master.h"/>
+        <childnode refid="251" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classgr_1_1pmt__cpp_1_1set__ccc__master" prot="public">gr::pmt_cpp::set_ccc_master</innerclass>
+    <innernamespace refid="namespacegr">gr</innernamespace>
+    <innernamespace refid="namespacegr_1_1pmt__cpp">gr::pmt_cpp</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/sbrc17/Documents/FrameworkCRN/gr-pmt_cpp/include/pmt_cpp/set_ccc_master.h"/>
+  </compounddef>
+</doxygen>
