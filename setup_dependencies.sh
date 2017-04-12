@@ -22,6 +22,8 @@ cd build
 cmake ../
 make -j8
 sudo make install
+cd ..
+cd ..
 
 tar -xzf dependencies.tar.gz
 cd dependencies
