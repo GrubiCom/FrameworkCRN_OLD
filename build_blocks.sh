@@ -6,7 +6,8 @@ cmake ../
 make -j8
 sudo make install
 sudo ldconfig
-
+cd ..
+cd ..
 grcc dependencies/gr-ieee802-15-4/examples/ieee802_15_4_OQPSK_PHY.grc
 grcc gr-pmt_cpp/grc/get_power.grc
 grcc gr-pmt_cpp/grc/file_recorder.grc
