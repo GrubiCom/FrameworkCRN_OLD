@@ -1,4 +1,7 @@
 #!/bin/bash
+echo -----------------------------------------------------------
+echo Installing FrameworkCRN -----------------------------------
+echo -----------------------------------------------------------
 cd gr-pmt_cpp/
 mkdir build
 cd build/
@@ -8,6 +11,10 @@ sudo make install
 sudo ldconfig
 cd ..
 cd ..
+
+echo -----------------------------------------------------------
+echo Building FrameworkCRN blocks ------------------------------
+echo -----------------------------------------------------------
 grcc dependencies/gr-ieee802-15-4/examples/ieee802_15_4_OQPSK_PHY.grc
 grcc gr-pmt_cpp/grc/get_power.grc
 grcc gr-pmt_cpp/grc/file_recorder.grc
