@@ -1,19 +1,22 @@
 #!/bin/bash
+
+THREADS=`getconf _NPROCESSORS_ONLN`
+
 echo -----------------------------------------------------------
-echo Installing FrameworkCRN -----------------------------------
+echo -------------- Installing FrameworkCRN --------------------
 echo -----------------------------------------------------------
 cd gr-pmt_cpp/
 mkdir build
 cd build/
 cmake ../
-make -j8
+make -j$THREADS && \
 sudo make install
 sudo ldconfig
 cd ..
 cd ..
 
 echo -----------------------------------------------------------
-echo Building FrameworkCRN blocks ------------------------------
+echo -------------- Building FrameworkCRN Blocks ---------------
 echo -----------------------------------------------------------
 grcc dependencies/gr-ieee802-15-4/examples/ieee802_15_4_OQPSK_PHY.grc
 grcc gr-pmt_cpp/grc/get_power.grc
