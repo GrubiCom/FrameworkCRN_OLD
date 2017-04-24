@@ -80,7 +80,6 @@ cmake ../
 make -j$THREADS && \
 sudo make install
 
-
 cd $BASE_DIR/dependencies/gr-ieee802-15-4
 mkdir build
 cd build
@@ -102,17 +101,16 @@ cmake ../
 make -j$THREADS && \
 sudo make install
 
-# cd ./fann
-# mkdir build
-# cd build
-# cmake ../
-# make -j$THREADS && \
-# sudo make installn
-# cd ..
-# cd ..
+cd $BASE_DIR/dependencies/FANN-2.2.0-Source
+mkdir build
+cd build
+cmake ../
+make && \
+sudo make install
 
-# pip install fann2
-# ldconfig
+pip install fann2
+
+sudo ldconfig
 
 echo -----------------------------------------------------------
 echo ------------ GNU Radio Installation Complete! -------------
