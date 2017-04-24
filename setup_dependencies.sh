@@ -2,6 +2,7 @@
 
 UHD_URL="https://github.com/EttusResearch/uhd"
 GNURADIO_URL="https://github.com/gnuradio/gnuradio"
+BASE_DIR=`pwd`
 
 THREADS=`getconf _NPROCESSORS_ONLN`
 
@@ -47,6 +48,8 @@ udevadm trigger
 echo -----------------------------------------------------------
 echo ------------------ Installing GNU Radio -------------------
 echo -----------------------------------------------------------
+cd $BASE_DIR
+
 git clone $GNURADIO_URL
 
 if [ $? != 0 ]; then
@@ -63,49 +66,41 @@ cd build
 cmake ../
 make -j$THREADS
 sudo make install
-cd ..
-cd ..
 
 echo -----------------------------------------------------------
 echo ------------ Installing Framework Dependencies ------------
 echo -----------------------------------------------------------
+cd $BASE_DIR
+
 tar -xf dependencies.tar.gz
-cd dependencies
-cd ./gr-foo
+cd dependencies/gr-foo
 mkdir build
 cd build 
 cmake ../
 make -j$THREADS && \
 sudo make install
-cd ..
-cd ..
 
-cd ./gr-ieee802-15-4
+
+cd $BASE_DIR/dependencies/gr-ieee802-15-4
 mkdir build
 cd build
 cmake ../
 make -j$THREADS && \
 sudo make install
-cd ..
-cd ..
 
-cd ./gr-eventstream
+cd $BASE_DIR/dependencies/gr-eventstream
 mkdir build
 cd build
 cmake ../
 make -j$THREADS && \
 sudo make install
-cd ..
-cd ..
 
-cd ./gr-uhdgps
+cd $BASE_DIR/dependencies/gr-uhdgps
 mkdir build
 cd build
 cmake ../
 make -j$THREADS && \
 sudo make install
-cd ..
-cd ..
 
 # cd ./fann
 # mkdir build
