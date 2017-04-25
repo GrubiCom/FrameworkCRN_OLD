@@ -1,0 +1,10 @@
+#!/bin/bash
+
+/sbin/insmod ./gcc116.ko
+
+major=$(awk "\$2==\"gcc116\" {print \$1}" /proc/devices)
+
+rm -f /dev/gcc116
+
+mknod /dev/gcc116 c $major 1
+chmod 666 /dev/gcc116
