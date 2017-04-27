@@ -111,7 +111,7 @@ namespace gr {
                     //std::cout << "freq: " << i << " Envio por: pmt::mp" << std::endl;
                     message_port_pub(pmt::mp("pmt::mp"), pmt::cons(pmt::mp("freq"),pmt::mp(i)));    //envia a nova frequencia para a placa USRP
                     //sleep(1);  
-                    usleep(600000);//Sleep de 1 segundo
+                    usleep(1000000);//Sleep de 1 segundo
                 }
                 
                 time(&timer2);
