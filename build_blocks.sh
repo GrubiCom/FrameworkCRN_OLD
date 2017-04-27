@@ -27,6 +27,7 @@ grcc gr-pmt_cpp/grc/sbrc17/share_master.grc
 grcc gr-pmt_cpp/grc/sbrc17/decision.grc
 grcc gr-pmt_cpp/grc/sbrc17/sense_master.grc
 grcc gr-pmt_cpp/grc/sbrc17/usrp.grc
+grcc gr-pmt_cpp/grc/sbrc17/usrp_master.grc
 grcc gr-pmt_cpp/grc/sbrc17/mobility.grc
 grcc gr-pmt_cpp/grc/sbrc17/sense.grc
 grcc gr-pmt_cpp/grc/sbrc17/send_data_sense.grc
