@@ -1,5 +1,0 @@
-#!/bin/bash
-
-/sbin/rmmod gcc116
-
-rm -f /dev/gcc116
