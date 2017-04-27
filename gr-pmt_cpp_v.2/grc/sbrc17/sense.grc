@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <?grc format='1' created='3.7.12'?>
 <flow_graph>
-  <timestamp>Mon Oct 26 15:24:55 2015</timestamp>
+  <timestamp>Mon Mar 27 17:22:38 2017</timestamp>
   <block>
     <key>options</key>
     <param>
       <key>author</key>
-      <value>Ariel</value>
+      <value></value>
     </param>
     <param>
       <key>window_size</key>
@@ -14,7 +14,7 @@
     </param>
     <param>
       <key>category</key>
-      <value>pmt_cpp</value>
+      <value>Custom</value>
     </param>
     <param>
       <key>comment</key>
@@ -22,7 +22,7 @@
     </param>
     <param>
       <key>description</key>
-      <value>Para transmissao de pacotes</value>
+      <value></value>
     </param>
     <param>
       <key>_enabled</key>
@@ -46,7 +46,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>Get_Power</value>
+      <value>spectrum_sensing</value>
     </param>
     <param>
       <key>max_nouts</key>
@@ -78,7 +78,7 @@
     </param>
     <param>
       <key>title</key>
-      <value>Get Power</value>
+      <value>spectrum_sensing</value>
     </param>
   </block>
   <block>
@@ -93,7 +93,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(200, 43)</value>
+      <value>(10, 170)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -101,11 +101,50 @@
     </param>
     <param>
       <key>id</key>
-      <value>samp_rate_0</value>
+      <value>samp_rate</value>
     </param>
     <param>
       <key>value</key>
       <value>32000</value>
+    </param>
+  </block>
+  <block>
+    <key>File_Recorder</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(768, 248)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>File_Recorder_0</value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
     </param>
   </block>
   <block>
@@ -132,7 +171,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(248, 240)</value>
+      <value>(632, 408)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -140,7 +179,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>blocks_null_sink_0_0</value>
+      <value>blocks_null_sink_0</value>
     </param>
     <param>
       <key>type</key>
@@ -156,22 +195,10 @@
     </param>
   </block>
   <block>
-    <key>es_handler_pdu</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
+    <key>pad_sink</key>
     <param>
       <key>comment</key>
       <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>dt</key>
-      <value>es.es_handler_print.TYPE_C32</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -179,104 +206,41 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(872, 243)</value>
+      <value>(96, 299)</value>
     </param>
     <param>
       <key>_rotation</key>
-      <value>0</value>
+      <value>180</value>
     </param>
     <param>
       <key>id</key>
-      <value>es_handler_pdu_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>es_sink</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>eb</key>
-      <value>discard</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(872, 163)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>es_sink_0</value>
+      <value>pad_sink_0</value>
     </param>
     <param>
       <key>type</key>
-      <value>complex</value>
+      <value>message</value>
     </param>
     <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>nthreads</key>
-      <value>8</value>
+      <key>label</key>
+      <value>sense_tune_command</value>
     </param>
     <param>
       <key>num_streams</key>
       <value>1</value>
     </param>
     <param>
-      <key>ss</key>
-      <value>binary</value>
+      <key>optional</key>
+      <value>False</value>
     </param>
     <param>
-      <key>samplehistory</key>
-      <value>64</value>
-    </param>
-    <param>
-      <key>cb</key>
-      <value>drop</value>
+      <key>vlen</key>
+      <value>1</value>
     </param>
   </block>
   <block>
-    <key>es_trigger_sample_timer</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
+    <key>pad_sink</key>
     <param>
       <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
       <value></value>
     </param>
     <param>
@@ -284,16 +248,8 @@
       <value>True</value>
     </param>
     <param>
-      <key>length</key>
-      <value>512</value>
-    </param>
-    <param>
-      <key>period</key>
-      <value>200000</value>
-    </param>
-    <param>
       <key>_coordinate</key>
-      <value>(464, 168)</value>
+      <value>(1112, 275)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -301,27 +257,27 @@
     </param>
     <param>
       <key>id</key>
-      <value>es_trigger_sample_timer_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
+      <value>pad_sink_1</value>
     </param>
     <param>
       <key>type</key>
-      <value>complex</value>
+      <value>message</value>
     </param>
     <param>
-      <key>shift</key>
-      <value>1024</value>
+      <key>label</key>
+      <value>file_ready</value>
     </param>
     <param>
-      <key>sched_dist</key>
-      <value>200000</value>
+      <key>num_streams</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>optional</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
     </param>
   </block>
   <block>
@@ -336,7 +292,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(216, 123)</value>
+      <value>(312, 227)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -348,7 +304,7 @@
     </param>
     <param>
       <key>label</key>
-      <value>in</value>
+      <value>sense_data</value>
     </param>
     <param>
       <key>num_streams</key>
@@ -379,7 +335,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(152, 508)</value>
+      <value>(16, 371)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -387,11 +343,11 @@
     </param>
     <param>
       <key>id</key>
-      <value>pad_source_0_0</value>
+      <value>pad_source_1</value>
     </param>
     <param>
       <key>label</key>
-      <value>in_pdu</value>
+      <value>sense</value>
     </param>
     <param>
       <key>num_streams</key>
@@ -408,88 +364,6 @@
     <param>
       <key>vlen</key>
       <value>1</value>
-    </param>
-  </block>
-  <block>
-    <key>pmt_cpp_PDU_json</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>filename</key>
-      <value>/tmp/power.txt</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(624, 432)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>180</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>pmt_cpp_PDU_json_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>pmt_cpp_PDU_remove_all_tags</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(464, 392)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>pmt_cpp_PDU_remove_all_tags_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
     </param>
   </block>
   <block>
@@ -512,7 +386,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(72, 200)</value>
+      <value>(464, 216)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -520,7 +394,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>pmt_cpp_file_connect_0_0</value>
+      <value>pmt_cpp_file_connect_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -532,7 +406,7 @@
     </param>
   </block>
   <block>
-    <key>uhdgps_cpdu_average_power</key>
+    <key>pmt_cpp_send_file_ACK</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -551,7 +425,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(384, 315)</value>
+      <value>(936, 280)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -559,7 +433,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>uhdgps_cpdu_average_power_0</value>
+      <value>pmt_cpp_send_file_ACK_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -569,81 +443,104 @@
       <key>minoutbuf</key>
       <value>0</value>
     </param>
+  </block>
+  <block>
+    <key>pmt_cpp_start_sense</key>
     <param>
-      <key>k</key>
-      <value>-60</value>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(176, 360)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>pmt_cpp_start_sense_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
     </param>
   </block>
   <connection>
-    <source_block_id>es_handler_pdu_0</source_block_id>
-    <sink_block_id>uhdgps_cpdu_average_power_0</sink_block_id>
-    <source_key>pdus_out</source_key>
-    <sink_key>cpdus</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>es_trigger_sample_timer_0</source_block_id>
-    <sink_block_id>es_sink_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>es_trigger_sample_timer_0</source_block_id>
-    <sink_block_id>es_handler_pdu_0</sink_block_id>
-    <source_key>sample_timer_event</source_key>
-    <sink_key>handle_event</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>es_trigger_sample_timer_0</source_block_id>
-    <sink_block_id>es_sink_0</sink_block_id>
-    <source_key>which_stream</source_key>
-    <sink_key>schedule_event</sink_key>
+    <source_block_id>File_Recorder_0</source_block_id>
+    <sink_block_id>pmt_cpp_send_file_ACK_0</sink_block_id>
+    <source_key>file_ready</source_key>
+    <sink_key>file_ready</sink_key>
   </connection>
   <connection>
     <source_block_id>pad_source_0</source_block_id>
-    <sink_block_id>pmt_cpp_file_connect_0_0</sink_block_id>
+    <sink_block_id>pmt_cpp_file_connect_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>pad_source_0_0</source_block_id>
-    <sink_block_id>pmt_cpp_PDU_json_0</sink_block_id>
+    <source_block_id>pad_source_1</source_block_id>
+    <sink_block_id>pmt_cpp_start_sense_0</sink_block_id>
     <source_key>out</source_key>
-    <sink_key>bool</sink_key>
+    <sink_key>pmt::dict</sink_key>
   </connection>
   <connection>
-    <source_block_id>pad_source_0_0</source_block_id>
-    <sink_block_id>pmt_cpp_file_connect_0_0</sink_block_id>
-    <source_key>out</source_key>
+    <source_block_id>pmt_cpp_file_connect_0</source_block_id>
+    <sink_block_id>File_Recorder_0</sink_block_id>
+    <source_key>bool</source_key>
     <sink_key>in_pdu</sink_key>
   </connection>
   <connection>
-    <source_block_id>pmt_cpp_PDU_remove_all_tags_0</source_block_id>
-    <sink_block_id>pmt_cpp_PDU_json_0</sink_block_id>
-    <source_key>pdus</source_key>
-    <sink_key>pdus</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pmt_cpp_file_connect_0_0</source_block_id>
-    <sink_block_id>pmt_cpp_PDU_remove_all_tags_0</sink_block_id>
-    <source_key>bool</source_key>
-    <sink_key>bool</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pmt_cpp_file_connect_0_0</source_block_id>
-    <sink_block_id>es_trigger_sample_timer_0</sink_block_id>
+    <source_block_id>pmt_cpp_file_connect_0</source_block_id>
+    <sink_block_id>File_Recorder_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>pmt_cpp_file_connect_0_0</source_block_id>
-    <sink_block_id>blocks_null_sink_0_0</sink_block_id>
+    <source_block_id>pmt_cpp_file_connect_0</source_block_id>
+    <sink_block_id>blocks_null_sink_0</sink_block_id>
     <source_key>1</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>uhdgps_cpdu_average_power_0</source_block_id>
-    <sink_block_id>pmt_cpp_PDU_remove_all_tags_0</sink_block_id>
-    <source_key>cpdus</source_key>
-    <sink_key>pdus</sink_key>
+    <source_block_id>pmt_cpp_send_file_ACK_0</source_block_id>
+    <sink_block_id>pad_sink_1</sink_block_id>
+    <source_key>pdu</source_key>
+    <sink_key>in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>pmt_cpp_start_sense_0</source_block_id>
+    <sink_block_id>File_Recorder_0</sink_block_id>
+    <source_key>bool</source_key>
+    <sink_key>bool</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>pmt_cpp_start_sense_0</source_block_id>
+    <sink_block_id>pmt_cpp_file_connect_0</sink_block_id>
+    <source_key>bool</source_key>
+    <sink_key>in_pdu</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>pmt_cpp_start_sense_0</source_block_id>
+    <sink_block_id>pad_sink_0</sink_block_id>
+    <source_key>pmt::mp</source_key>
+    <sink_key>in</sink_key>
   </connection>
 </flow_graph>
