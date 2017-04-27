@@ -46,7 +46,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>usrp</value>
+      <value>usrp_master</value>
     </param>
     <param>
       <key>max_nouts</key>
@@ -78,7 +78,7 @@
     </param>
     <param>
       <key>title</key>
-      <value>usrp</value>
+      <value>usrp_m</value>
     </param>
   </block>
   <block>
@@ -304,7 +304,7 @@
     </param>
     <param>
       <key>gain0</key>
-      <value>30</value>
+      <value>40</value>
     </param>
     <param>
       <key>ant10</key>
