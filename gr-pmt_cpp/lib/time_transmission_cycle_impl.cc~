@@ -49,7 +49,7 @@ namespace gr {
         message_port_register_out(pmt::mp("out_signal"));
         time(&timer);
         set_msg_handler(pmt::mp("in_signal"), boost::bind(&time_transmission_cycle_impl::handle, this, _1));
-
+        //d_thread = new boost::thread(boost::bind(&time_transmission_cycle_impl::run, this, this));
     
     }
 
@@ -63,7 +63,26 @@ namespace gr {
     
 
     void time_transmission_cycle_impl::run(time_transmission_cycle_impl* instance) {
-        
+        /*while(1){
+            if(frag) {
+                time(&timer);
+                frag = false;
+                std::cout << "[MASTER][TIME TRASNMISSION CYCLE]: flag: "<< frag << std::endl;
+            }
+            std::cout << "[MASTER][TIME TRASNMISSION CYCLE]: while " << std::endl;
+            while(!frag){
+              time_t timer2;
+              time(&timer2);
+              double sec = difftime(timer2,timer);
+              if(sec > 40){
+                  message_port_pub(pmt::mp("out_signal"), pmt::intern("signal"));
+                  time(&timer);
+              }
+              std::cout << "[MASTER][TIME TRASNMISSION CYCLE]: dif: "<< sec << std::endl;
+              boost::this_thread::sleep(boost::posix_time::milliseconds(2000));
+            }
+        }
+         */
     }
 
 

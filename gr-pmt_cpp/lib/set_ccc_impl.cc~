@@ -23,65 +23,60 @@
 #endif
 
 #include <gnuradio/io_signature.h>
-#include "set_ccc_master_impl.h"
+#include "set_ccc_impl.h"
 
-
-bool flagx = false; 
+bool flag = false; 
 
 namespace gr {
   namespace pmt_cpp {
 
-    set_ccc_master::sptr
-    set_ccc_master::make()
+    set_ccc::sptr
+    set_ccc::make()
     {
       return gnuradio::get_initial_sptr
-        (new set_ccc_master_impl());
+        (new set_ccc_impl());
     }
 
     /*
      * The private constructor
      */
-    set_ccc_master_impl::set_ccc_master_impl()
-      : gr::block("set_ccc_master",
+    set_ccc_impl::set_ccc_impl()
+      : gr::block("set_ccc",
               gr::io_signature::make(0,0,0),
               gr::io_signature::make(0,0,0))
     {
         message_port_register_in(pmt::mp("flag"));
         message_port_register_out(pmt::mp("ccc"));
-        message_port_register_out(pmt::mp("signal"));
         time(&timer);
-        set_msg_handler(pmt::mp("flag"), boost::bind(&set_ccc_master_impl::handle, this, _1));
-        d_thread = new boost::thread(boost::bind(&set_ccc_master_impl::run, this, this));
+        set_msg_handler(pmt::mp("flag"), boost::bind(&set_ccc_impl::handle, this, _1));
+        d_thread = new boost::thread(boost::bind(&set_ccc_impl::run, this, this));
         
     }
 
     /*
      * Our virtual destructor.
      */
-    set_ccc_master_impl::~set_ccc_master_impl()
+    set_ccc_impl::~set_ccc_impl()
     {
         
 	d_thread->interrupt();
 	d_thread->join();
 	delete d_thread;
     }
-    void set_ccc_master_impl::run(set_ccc_master_impl* instance) {
+    void set_ccc_impl::run(set_ccc_impl* instance) {
         while(1){
-            if(flagx) {
+            if(flag) {
                 time(&timer);
-                flagx = false;
-
+                flag = false;
+                //std::cout << "[SLAVE][SET CCC]: flag: "<< flag << std::endl;
             }
-
-            while(!flagx){
+            //std::cout << "[SLAVE][SET CCC]: while " << std::endl;
+            while(!flag){
               time_t timer2;
               time(&timer2);
               double sec = difftime(timer2,timer);
               if(sec > 400){
                   message_port_pub(pmt::mp("ccc"), pmt::cons(pmt::mp("freq"),pmt::mp(6000000000)));
-                  pmt::pmt_t p_dict  = pmt::make_dict();
-                  p_dict = pmt::dict_add(p_dict, pmt::string_to_symbol("signal"), pmt::from_double(6));
-                  message_port_pub(pmt::mp("signal"), p_dict);
                   time(&timer);
               }
               std::cout << "[SET CCC]: dif: "<< sec << std::endl;
@@ -91,9 +86,9 @@ namespace gr {
     }
 
 
-    void set_ccc_master_impl::handle(pmt::pmt_t pdu) {
+    void set_ccc_impl::handle(pmt::pmt_t pdu) {
         //std::cout << "[SLAVE][SET CCC]: CHANGE FREG " << std::endl;
-        flagx = true;
+        flag = true;
         //std::cout << "[SLAVE][SET CCC]: CHANGE flag: "<<flag << std::endl;
     }
 
@@ -101,7 +96,5 @@ namespace gr {
 
   } /* namespace pmt_cpp */
 } /* namespace gr */
-
-
 
 

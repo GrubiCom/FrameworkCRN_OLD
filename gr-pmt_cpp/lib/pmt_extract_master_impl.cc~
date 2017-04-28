@@ -76,7 +76,7 @@ namespace gr {
     void pmt_extract_master_impl::handle_msg(pmt::pmt_t pdu){
         // add the field and publish
          boost::posix_time::ptime t,t2;            
-
+        //boost::posix_time::ptime tt;
         t = boost::posix_time::microsec_clock::local_time();
         pmt::pmt_t meta = pmt::car(pdu);
         pmt::pmt_t vector = pmt::cdr(pdu);
@@ -93,32 +93,32 @@ namespace gr {
         std::string lut = "0123456789:.,;-GKSTsN<>";//18 caracteres regex
         int count = 0;
         char str[50];
-
+        //std::cout << "End: " << &str << std::endl;
         const uint8_t* d = (const uint8_t*) pmt::uniform_vector_elements(vector, offset);
         for(size_t i=0; i<len; i+=16){
                 for(size_t j=i; j<std::min(i+16,len); j++){
                         for (size_t x=0; x<23; x++){
                                 if (lut[x] == d[j]) {
                                         str[count] = d[j];
-
+                                        //std::cout << "[MASTER][MESSAGE PARSER]: Loop: " << d[j] << std::endl;
                                         count++;
                                 }
                         }
                 }
 
         }
-
+        //std::cout << "[MASTER][MESSAGE PARSER]: Str: " << str << std::endl;
         
         int pos = 0;
-
+        //std::cout << "While1" << std::endl;
         if (count > 3) {
             while(str[pos]!= '<' ){
                 pos++;
             }
         }
-
+       // std::cout << "While2" << std::endl;
         if((str[pos] =='<') && (str[pos+1] == 'G' || str[pos+1] =='K' || 
-                str[pos+1] == 'N' || str[pos+1] == 's')){
+                str[pos+1] == 'N' || str[pos+1] == 's')){//to do parte do k
             
             std::fstream out; 
             bool descart = false;
@@ -134,7 +134,7 @@ namespace gr {
             filename.push_back(str[pos+3]);//ID
             int id = str[pos+3] - '0';
             filename.append(".txt");
-            out.open(filename.c_str(),std::ios::in | std::ios::out ); 
+            out.open(filename.c_str(),std::ios::in | std::ios::out ); //|std::ios::app
             if(str[pos+1] == 'G' ){
                 std::string st(str);
                 int ini = st.find("<");
@@ -143,13 +143,13 @@ namespace gr {
                     end = st.find_last_of(">");
                 }
                 std::string sub = st.substr(ini+5,end);
-
-
+                //std::cout << ">>>>>>>>>>>>>>>>>>>> sub.substr(st.find(:)): " << sub.substr(0,sub.find(":")) << std::endl;
+                //std::cout << "[MASTER][MESSAGE PARSER]: sub:  " << sub << std::endl;
                 std::string sub2 = sub.substr(0,sub.find(":"));
 
                 a = std::atoi(sub2.c_str());
                 if (out.is_open()){
-
+                    //std::cout << "BUCETA" << std::endl;
                    std::string line;
                    while(!out.eof()){
                         getline(out,line);
@@ -160,10 +160,10 @@ namespace gr {
                         }else {
                             ss << a;
                         }
-
+                        //std::cout << "[MASTER][MESSAGE PARSER]: ss,line: "<< ss.str() <<" "<<line <<std::endl;
                         if (ss.str().compare(line) == 0){
                             descart = true;
-
+                           // std::cout << "TRUE <><><><>"<< std::endl;
                         }
 
                     }
@@ -193,10 +193,10 @@ namespace gr {
                     file1 << id_ack<< std::endl;
                     file1.close();
                 }
-
+                //received = 0;
             }else if(str[pos+1] == 'N'){
                 //Descobertas dos vizinhos<N:ID_neighbor>
-
+                //std::cout<< "VIZINHOS" << std::endl;
                 
                 std::fstream file1;
                 std::string filename = "/tmp/neighbors.txt";
@@ -207,7 +207,7 @@ namespace gr {
                 bool contained = false;
                 if(file.is_open()){
                     while(getline(file,neighbor_f)){
-
+                        //std::cout<< "VIZINHOS1" << std::endl;
 
                         if(neighbor_f.compare(id_neighbor) == 0){
                             contained = true;
@@ -218,7 +218,7 @@ namespace gr {
                 }
                 if(!contained){
                     
-
+                   // std::cout<< "VIZINHOS2" << std::endl;
                     std::cout << "[MASTER][MESSAGE PARSER]: "<<str << std::endl;
                     file1.open(filename.c_str(), std::ios::in | std::ios::out | std::ios::app); 
                     if(file1.is_open()){
@@ -242,7 +242,7 @@ namespace gr {
             
             if(str[pos+1] == 'G' || str[pos+1] =='K'){
                 int acks_total;
-
+                //std::cout << "Mode Master" << std::endl;
                 out.open(filename.c_str(),std::ios::in | std::ios::out |std::ios::app);
                 if (!descart){
                     if (a>=0 && a <=9){
@@ -261,13 +261,13 @@ namespace gr {
                 if(str[pos+1] !='K'){
 
                     message_port_pub(pmt::mp("Ack"), pmt::intern("<A:"+boost::to_string(id)+":"+boost::to_string(a+1)+">"));
-
+                    //std::cout  << " [MASTER][MESSAGE PARSER]: Ack2: "<< "<A:" << boost::to_string(id) << ":" <<boost::to_string(a+1)<<">"<< std::endl;
                     dict1 = pmt::dict_add(dict1, pmt::string_to_symbol("ack"), pmt::from_long(a));
                 }else {
-
+                    //std::cout  << " [MASTER][MESSAGE PARSER]: a: " << a << std::endl;
                     a = 1;
                     message_port_pub(pmt::mp("Ack"), pmt::intern("<A:"+boost::to_string(id)+":"+boost::to_string(1)+">"));
-
+                    //std::cout  << " [MASTER][MESSAGE PARSER]: Ack3: " << "<A:" << boost::to_string(id) <<   ":" <<boost::to_string(1)<<">"<< std::endl;
                     dict1 = pmt::dict_add(dict1, pmt::string_to_symbol("ack"), pmt::from_long(0));
                 }
 
@@ -287,13 +287,18 @@ namespace gr {
 
                 dict1 = pmt::dict_add(dict1, pmt::string_to_symbol("acks_total"), pmt::from_long(acks_total));
 
-                sleep(0.4);
+                sleep(0.4);// esse deu merda
                 
-
+                //sleep(1);// esse deu merda
                 
                 message_port_pub(pmt::mp("data"), dict1);
 
-               
+
+
+
+                //if(str[pos+1] !='K'){
+
+                //}
                 out.close();
             }
     
@@ -303,16 +308,21 @@ namespace gr {
             std::string st(str); 
             std::size_t p = st.find_last_of(":");
             std::size_t terminal = st.find_last_of(">");
-
-
-
+            //std::cout << "String: " << st << " POS: " << pos<< std::endl;
+            //std::cout << "SubString: "<< st.substr(pos+1,terminal) << std::endl;
+            //std::string::size_type sz;
             size_t f = st.find(".");
             if (f != std::string::npos){
                 st.replace(f, std::string(".").length(), ",");
             }
             char *pEnd;
             double nChannel = std::strtod(st.substr(p+1,terminal).c_str(),&pEnd);
-             
+            //std::cout << "[MASTER][MESSAGE PARSER]: nChannel: " << nChannel<< std::endl;
+            //std::cout << "[MASTER][MESSAGE PARSER]: ID: " << str[pos+5] - '0'<< std::endl;
+            //std::cout << "[MASTER][MESSAGE PARSER]: STR: " << str<< std::endl;
+            //std::cout << "[MASTER][MESSAGE PARSER]: POS: " << pos<< std::endl;
+            //std::free(str);
+            //nChannel = std::strtod (value,&pEnd); 
             nChannel *= 1e9;
             pmt::pmt_t p_dict  = pmt::make_dict();
             p_dict = pmt::dict_add(p_dict, pmt::string_to_symbol("nChannel"), pmt::from_double(nChannel));
@@ -321,12 +331,14 @@ namespace gr {
             
         
         }else if ((str[pos] =='<') && (str[pos+1] =='0') && str[pos+3] == '3'){
-
+            //Implementar o change freg
             usleep(500000);
             std::string st(str); 
             std::size_t p = st.find_last_of(":");
             std::size_t terminal = st.find_last_of(">");
-            
+            //std::cout << "String: " << st << " POS: " << pos<< std::endl;
+            //std::cout << "SubString: "<< st.substr(pos+1,terminal) << std::endl;
+            //std::string::size_type sz;
             size_t f = st.find(".");
             if (f != std::string::npos){
                 st.replace(f, std::string(".").length(), ",");
@@ -358,17 +370,17 @@ namespace gr {
             //std::cout << "[SLAVE][MASSAGE PARSER]: RECEIVED PACKET DATA TRANSMISSION " <<received << std::endl;
             received++;
             
-
+            //cochar id = str[pos+5];
             std::string filename = "/tmp/";
             
             filename.append("received_pack");
             filename.push_back(str[pos+5]);
             filename.append(".txt");
-
+           // std::remove(filename.c_str());
             std::fstream arq;
-
-
-
+            //arq.open(filename.c_str(), std::ios::out | std::ios::app);
+            ////arq << received<< std::endl;
+            //arq.close();
             std::string sub = st.substr(p+1,terminal-(p+1));
             
             
@@ -376,19 +388,25 @@ namespace gr {
             std::string str2(str);
             str2[pos+1] = str[pos+5];
             str2[pos+5] = str[pos+1];
-
+            //std::cout << "terminal: " << terminal << std::endl;
             std::cout << "<"<<str[pos+5]<<":5:"<<"0:"<< su<<":00011110000000000000000000000000000000000000000000000:"<<sub<<">"<<std::endl;
-            
+            //usleep(10000);
+            //t2 = boost::posix_time::microsec_clock::local_time();
+            /*boost::posix_time::time_duration t1 = t2 - t;
+                    std::cout << t1.fractional_seconds() << std::endl;
+                    std::cout << t1.ticks_per_second() << std::endl;
+                    std::cout << t1.total_microseconds() << std::endl;
+                    std::cout << t1.total_nanoseconds() << std::endl;*/
             if (sent % 53 ==0){
             message_port_pub(pmt::mp("Ack"), pmt::intern("<"+boost::to_string(str[pos+5])+":5:0:"+su+":00011110000000000000000000000000000000000000000000000:"+sub+">"));
-            }
-          
+            }//message_port_pub(pmt::mp("Ack"), pmt::intern(boost::to_string(str2)));
+            //std::cout << "SUB: " << sub << std::endl;
             std::string filename1 = "/tmp/";
             sent++;
             filename1.append("sent_pack");
             filename1.push_back(str[pos+5]);
             filename1.append(".txt");
-
+            //std::remove(filename1.c_str());
             std::fstream se;
             se.open(filename1.c_str(), std::ios::out | std::ios::app);
             se << sent<< std::endl;

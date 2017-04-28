@@ -74,11 +74,11 @@ namespace gr {
         
         srand (time(NULL));
         int time = std::rand()% 400000 + 100000;
-
+        //usleep(time);
         pmt::pmt_t nChannel = pmt::dict_ref(msg, pmt::string_to_symbol("nChannel"), pmt::PMT_NIL);
         double newChannel = pmt::to_double(nChannel);
-
-
+        //message_port_pub(pmt::mp("pmt::mp"), pmt::cons(pmt::mp("gain"), pmt::mp(30)));
+        //message_port_pub(pmt::mp("bool"), pmt::intern("<S:0:1:"+boost::to_string(newChannel/1e9)+">")); /* I think is it liba  */
         //std::cout << "[SLAVE][SET NEW CONFIG]: MSG: " << "<S:0:1:"<<boost::to_string(newChannel/1e9)<<">"<< std::endl;
         usleep(time);
         message_port_pub(pmt::mp("bool"), pmt::intern("<S:0:3:"+boost::to_string(newChannel/1e9)+">"));
@@ -87,15 +87,15 @@ namespace gr {
         std::cout << "[SLAVE][SET NEW CONFIG]:testeRX MSG: " << "<S:0:3:"<<boost::to_string(newChannel/1e9)<<">"<< std::endl;
         
         std::cout << "[SLAVE][SET NEW CONFIG]: nChannel: "<<pmt::to_double(nChannel)<< std::endl;
-
+        //sleep(1.6);
         
         message_port_pub(pmt::mp("pmt::mp"), pmt::cons(pmt::mp("freq"), pmt::mp(pmt::to_double(nChannel))));
-
-
+        //std::cout << "[SLAVE][SET NEW CONFIG]: newChannel-20e6: "<<newChannel-20e6<< std::endl;
+        //message_port_pub(pmt::mp("testeRX"), pmt::cons(pmt::mp("freq"), pmt::mp((newChannel-20e6))));
         usleep(1000000);
-
-
-
+        //message_port_pub(pmt::mp("pmt::mp"), pmt::cons(pmt::mp("gain"), pmt::mp(58)));
+        //sleep(0.4);
+        //usleep(100000);
         std::fstream out; 
         out.open("/tmp/slave_channels.txt", std::ios::out | std::ios::app);
         if(out.is_open()){
@@ -105,7 +105,7 @@ namespace gr {
         const char file_path[] = "/tmp/ack.txt";
         boost::filesystem::path file(file_path);
         boost::filesystem::remove(file);
-
+        //message_port_pub(pmt::mp("pmt::mp"), pmt::cons(pmt::mp("freq"), pmt::mp(pmt::to_double(nChannel))));
                    
     }
 
