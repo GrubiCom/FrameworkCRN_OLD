@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: IEEE 802.15.4 Transceiver using OQPSK PHY
-# Generated: Thu Apr 27 01:47:51 2017
+# Generated: Fri Apr 28 08:56:05 2017
 ##################################################
 
 if __name__ == '__main__':
@@ -103,14 +103,14 @@ class master(grc_wxgui.top_block_gui):
         self.pmt_cpp_pmt_extract_master_0 = pmt_cpp.pmt_extract_master()
         self.pmt_cpp_message_generation_0 = pmt_cpp.message_generation()
         self.pmt_cpp_data_extract_master_0 = pmt_cpp.data_extract_master('/tmp/res_sense.txt')
-        self.pmt_cpp_cogmac_0 = pmt_cpp.cogmac()
+        self.pmt_cpp_annp_0 = pmt_cpp.annp()
         self.IEEE_802_15_4_0 = IEEE_802_15_4()
 
         ##################################################
         # Connections
         ##################################################
         self.msg_connect((self.IEEE_802_15_4_0, 'rxout'), (self.pmt_cpp_pmt_extract_master_0, 'in_pdu'))
-        self.msg_connect((self.pmt_cpp_cogmac_0, 'out'), (self.IEEE_802_15_4_0, 'msg'))
+        self.msg_connect((self.pmt_cpp_annp_0, 'out'), (self.IEEE_802_15_4_0, 'msg'))
         self.msg_connect((self.pmt_cpp_message_generation_0, 'msg'), (self.IEEE_802_15_4_0, 'msg'))
         self.msg_connect((self.pmt_cpp_message_generation_0, 'mp'), (self.uhd_usrp_sink_0, 'command'))
         self.msg_connect((self.pmt_cpp_message_generation_0, 'mp'), (self.uhd_usrp_source_0, 'command'))
@@ -124,6 +124,7 @@ class master(grc_wxgui.top_block_gui):
         self.msg_connect((self.pmt_cpp_pmt_extract_master_0, 'share'), (self.pmt_cpp_time_transmission_cycle_0, 'in_signal'))
         self.msg_connect((self.pmt_cpp_pmt_extract_master_0, 'freq'), (self.uhd_usrp_sink_0, 'command'))
         self.msg_connect((self.pmt_cpp_pmt_extract_master_0, 'freq'), (self.uhd_usrp_source_0, 'command'))
+        self.msg_connect((self.pmt_cpp_preprocessor_master_0, 'rna_file'), (self.pmt_cpp_annp_0, 'in'))
         self.msg_connect((self.pmt_cpp_preprocessor_master_0, 'rna_file'), (self.pmt_cpp_timer_0, 'in2'))
         self.msg_connect((self.pmt_cpp_preprocessor_master_0, 'tuned'), (self.uhd_usrp_sink_0, 'command'))
         self.msg_connect((self.pmt_cpp_preprocessor_master_0, 'tuned'), (self.uhd_usrp_source_0, 'command'))
@@ -139,7 +140,7 @@ class master(grc_wxgui.top_block_gui):
         self.msg_connect((self.pmt_cpp_time_0, 'id_neighbor'), (self.pmt_cpp_timer_0, 'in'))
         self.msg_connect((self.pmt_cpp_time_transmission_cycle_0, 'out_signal'), (self.pmt_cpp_message_generation_0, 'signal'))
         self.msg_connect((self.pmt_cpp_time_transmission_cycle_0, 'out_signal'), (self.pmt_cpp_set_ccc_master_0, 'flag'))
-        self.msg_connect((self.pmt_cpp_timer_0, 'out'), (self.pmt_cpp_cogmac_0, 'in'))
+        self.msg_connect((self.pmt_cpp_timer_0, 'out'), (self.pmt_cpp_annp_0, 'in'))
         self.connect((self.IEEE_802_15_4_0, 0), (self.uhd_usrp_sink_0, 0))
         self.connect((self.uhd_usrp_source_0, 0), (self.IEEE_802_15_4_0, 0))
 

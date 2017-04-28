@@ -326,8 +326,8 @@ class annp(gr.basic_block):
             
             time.sleep(1)
             try:
-                shutil.rmtree("/tmp/Acknowledgement")
-                shutil.rmtree("/tmp/results")
+                #shutil.rmtree("/tmp/Acknowledgement")
+                #shutil.rmtree("/tmp/results")
                 #os.remove("/tmp/res_sense.txt")
                 #os.remove("/tmp/neighbors_aux.txt")
                 #os.remove("/tmp/neighbors.txt")

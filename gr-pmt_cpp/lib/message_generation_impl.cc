@@ -111,10 +111,11 @@ namespace gr {
         if (file.is_open()){
             while(getline(file,line)){
                 if(true){//cycle == 0){
-                    d_msg = pmt::intern("<"+line+":2:0,8:5,8>");
+                    d_msg = pmt::intern("<"+line+":2:0,8:1,8>");
                     std::cout << pmt::symbol_to_string(d_msg);
                     message_port_pub( pmt::mp("msg"), d_msg );
                     usleep(200000);
+
                 }else{
                     
                     min = new_freq-variation;
