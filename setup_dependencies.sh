@@ -108,6 +108,11 @@ cmake ../
 make && \
 sudo make install
 
+sudo mkdir /opt/FrameworkCRN
+sudo cp gr-pmt_cpp/python/final_data_config3.net /opt/FrameworkCRN/final_data_config.net
+sudo chown -R root.users /opt/FrameworkCRN
+sudo chmod -R 0755 /opt/FrameworkCRN
+
 pip install fann2
 
 sudo ldconfig

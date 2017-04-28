@@ -111,7 +111,7 @@ namespace gr {
         if (file.is_open()){
             while(getline(file,line)){
                 if(true){//cycle == 0){
-                    d_msg = pmt::intern("<"+line+":2:0,8:1,8>");
+                    d_msg = pmt::intern("<"+line+":2:0,8:5,8>");
                     std::cout << pmt::symbol_to_string(d_msg);
                     message_port_pub( pmt::mp("msg"), d_msg );
                     usleep(200000);
@@ -150,12 +150,14 @@ namespace gr {
 
 	while(1) {
 		float delay = 500;
-                
+		
 		{
                         if(count> 10){
                             exit(1);
                         }
+                        
 			gr::thread::scoped_lock(d_mutex);
+			
 			//if(d_finished || !d_nmsg_left) {
 				//d_finished = true;				
 				//break;
@@ -183,9 +185,11 @@ namespace gr {
                             std::string filename = "/tmp/neighbors.txt";
                             
                             if(boost::filesystem::exists(filename)){
-                                std::cout << "EXISTE CARAI" << std::endl;
+				    
                                 neighbors_msg = true;  
+				
                             }else {
+				    
                                 std::cout << "[MASTER][MESSAGE GENERATION]: Repeat Send Neighbors Discovery with gain: "<<gain << std::endl;
                                 if (gain < 58){
                                     gain+=1;
@@ -193,6 +197,7 @@ namespace gr {
                                 //message_port_pub(pmt::mp("mp"), pmt::cons(pmt::mp("gain"),pmt::mp(gain)));
                                 std::cout << "[MASTER][MESSAGE GENERATION]: tuned CCC 6GHz" << std::endl;
                                 message_port_pub(pmt::mp("mp"), pmt::cons(pmt::mp("freq"),pmt::mp(6000000000)));
+				
                                 for (int i = 0; i < 5; i++){
                                     usleep(200000);
                                     message_port_pub(pmt::mp("msg"), pmt::intern("<0:0>"));//<Broadcast:ID_MSG>
@@ -202,8 +207,9 @@ namespace gr {
                                     std::cout << "[MASTER][MESSAGE GENERATION]: tuned old freq "<<new_freq*1e9<< std::endl;
                                     message_port_pub(pmt::mp("mp"), pmt::cons(pmt::mp("freq"),pmt::mp(new_freq*1e9)));
                                 }
+                                
                                 if(boost::filesystem::exists(filename)){
-                                    std::cout << "EXISTE CARAI2" << std::endl;
+                                    
                                     neighbors_msg = true;
                                 }
                                

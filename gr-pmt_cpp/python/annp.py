@@ -199,7 +199,7 @@ class annp(gr.basic_block):
 					    power = []
 					    hour = []
 					    ann = libfann.neural_net()
-					    ann.create_from_file("/home/final_data_config7.net")
+					    ann.create_from_file("/opt/FrameworkCRN/final_data_config.net")
 					    result = ann.run([floatFreq, floatPower])
 					    floatResult = float(result[0])
 				    else:
@@ -227,7 +227,7 @@ class annp(gr.basic_block):
 					    hour = []
 					    ann = libfann.neural_net()
 
-					    ann.create_from_file("/home/final_data_config7.net")
+					    ann.create_from_file("/opt/FrameworkCRN/final_data_config.net")
 					    result = ann.run([floatHour,floatFreq, floatPower])
 					    floatResult = float(result[0])
 					    if (floatResult > 0.2):                              

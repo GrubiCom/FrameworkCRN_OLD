@@ -109,7 +109,7 @@ namespace gr {
                     t = boost::posix_time::microsec_clock::local_time();
                     std::string s = boost::posix_time::to_iso_string(t);
                       
-                    message_port_pub(pmt::mp("packet"), pmt::intern("<"+boost::to_string('5')+":4:"+idUsrp+":"+boost::to_string(i)+":"+data+":"+boost::to_string(s)+">"));
+                    message_port_pub(pmt::mp("packet"), pmt::intern("<"+boost::to_string('0')+":4:"+idUsrp+":"+boost::to_string(i)+":"+data+":"+boost::to_string(s)+">"));
                     std::cout <<"[SLAVE][TRANSMISSION DATA]: 1" <<std::endl;
                                              
                 }else{
@@ -122,7 +122,7 @@ namespace gr {
                     std::string s = boost::posix_time::to_iso_string(t);
                      ///std::cout <<"[SLAVE][TRANSMISSION DATA]: <"<<boost::to_string('0')<<":4:"+boost::to_string(idUsrp)+":"<<boost::to_string(i) <<":"<<data<<":"<<boost::to_string(s)<<">" <<std::endl;
                     std::cout <<"[SLAVE][TRANSMISSION DATA]: 2" <<std::endl;
-                    message_port_pub(pmt::mp("packet"), pmt::intern("<"+boost::to_string('5')+":4:"+idUsrp+":"+boost::to_string(i)+":"+data+":"+boost::to_string(s)+">"));
+                    message_port_pub(pmt::mp("packet"), pmt::intern("<"+boost::to_string('0')+":4:"+idUsrp+":"+boost::to_string(i)+":"+data+":"+boost::to_string(s)+">"));
                 }
                 std::ifstream arq;
                 
@@ -155,7 +155,7 @@ namespace gr {
                             t1 = boost::posix_time::microsec_clock::local_time();
                             std::string s = boost::posix_time::to_iso_string(t1);
                             std::cout <<"[SLAVE][TRANSMISSION DATA]: 3" <<std::endl;
-                            message_port_pub(pmt::mp("packet"), pmt::intern("<"+boost::to_string('5')+":4:"+idUsrp+":"+boost::to_string(i)+":"+data+":"+boost::to_string(s)+">"));
+                            message_port_pub(pmt::mp("packet"), pmt::intern("<"+boost::to_string('0')+":4:"+idUsrp+":"+boost::to_string(i)+":"+data+":"+boost::to_string(s)+">"));
                           // std::cout <<"[SLAVE][TRANSMISSION DATA]: RETRANS: <"<<boost::to_string('0')<<":4:1:"<<boost::to_string(i) <<":"<<data<<":"<<boost::to_string(s)<<">" <<std::endl;
                             
                         }else{
