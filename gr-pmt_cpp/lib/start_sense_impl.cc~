@@ -86,7 +86,7 @@ namespace gr {
             //std::system("./home/ariel/Documentos/gr-pmt_cpp/driver1/load_gcc116");
             if(pmt::is_dict(msg)){// se vier um dicionário
                 acabooo++;
-                if (acabooo > 1){
+                if (acabooo > 10){
                     exit(1);
                 }
                 std::cout << "[START SENSE]: STARTED"<< std::endl;
