@@ -325,15 +325,15 @@ class annp(gr.basic_block):
             print  "[MASTER][ANNP]: ERASE FILES (res_sense,neightbors_aux,neigtbor) AND DIRECTORY (Acknowledgement AND results)"
             
             time.sleep(1)
-            try:
+            #try:
                 #shutil.rmtree("/tmp/Acknowledgement")
                 #shutil.rmtree("/tmp/results")
                 #os.remove("/tmp/res_sense.txt")
                 #os.remove("/tmp/neighbors_aux.txt")
                 #os.remove("/tmp/neighbors.txt")
                 
-            except OSError as e:
-                print e
+            #except OSError as e:
+            #    print e
                 
             time.sleep(2)
             i = 0
