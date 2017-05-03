@@ -209,9 +209,9 @@ namespace gr {
                    // std::cout << "SubString: "<< st.substr(pos+1,((terminal)-(pos+1))) << std::endl;
                     std::string su = st.substr(pos+1,((terminal)-(pos+1)));
                     //std::string::size_type sz;
-                    size_t f = su.find(".");
+                    size_t f = su.find(",");
                     if (f != std::string::npos){
-                        su.replace(f, std::string(".").length(), ",");
+                        su.replace(f, std::string(",").length(), ".");
                     }
                     std::cout << "SubString:su "<< su << std::endl;
                     std::stringstream ss(su);
