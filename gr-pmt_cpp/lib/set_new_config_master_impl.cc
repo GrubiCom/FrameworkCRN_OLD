@@ -74,15 +74,12 @@ namespace gr {
 
 
         message_port_pub(pmt::mp("bool"), pmt::intern("<S:"+pmt::symbol_to_string(str)+":"+boost::to_string(newChannel/1e9)+">"));
-
-        //std::cout << "[MASTER][SET NEW CONFIG MASTER]: nChannel: " <<pmt::to_double(nChannel)<< std::endl;
-        //std::cout << "[MASTER][SET NEW CONFIG MASTER]: ID: " <<pmt::symbol_to_string(str)<< std::endl;
-
+        
         std::fstream out; 
         out.open("/tmp/master_channels.txt", std::ios::out);
         if(out.is_open()){
             out << (pmt::to_double(nChannel)/1e9)<< std::endl;
-            //std::cout << "[MASTER][SET NEW CONFIG MASTER]:SALVANDO "<< std::endl;
+
             out.close();
         }
         message_port_pub(pmt::mp("pmt::mp"), pmt::cons(pmt::mp("freq"), pmt::mp(pmt::to_double(nChannel))));

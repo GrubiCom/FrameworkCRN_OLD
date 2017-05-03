@@ -73,7 +73,7 @@ namespace gr {
             char *message = new char[str.length() +1];
             strcpy(message,str.c_str());
             std::cout << "[AHP]: " << message << std::endl;
-            int tag = 0;//isFreqRanked(message);
+            int tag = 0;;
             if(tag == 0){
                 int channels = getNumberOfChannels(message);
                 float parameters[channels][MAX_PARAMETERS];
@@ -87,7 +87,7 @@ namespace gr {
             
         }
             
- 
+
     }
 
     void ahp_impl::ahp(float parameters[][MAX_PARAMETERS], int channels) {
@@ -98,7 +98,7 @@ namespace gr {
 		result = parameters[i][table_RSSI] * AVERAGE_RSSI;
 		result += parameters[i][table_Time] * AVERAGE_TIME;
 		result += parameters[i][table_Owned] * AVERAGE_OWNED;
-		
+
 		if(result > best[0]) {
 			best[4] = best[3];
 			frequencys[4] = frequencys[3];
@@ -280,12 +280,13 @@ namespace gr {
 		counter ++;
 		counter ++;
 		counter2 = 0;
-		
+
 
                 std::stringstream ss(number);
 
                 ss >> aux;
-                
+
+
 
 		parameters[i][table_Freq] = aux;
 		aux = aux / 6.0;

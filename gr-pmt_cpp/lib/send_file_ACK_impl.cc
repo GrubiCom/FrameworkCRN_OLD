@@ -77,7 +77,7 @@ namespace gr {
         
         
         std::cout <<"[SLAVE][FILE PREPROCESSOR]: STARTED"<< std::endl;
-        //sleep(3); 05/10/15 20 horas
+
         
         double  avg = 0;
         double cont = 0;
@@ -116,15 +116,18 @@ namespace gr {
                             double tod = std::strtod(power.c_str(),&sz);
                             
                             if (tod > avg ) {
-                               
+
+
                                 avg = tod;
-                               
+
+
                                 time2=time;                           
                             }                       
                             freqAnt = freq;
                             cont++;
                         }else {
-                            
+
+
                             double t = std::atof(freqAnt.c_str())/(double)1.0e9;
                             
                             std::ostringstream ss;
@@ -134,7 +137,7 @@ namespace gr {
                             std::ostringstream sstream;
                             sstream << t;
                             send.append(sstream.str());
-                            
+
                             send.append(":");
                             send.append(boost::lexical_cast<std::string>(avg));
                             send.append(";");
@@ -160,7 +163,10 @@ namespace gr {
                 out.open("/tmp/send.txt");
                 if(out.is_open()){
                     out <<"1:"<< send.length() <<";"<< std::endl;
-                    
+
+
+
+
                     int offset = 45;
                     int msg = 2;
                     for(int i = 0; i <= send.length();i+=45){
@@ -173,9 +179,8 @@ namespace gr {
                     pmt::pmt_t p_dict1  = pmt::make_dict();                                         //Cria dicionario vazio
                     p_dict1 = pmt::dict_add(p_dict1, pmt::string_to_symbol("sense"), pmt::PMT_T);   //Cria (chave=sense,valor=false)
                     p_dict1 = pmt::dict_add(p_dict1, pmt::string_to_symbol("acks_total"), pmt::from_long(msg));
-
-
-
+                    //pmt::pmt_t senset1 = pmt::PMT_NIL;                                              //Cria pmt nulo
+                    
                     sleep(0.2);
                     message_port_pub(pmt::mp("pdu"), p_dict1); 
                    
@@ -202,7 +207,7 @@ namespace gr {
         }
 
     
-    
+   
     /* handle_msg
      * \param msg booleano
      */

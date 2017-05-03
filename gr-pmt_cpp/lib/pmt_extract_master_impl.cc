@@ -74,7 +74,7 @@ namespace gr {
     }
     
     void pmt_extract_master_impl::handle_msg(pmt::pmt_t pdu){
-        // add the field and publish
+
          boost::posix_time::ptime t,t2;            
 
         t = boost::posix_time::microsec_clock::local_time();
@@ -100,7 +100,7 @@ namespace gr {
                         for (size_t x=0; x<23; x++){
                                 if (lut[x] == d[j]) {
                                         str[count] = d[j];
-
+ 
                                         count++;
                                 }
                         }
@@ -118,7 +118,7 @@ namespace gr {
         }
 
         if((str[pos] =='<') && (str[pos+1] == 'G' || str[pos+1] =='K' || 
-                str[pos+1] == 'N' || str[pos+1] == 's')){
+                str[pos+1] == 'N' || str[pos+1] == 's')){//to do parte do k
             
             std::fstream out; 
             bool descart = false;
@@ -134,7 +134,7 @@ namespace gr {
             filename.push_back(str[pos+3]);//ID
             int id = str[pos+3] - '0';
             filename.append(".txt");
-            out.open(filename.c_str(),std::ios::in | std::ios::out ); 
+            out.open(filename.c_str(),std::ios::in | std::ios::out ); //|std::ios::app
             if(str[pos+1] == 'G' ){
                 std::string st(str);
                 int ini = st.find("<");
@@ -143,8 +143,7 @@ namespace gr {
                     end = st.find_last_of(">");
                 }
                 std::string sub = st.substr(ini+5,end);
-
-
+                
                 std::string sub2 = sub.substr(0,sub.find(":"));
 
                 a = std::atoi(sub2.c_str());
@@ -160,7 +159,7 @@ namespace gr {
                         }else {
                             ss << a;
                         }
-
+                        
                         if (ss.str().compare(line) == 0){
                             descart = true;
 
@@ -193,7 +192,7 @@ namespace gr {
                     file1 << id_ack<< std::endl;
                     file1.close();
                 }
-
+                //received = 0;
             }else if(str[pos+1] == 'N'){
                 //Descobertas dos vizinhos<N:ID_neighbor>
 
@@ -261,13 +260,13 @@ namespace gr {
                 if(str[pos+1] !='K'){
 
                     message_port_pub(pmt::mp("Ack"), pmt::intern("<A:"+boost::to_string(id)+":"+boost::to_string(a+1)+">"));
-
+                    
                     dict1 = pmt::dict_add(dict1, pmt::string_to_symbol("ack"), pmt::from_long(a));
                 }else {
 
                     a = 1;
                     message_port_pub(pmt::mp("Ack"), pmt::intern("<A:"+boost::to_string(id)+":"+boost::to_string(1)+">"));
-
+                    
                     dict1 = pmt::dict_add(dict1, pmt::string_to_symbol("ack"), pmt::from_long(0));
                 }
 
@@ -293,7 +292,10 @@ namespace gr {
                 
                 message_port_pub(pmt::mp("data"), dict1);
 
-               
+
+
+
+                
                 out.close();
             }
     
@@ -312,7 +314,12 @@ namespace gr {
             }
             char *pEnd;
             double nChannel = std::strtod(st.substr(p+1,terminal).c_str(),&pEnd);
-             
+            //std::cout << "[MASTER][MESSAGE PARSER]: nChannel: " << nChannel<< std::endl;
+            //std::cout << "[MASTER][MESSAGE PARSER]: ID: " << str[pos+5] - '0'<< std::endl;
+            //std::cout << "[MASTER][MESSAGE PARSER]: STR: " << str<< std::endl;
+            //std::cout << "[MASTER][MESSAGE PARSER]: POS: " << pos<< std::endl;
+
+
             nChannel *= 1e9;
             pmt::pmt_t p_dict  = pmt::make_dict();
             p_dict = pmt::dict_add(p_dict, pmt::string_to_symbol("nChannel"), pmt::from_double(nChannel));
@@ -326,7 +333,9 @@ namespace gr {
             std::string st(str); 
             std::size_t p = st.find_last_of(":");
             std::size_t terminal = st.find_last_of(">");
-            
+
+
+
             size_t f = st.find(".");
             if (f != std::string::npos){
                 st.replace(f, std::string(".").length(), ",");
@@ -355,7 +364,7 @@ namespace gr {
             std::string su = st.substr(7,po-7);
             std::size_t terminal = st.find(">");
             std::size_t p = st.find_last_of(":",terminal-1);
-            //std::cout << "[SLAVE][MASSAGE PARSER]: RECEIVED PACKET DATA TRANSMISSION " <<received << std::endl;
+            
             received++;
             
 
@@ -381,8 +390,7 @@ namespace gr {
             
             if (sent % 53 ==0){
             message_port_pub(pmt::mp("Ack"), pmt::intern("<"+boost::to_string(str[pos+5])+":5:0:"+su+":00011110000000000000000000000000000000000000000000000:"+sub+">"));
-            }
-          
+            }            
             std::string filename1 = "/tmp/";
             sent++;
             filename1.append("sent_pack");

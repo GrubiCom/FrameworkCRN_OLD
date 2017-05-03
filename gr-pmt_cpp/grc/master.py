@@ -3,8 +3,18 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: IEEE 802.15.4 Transceiver using OQPSK PHY
-# Generated: Fri Apr 28 11:38:27 2017
+# Generated: Fri Apr 28 08:56:05 2017
 ##################################################
+
+if __name__ == '__main__':
+    import ctypes
+    import sys
+    if sys.platform.startswith('linux'):
+        try:
+            x11 = ctypes.cdll.LoadLibrary('libX11.so')
+            x11.XInitThreads()
+        except:
+            print "Warning: failed to XInitThreads()"
 
 import os
 import sys
@@ -16,19 +26,50 @@ from gnuradio import gr
 from gnuradio import uhd
 from gnuradio.eng_option import eng_option
 from gnuradio.filter import firdes
+from gnuradio.wxgui import forms
+from grc_gnuradio import wxgui as grc_wxgui
 from optparse import OptionParser
 import pmt_cpp
 import time
+import wx
 
 
-class master(gr.top_block):
+class master(grc_wxgui.top_block_gui):
 
     def __init__(self):
-        gr.top_block.__init__(self, "IEEE 802.15.4 Transceiver using OQPSK PHY")
+        grc_wxgui.top_block_gui.__init__(self, title="IEEE 802.15.4 Transceiver using OQPSK PHY")
+
+        ##################################################
+        # Variables
+        ##################################################
+        self.gain = gain = 89
 
         ##################################################
         # Blocks
         ##################################################
+        _gain_sizer = wx.BoxSizer(wx.VERTICAL)
+        self._gain_text_box = forms.text_box(
+        	parent=self.GetWin(),
+        	sizer=_gain_sizer,
+        	value=self.gain,
+        	callback=self.set_gain,
+        	label='gain',
+        	converter=forms.float_converter(),
+        	proportion=0,
+        )
+        self._gain_slider = forms.slider(
+        	parent=self.GetWin(),
+        	sizer=_gain_sizer,
+        	value=self.gain,
+        	callback=self.set_gain,
+        	minimum=0,
+        	maximum=100,
+        	num_steps=100,
+        	style=wx.SL_HORIZONTAL,
+        	cast=float,
+        	proportion=1,
+        )
+        self.Add(_gain_sizer)
         self.uhd_usrp_source_0 = uhd.usrp_source(
         	",".join(('', "")),
         	uhd.stream_args(
@@ -50,7 +91,7 @@ class master(gr.top_block):
         )
         self.uhd_usrp_sink_0.set_samp_rate(4000000)
         self.uhd_usrp_sink_0.set_center_freq(6000000000, 0)
-        self.uhd_usrp_sink_0.set_gain(89, 0)
+        self.uhd_usrp_sink_0.set_gain(gain, 0)
         self.uhd_usrp_sink_0.set_antenna('TX/RX', 0)
         self.uhd_usrp_sink_0.set_bandwidth(1000e3, 0)
         self.pmt_cpp_timer_0 = pmt_cpp.timer()
@@ -103,19 +144,24 @@ class master(gr.top_block):
         self.connect((self.IEEE_802_15_4_0, 0), (self.uhd_usrp_sink_0, 0))
         self.connect((self.uhd_usrp_source_0, 0), (self.IEEE_802_15_4_0, 0))
 
+    def get_gain(self):
+        return self.gain
+
+    def set_gain(self, gain):
+        self.gain = gain
+        self._gain_slider.set_value(self.gain)
+        self._gain_text_box.set_value(self.gain)
+        self.uhd_usrp_sink_0.set_gain(self.gain, 0)
+
+
 
 def main(top_block_cls=master, options=None):
     if gr.enable_realtime_scheduling() != gr.RT_OK:
         print "Error: failed to enable real-time scheduling."
 
     tb = top_block_cls()
-    tb.start()
-    try:
-        raw_input('Press Enter to quit: ')
-    except EOFError:
-        pass
-    tb.stop()
-    tb.wait()
+    tb.Start(True)
+    tb.Wait()
 
 
 if __name__ == '__main__':

@@ -49,30 +49,34 @@ class data_extract_master(gr.basic_block):
     #handler
     #funcao que armazena os dados em um arquivo
     def handler(self, pdu):
-
+        #print "PYTHON"
         if (not os.path.exists("/tmp/results/")):
             os.mkdir("/tmp/results/")
         self.filename = "/tmp/results/res_sense";
         
         meta = pmt.to_python(pmt.car(pdu))
-
+        #meta_pdu = pmt.car(pdu)
         if( pmt.dict_has_key(pdu,pmt.intern("res_sense"))):
             res = pmt.dict_ref(pdu,pmt.intern("res_sense"),pmt.PMT_NIL)
-
+            #print res
             metaj = pmt.symbol_to_string(res)
             self.f = open(self.filename+metaj[3]+".txt", "a")
             print "[MASTER][FILE RECORDER MASTER]: metaj: "+ metaj
-
+            #<G:1:1:597
             ini = metaj.find("G")
             final = metaj.find(">")
             pos1 = metaj.find(":",5)
-
-
+            #print "int(metaj[5:pos1]): "+ int(metaj[5:pos1])
+            #print "metaj[5:pos1]: "+ metaj[5:pos1]
             if (int(metaj[5:pos1]) >=10):
                 self.f.write(metaj[ini+7:final])
             else:
                 self.f.write(metaj[ini+6:final])
+            #if(metaj[5:6] != "1:"):
+            #    print "metaj[5] != 1: "+ metaj[5]
 
-
+            #self.f.write(metaj[ini:final])
+            #self.f.write("\n")
+            #self.f.write(metaj)
             self.f.flush()
             self.f.close()

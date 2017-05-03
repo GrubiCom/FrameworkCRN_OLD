@@ -92,9 +92,9 @@ namespace gr {
 
 
     void set_ccc_master_impl::handle(pmt::pmt_t pdu) {
-        //std::cout << "[SLAVE][SET CCC]: CHANGE FREG " << std::endl;
+
         flagx = true;
-        //std::cout << "[SLAVE][SET CCC]: CHANGE flag: "<<flag << std::endl;
+
     }
 
 

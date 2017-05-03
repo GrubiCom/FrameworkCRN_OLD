@@ -67,10 +67,11 @@ namespace gr {
     {
     }
     void ACK_impl::handle_msg(pmt::pmt_t msg) {
-       
+        //<G:id:nro_pacote:info>
+        /
         pmt::pmt_t ack =  pmt::dict_ref(msg, pmt::string_to_symbol("ack"), pmt::PMT_NIL);
         long number = pmt::to_long(ack);
-        
+
         std::string line;
         std::ifstream file; // open file
         int acks = 0;
@@ -80,18 +81,18 @@ namespace gr {
             while(!file.eof()){
                         getline(file,line);
                         acks++;
-                        
+
                     }
         }
         file.close(); file.open("/tmp/send.txt");
         if (file.is_open()){
             bool stop = false;
-           
+
                 getline(file,line);
                 
                 int pos;
                 pos = line.find(":");
-                
+
                 
                 
                 if (number == 0){
@@ -104,7 +105,7 @@ namespace gr {
                 for (int i = 1; i < acks && !file.eof(); i++){
                     
                     getline(file,line);
-                   
+
                     if(i == number){//recebo ack 1 envio mensagem 2
                         sleep(0.4);
                         std::cout << number << " Pacote" << " <G:"+boost::to_string(idUsrp)+":" << line << ">" << std::endl; 
@@ -122,12 +123,12 @@ namespace gr {
                     //remove("/tmp/send.txt");
                     
                 }
-            
+
             
         }
     }
     void ACK_impl::handle_msg_file(pmt::pmt_t msg) {
-        
+
         pmt::pmt_t ack =  pmt::dict_ref(msg, pmt::string_to_symbol("acks_total"), pmt::PMT_NIL);
         pmt::pmt_t sense =  pmt::dict_ref(msg, pmt::string_to_symbol("sense"), pmt::PMT_NIL);
         bool is_sense = pmt::to_bool(sense);
@@ -137,7 +138,10 @@ namespace gr {
             std::cout << "Pacote Controle: " << " <K:"+boost::to_string(idUsrp)+":" << boost::to_string(acks) << ">" << std::endl; 
             message_port_pub(pmt::mp("msg"),pmt::intern("<K:"+boost::to_string(idUsrp)+":"+boost::to_string(acks)+">"));
             message_port_pub(pmt::mp("first"),pmt::intern("<K:"+boost::to_string(idUsrp)+":"+boost::to_string(acks)+">"));
-            
+
+
+
+
         }else{
             std::cerr << "[SLAVE][SEND PACKET DOWN]: file ../send.txt don't exist" << std::endl;
             std::exit(-1);   
@@ -150,7 +154,7 @@ namespace gr {
         while(!ack){
             std::ifstream file; // open file
             file.open("/tmp/ack.txt");
-            
+
             std::cout << "[SLAVE][SEND PACKET DOWN]: Sleep 3 "<<  std::endl;
             sleep(3);
             if (file.is_open()){
@@ -167,7 +171,7 @@ namespace gr {
                     message_port_pub(pmt::mp("msg"),pmt::intern("<K:"+boost::to_string(idUsrp)+":"+boost::to_string(acks)+">"));
             }
         }
-        
+        //std::remove("/home/ariel/Documentos/gr-pmt_cpp/json/ack.txt");
     }
 
 

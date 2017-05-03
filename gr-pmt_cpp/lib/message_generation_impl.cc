@@ -56,7 +56,6 @@ namespace gr {
         neighbors_msg = false;
         d_interval = 120000;//30000; // 100 minutos 642026 10 minutos   240000 s
         d_nmsg_left = (int)4e9;//Virtualmente infinito
-        
 
 	message_port_register_out(pmt::mp("msg"));
         message_port_register_out(pmt::mp("mp"));
@@ -86,7 +85,7 @@ namespace gr {
         pmt::pmt_t key = pmt::dict_ref(pdu, pmt::string_to_symbol("signal"), pmt::PMT_NIL);
         old_freq = new_freq;
         if(cycle >= 5){
-            
+
             cycle = 0;
         }
         new_freq = pmt::to_double(key);
@@ -159,10 +158,10 @@ namespace gr {
                         
 			gr::thread::scoped_lock(d_mutex);
 			
-			//if(d_finished || !d_nmsg_left) {
-				//d_finished = true;				
-				//break;
-			//}
+
+
+
+
                         
                         if(!neighbors_msg && d_finished){
                             
@@ -181,7 +180,7 @@ namespace gr {
                             }
                             
                             
-                            
+
 
                             std::string filename = "/tmp/neighbors.txt";
                             
@@ -241,13 +240,13 @@ namespace gr {
                                 }
 
                                 send_sense();
-                                //usleep(2000000);
+
                                 j++;
                             }while(!boost::filesystem::exists("/tmp/acks_sense.txt") && j<5);
                             if(j > 4) {
                                 d_finished = true; 
                             }
-                            //d_nmsg_left--;
+
                             neighbors_msg = false;
                             d_finished = false;
                             //}
@@ -262,7 +261,7 @@ namespace gr {
 	} catch(boost::thread_interrupted) {
 		gr::thread::scoped_lock(d_mutex);
 		dout << "PMS: thread interrupted" << std::endl;
-		//d_finished = true;
+
 		
 	}
         
@@ -306,6 +305,4 @@ namespace gr {
 } /* namespace gr */
 
 
-
-                                
-                           
+                            //dout << "PMS: number of messages left: " << d_nmsg_left << std::endl;

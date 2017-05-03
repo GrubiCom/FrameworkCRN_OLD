@@ -120,7 +120,7 @@ namespace gr {
 
                     t = boost::posix_time::microsec_clock::local_time();
                     std::string s = boost::posix_time::to_iso_string(t);
-
+                     ///std::cout <<"[SLAVE][TRANSMISSION DATA]: <"<<boost::to_string('0')<<":4:"+boost::to_string(idUsrp)+":"<<boost::to_string(i) <<":"<<data<<":"<<boost::to_string(s)<<">" <<std::endl;
                     std::cout <<"[SLAVE][TRANSMISSION DATA]: 2" <<std::endl;
                     message_port_pub(pmt::mp("packet"), pmt::intern("<"+boost::to_string('0')+":4:"+idUsrp+":"+boost::to_string(i)+":"+data+":"+boost::to_string(s)+">"));
                 }
@@ -133,7 +133,7 @@ namespace gr {
 
                     arq.open("/tmp/time.txt");
                     while(getline(arq,cu)){
-
+                        //std::cout<<"BLAAAAAA: "<< cu.c_str() << " "<< i << std::endl;
                         if(std::atoi(cu.c_str()) == i){
                             achou = true;
                         }
@@ -147,7 +147,7 @@ namespace gr {
                             std::cout <<"[SLAVE][TRANSMISSION DATA]: d_power: "<<d_power <<std::endl;
                         } 
                         if (d_power < -90){
-
+                            //srand (time(NULL));
 
                             usleep(time_sleep);
                             a++;
@@ -208,7 +208,7 @@ namespace gr {
         file.open("/tmp/power.txt",  std::ios::in);
         while(getline(file,line)) line_p = line;
         file.close();
-        //std::cout << "[SLAVE][TRANSMISSION DATA]:IF "<< line_p<< std::endl;
+
         int pos = line_p.find_last_of(":");
         return std::atof(line_p.substr(pos+1).c_str());
     }

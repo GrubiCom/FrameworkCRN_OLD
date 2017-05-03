@@ -24,7 +24,7 @@
 
 #include <gnuradio/io_signature.h>
 #include "timer_impl.h"
-
+//#include "time_impl.h
 #include <fstream>
 #include <dirent.h>
 #include <cstdlib>
@@ -79,7 +79,7 @@ namespace gr {
 
                 if (dir == 0) {
                     std::cerr << "[MASTER][TIMER]: Nao foi possivel abrir diretorio." << std::endl;
-                    //exit (1);
+
                 }else{
 
                     //Iterar sobre o diretorio

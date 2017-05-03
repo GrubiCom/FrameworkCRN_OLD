@@ -58,8 +58,7 @@ namespace gr {
     preprocessor_master_impl::~preprocessor_master_impl()
     {
     }
-
-
+    
     void preprocessor_master_impl::handle(pmt::pmt_t p) {
         if(pmt::dict_has_key(p,pmt::intern("ID"))){
             
@@ -92,7 +91,7 @@ namespace gr {
                         if(id == f ){
                             aux.open(auxname.c_str(), std::ios::in | std::ios::out| std::ios::app );
                             aux << id << ";" ;
-
+                            //std::cout<< "[MASTER][PREPROCESSOR MASTER]: Gravadondo no aux id: " << id <<std::endl;
 
                             aux.close();
                         }
@@ -122,7 +121,7 @@ namespace gr {
 
                 if (dir == 0) {
                     std::cerr << "[MASTER][PREPROCESSOR MASTER]: Nao foi possivel abrir diretorio." << std::endl;
-                    //exit (1);
+
                 }
 
                 //Iterar sobre o diretorio
@@ -144,7 +143,7 @@ namespace gr {
                             std::string sub = line.substr(pos+1);
                             out.open("/tmp/res_sense.txt", std::ios::app);
                             out << sub;
-                            //std::cout << "[MASTER][PREPROCESSOR MASTER]: line: "<< line<< std::endl;
+
                             
                         }
                         out.close();
@@ -156,15 +155,16 @@ namespace gr {
                 std::cout << "[MASTER][PREPROCESSOR MASTER]: Init RNA" << std::endl;
                 message_port_pub(pmt::mp("rna_file"),pmt::from_bool(true)); 
                 
-                
+
+
+
+
                 
                 closedir (dir);
                 
             }
         }
     }
-
-   
 
   } /* namespace pmt_cpp */
 } /* namespace gr */

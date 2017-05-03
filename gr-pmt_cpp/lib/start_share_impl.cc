@@ -105,7 +105,7 @@ namespace gr {
         const char file_path[] = "/tmp/ack.txt";
         boost::filesystem::path file(file_path);
         boost::filesystem::remove(file);
-
+        //message_port_pub(pmt::mp("pmt::mp"), pmt::cons(pmt::mp("freq"), pmt::mp(pmt::to_double(nChannel))));
                    
     }
 

@@ -85,7 +85,10 @@ namespace gr {
             filename.append(".txt");
             
             file.open(filename.c_str());
-            
+
+
+
+
             bool found = false;
             while(getline(file,line)){              
                 if(std::atoi(line.c_str()) == (number+1)){
@@ -102,6 +105,13 @@ namespace gr {
             }else if(number +1 >= acks_total){
                 std::cout << "[MASTER][TEMPORIZE ACK]: FINISH ID " << id1 << std::endl;
                 sleep(1);
+
+                
+                
+                
+        
+
+                
                 
                 pmt::pmt_t p_dict  = pmt::make_dict();
                 p_dict = pmt::dict_add(p_dict, pmt::string_to_symbol("ID"), pmt::string_to_symbol(id1));

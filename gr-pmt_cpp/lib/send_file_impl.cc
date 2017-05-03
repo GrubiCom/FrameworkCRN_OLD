@@ -129,15 +129,15 @@ namespace gr {
 
                 sleep(1);
                 message_port_pub(pmt::mp("pdu"), pmt::intern(msg1));
-                //std::cout << msg1 << "msg1"<< std::endl;
+                std::cout << msg1 << "msg1"<< std::endl;
                 
                 sleep(2);
                 message_port_pub(pmt::mp("pdu"), pmt::intern(msg2));
-                //std::cout << msg2 << "msg2"<< std::endl;
+                std::cout << msg2 << "msg2"<< std::endl;
 
                 sleep(2);
                 message_port_pub(pmt::mp("pdu"), pmt::intern(msg3));
-                //std::cout << msg3 << "msg3"<< std::endl;
+                std::cout << msg3 << "msg3"<< std::endl;
 
                 std::cout << send.length() << "tamanho"<< std::endl;
             }else{

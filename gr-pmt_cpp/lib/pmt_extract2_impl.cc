@@ -85,10 +85,9 @@ namespace gr {
            //           
             boost::posix_time::ptime x;           
 
-
             x = boost::posix_time::microsec_clock::local_time();
            
-          // add the field and publish
+
             pmt::pmt_t meta = pmt::car(pdu);
             pmt::pmt_t vector = pmt::cdr(pdu);
             
@@ -119,8 +118,8 @@ namespace gr {
                     
             }
             
-            //std::cout <<"[SLAVE][MESSAGE PARSER]:Info: "<<str<< std::endl;
-            //std::cout <<"[SLAVE][MESSAGE PARSER]:Sense_tag: "<<sense<< std::endl;  
+
+
             char idUsrp = '4';
             size_t idMaster = -1;
             char* pEnd;
@@ -149,13 +148,13 @@ namespace gr {
                         out.close();
                     }
                     packet_received = 0;
-
+                    
                     srand (time(NULL));
                     int time = std::rand()% 400000 + 100000;
 
                     usleep(time);
                     message_port_pub(pmt::mp("info_neighbor"), pmt::intern("<N:"+boost::to_string(idUsrp)+">"));
-
+                   // sense = false;
                 }else if (str[pos+3] == '1'){// Comunicação de quem é o master //3
                     std::cout << "[SLAVE][MESSAGE PARSER]:MASTER" << std::endl;
                     idMaster = str[pos+5]; //5
@@ -165,7 +164,7 @@ namespace gr {
                     sense = true;
                     share = false;
                     std::cout << "[SLAVE][MESSAGE PARSER]:SENSE" << std::endl;
-                    //std::cout << "[SLAVE][MESSAGE PARSER]:"<< "<s:"<<boost::to_string(idUsrp)<<">" << std::endl;
+                    
                     message_port_pub(pmt::mp("info_neighbor"), pmt::intern("<s:"+boost::to_string(idUsrp)+">"));//linha nova
                     usleep(1000000);
                     message_port_pub(pmt::mp("info_neighbor"), pmt::intern("<s:"+boost::to_string(idUsrp)+">"));//linha nova
@@ -185,26 +184,20 @@ namespace gr {
                     }
                     std::stringstream sss(sub_str.substr(sub_str.find_last_of(":")+1,p1+1));
                     
-
                     fMim = std::atof(sss.str().c_str());
                     std::cout << "FMIm: " << fMim << std::endl;
                     fMim *= (double)1.0e9;
 
-
                     pmt::pmt_t p_dict  = pmt::make_dict();
                     p_dict = pmt::dict_add(p_dict, pmt::string_to_symbol("mim"), pmt::from_double(fMim));
-                    
-
-                    
+                                        
                     std::string st(str); //<1:2:2:3,0>
                     
                     std::size_t pos = st.find_last_of(":");//<1:2:2(:)3,0>
                     std::size_t terminal = st.find_last_of(">");//<1:2:2:3,0(>)
                     
-
                     std::string su = st.substr(pos+1,((terminal)-(pos+1)));
-
-
+                    //std::string::size_type sz;
                     size_t f = su.find(".");
                     if (f != std::string::npos){
                         su.replace(f, std::string(".").length(), ",");
@@ -261,8 +254,7 @@ namespace gr {
 
                     t = boost::posix_time::microsec_clock::local_time();
                     
-
-
+                    
                     
                     
                     std::cout << "[SLAVE][MASSAGE PARSER]: RECEIVED PACKET DATA TRANSMISSION " <<packet_received << std::endl;
@@ -284,10 +276,7 @@ namespace gr {
                     try{
                         t2 = boost::posix_time::from_iso_string(sub);
                         boost::posix_time::time_duration t1 = t - t2;
-
-
-
-
+                       
                         std::ofstream micro;
                         micro.open("/tmp/total_microseconds.txt",  std::ios::app);
                         micro << t1.total_microseconds()<< std::endl;
@@ -329,18 +318,11 @@ namespace gr {
                     str2[pos+5] = str[pos+1];
 
                     std::cout << "<"<<str[pos+5]<<":4:"<<"0:"<< su<<":00011110000000000000000000000000000000000000000000000:"<<sub<<">"<<std::endl;
-
-
-
-
-
-
-
+                    
                     if((int)packet_received % 53 == 0){
                         message_port_pub(pmt::mp("info_neighbor"), pmt::intern("<"+boost::to_string(str[pos+5])+":5:"+idUsrp+":"+su+":00011110000000000000000000000000000000000000000000000:"+sub+">"));
                     
                     }
-
                     std::string filename1 = "/tmp/";
                     sent1++;
                     filename1.append("sent_pack");
@@ -360,8 +342,7 @@ namespace gr {
 
                 std::size_t pos = st.find_last_of(":");
                 std::size_t terminal = st.find_last_of(">");
-
-
+                
                 std::string::size_type sz;
                 int bla = std::atoi(st.substr(pos+1,terminal).c_str());
 
@@ -386,7 +367,7 @@ namespace gr {
                 sense = false;
                 share = false;
             }else if(str[pos+1] == 'N'){
-
+                //sense = false;
                 //Descobertas dos vizinhos<N:ID_neighbor>
 
                 std::fstream file1;
@@ -418,14 +399,14 @@ namespace gr {
                 }       
                 
             }else if (str[pos+1] != idUsrp && str[pos+1] != '0'){
-
-
+                //str = NULL; std::free(str);
+                //std::cout << "[SLAVE][MESSAGE PARSER]: Pacote nao destinado a usrp de ID: "<<idUsrp << std::endl;                  
             }else{
-
+                //str = NULL; std::free(str);
                 std::cout << "[SLAVE][MESSAGE PARSER]: Lixo" << std::endl;
             }
             for (int i = 0; i < 50; i++) str[i] = 0;
-
+            //sense=false;
         }
        
 
