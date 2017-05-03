@@ -178,9 +178,9 @@ namespace gr {
                     std::size_t p = new_str.find_last_of(":");//<1:2:2(:)3,0>
                     std::string sub_str (new_str.substr(0,p));//<1:2:2
                     std::size_t p1 = sub_str.find_last_of(":");//<1:2(:)2
-                    size_t f1 = sub_str.find(".");
+                    size_t f1 = sub_str.find(",");
                     if (f1 != std::string::npos){
-                        sub_str.replace(f1, std::string(".").length(), ",");
+                        sub_str.replace(f1, std::string(",").length(), ".");
                     }
                     std::stringstream sss(sub_str.substr(sub_str.find_last_of(":")+1,p1+1));
                     //std::cout <<"[SLAVE][MESSAGE PARSER]:teste: " <<sss.str()<< " "<<sub_str <<std::endl;
