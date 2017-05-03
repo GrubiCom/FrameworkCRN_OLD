@@ -74,13 +74,13 @@ namespace gr {
         time_t timer1= time(0);
         time_t t2 = time(0);
         time(&timer1);
-
+        //time(&timer2);
         time(&t2);
         double dif = difftime(t2,timer1);
         int i = 0;
         int a = 0;
-
-
+        //pmt::pmt_t p_dict = pmt::make_dict();
+        //p_dict = pmt::dict_add(p_dict, pmt::string_to_symbol("sense"), pmt::PMT_T);
         std::string data = "00011110000000000000000000000000000000000000000000";
         int time_sleep = 8000;//std::rand()%  100000 + 50000;
         char idUsrp = '4';
@@ -102,7 +102,7 @@ namespace gr {
                 
                 if(line.empty()){
                     
-
+                   // srand (time(NULL));
                     
                     usleep(time_sleep);
                     boost::posix_time::ptime t;            
@@ -113,7 +113,7 @@ namespace gr {
                     std::cout <<"[SLAVE][TRANSMISSION DATA]: 1" <<std::endl;
                                              
                 }else{
-
+                    //srand (time(NULL));
                     
                     usleep(time_sleep);
                     boost::posix_time::ptime t;            
@@ -208,7 +208,7 @@ namespace gr {
         file.open("/tmp/power.txt",  std::ios::in);
         while(getline(file,line)) line_p = line;
         file.close();
-
+        //std::cout << "[SLAVE][TRANSMISSION DATA]:IF "<< line_p<< std::endl;
         int pos = line_p.find_last_of(":");
         return std::atof(line_p.substr(pos+1).c_str());
     }

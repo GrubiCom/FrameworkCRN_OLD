@@ -40,7 +40,7 @@ class RandomForest(gr.basic_block):
         self.message_port_register_in(pmt.intern("in"))           
         self.set_msg_handler(pmt.intern("in"), self.handler) 
         self.message_port_register_out(pmt.intern("out")) 
-
+        #self.message_port_register_out(pmt.intern("out"))
 
     #handler
     #funcao que armazena os dados em um arquivo

@@ -68,9 +68,9 @@ namespace gr {
             if(flag) {
                 time(&timer);
                 flag = false;
-
+                //std::cout << "[SLAVE][SET CCC]: flag: "<< flag << std::endl;
             }
-
+            //std::cout << "[SLAVE][SET CCC]: while " << std::endl;
             while(!flag){
               time_t timer2;
               time(&timer2);
@@ -87,9 +87,9 @@ namespace gr {
 
 
     void set_ccc_impl::handle(pmt::pmt_t pdu) {
-
+        //std::cout << "[SLAVE][SET CCC]: CHANGE FREG " << std::endl;
         flag = true;
-
+        //std::cout << "[SLAVE][SET CCC]: CHANGE flag: "<<flag << std::endl;
     }
 
 

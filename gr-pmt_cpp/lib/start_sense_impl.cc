@@ -83,7 +83,7 @@ namespace gr {
          */
         void start_sense_impl::handle_msg(pmt::pmt_t msg) {
             
-
+            //std::system("./home/ariel/Documentos/gr-pmt_cpp/driver1/load_gcc116");
             if(pmt::is_dict(msg)){// se vier um dicionário
                 acabooo++;
                 if (acabooo > 1){
@@ -104,11 +104,11 @@ namespace gr {
                 //std::cout << "[SLAVE][START SENSE]: FMIm: " << pmt::to_double(mim) << std::endl; 
                 //std::cout << "[SLAVE][START SENSE]: FMam: " << pmt::to_double(max) << std::endl; 
                 for (i = pmt::to_double(mim); i <= pmt::to_double(max); i+=20e6){ //pula de 10MHz
-
+                    //std::cout << "to_bool: " << pmt::to_bool(senset) << " Envio por: bool" << std::endl;
                     
                     message_port_pub(pmt::mp("bool"), senset);  //Envia flag sense para bool
-
-
+                                                       //Sleep de 2 segundos 
+                    //std::cout << "freq: " << i << " Envio por: pmt::mp" << std::endl;
                     message_port_pub(pmt::mp("pmt::mp"), pmt::cons(pmt::mp("freq"),pmt::mp(i)));    //envia a nova frequencia para a placa USRP
                     //sleep(1);  
                     usleep(1000000);//Sleep de 1 segundo
@@ -123,7 +123,7 @@ namespace gr {
                 p_dict1 = pmt::dict_add(p_dict1, pmt::string_to_symbol("sense"), pmt::PMT_F);   //Cria (chave=sense,valor=false)
                 pmt::pmt_t senset1 = pmt::PMT_NIL;                                              //Cria pmt nulo
                 senset1 = pmt::dict_ref(p_dict1, pmt::string_to_symbol("sense"), pmt::PMT_NIL); //Senset1 recebe a flag sense
-
+                //std::cout << "to_bool: " << pmt::to_bool(senset1) << " Envio por: bool" << std::endl;
                     
                 message_port_pub(pmt::mp("bool"), senset1);                                     //envia senset1 para bool
                 sleep(1);

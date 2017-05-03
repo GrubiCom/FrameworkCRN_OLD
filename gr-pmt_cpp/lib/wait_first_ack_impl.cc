@@ -71,14 +71,14 @@ namespace gr {
             if(file.is_open()){
                 std::string line;
                 getline(file,line);
-
+                //std::cout << "[SLAVE][WAIT FIRST ACK]: Compare 1 to line: "<< line<< " BOOL: "<<line.compare("1") << std::endl;
                 
                 if(line.compare("1") == 0){
                     read = false;
                    // remove ("/tmp/ack.txt");
                 }else {
                     std::cout << "[SLAVE][WAIT FIRST ACK]: Re-send Message" << std::endl;
-
+                    //std::cout << "[SLAVE][WAIT FIRST ACK]: Compare 1 to line: "<< line<< " BOOL: "<<line.compare("1") << std::endl;
                     pmt::print(msg);
                     message_port_pub(pmt::mp("message_repeat"),msg);
                 }

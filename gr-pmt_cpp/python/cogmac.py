@@ -40,14 +40,14 @@ class cogmac(gr.basic_block):
         
     def handler(self, pdu):
         if (pmt.is_bool(pdu) and (pmt.to_bool(pdu))):
-
+            #self.s = pmt.to_python(pdu);
             self.f = open("/tmp/res_sense.txt", "r")
             self.s = self.f.readline()
-
+            #print "s: "+self.s
             self.pos = self.s.find(";")
             self.sub = self.s[self.pos+1:]
             print self.sub
-
+            #print "sub: "+self.sub
             pattern = re.compile(r'(:)') # caractere - e numeros 0 a 9
             i = 0;
             tag = 1;
@@ -124,8 +124,8 @@ class cogmac(gr.basic_block):
 				power = []
                                 j = 0
 				for j in range(0, 4):
-
-
+                                        #print (j)
+                                        #print (floatFreq, rankedFreq)
 					if((floatFreq == rankedFreq[j])& (rankedFreq[j] !="Not")):
                                                 print (j)
                                                 print (floatFreq, rankedFreq[j])
@@ -133,14 +133,14 @@ class cogmac(gr.basic_block):
 						tag = 0
 						f = open("/tmp/rankCogMac.txt", "w")
 						k = 0
-
+						#while(k < len(frequency)):
                                                 finalMessage.append(str(floatFreq))
 						
-
+                                                #	k = k + 1
 
 						finalMessage.append('>')
 						stringFinal = ''.join(finalMessage)
-
+						#print "ANN FINISH"
 						retorno = pmt.to_pmt(stringFinal)
 						for k in range(0, 4):
                                                         print(k,j)
@@ -172,7 +172,7 @@ class cogmac(gr.basic_block):
                         i = i + 1
                         hours = ''.join(hour)
                         floatHour = float(hours)
-
+                        #print(floatHour)
                         floatHour = floatHour / 3600
                         floatHour = floatHour / 24
                         floatHour = floatHour - 0.5
@@ -240,9 +240,9 @@ class cogmac(gr.basic_block):
                             print "bestTudo"
                             print (freqFinal,bestPower)
                     i = 0
-
+                    #while(i < len(frequency)):
                     finalMessage.append(freqFinal[0])
-
+                    #        i = i + 1
 
                     finalMessage.append('>')
                     stringFinal = ''.join(finalMessage)
@@ -267,14 +267,14 @@ class cogmac(gr.basic_block):
                 self.message_port_pub(pmt.intern("out"), retorno);
             except:
                 print  "[MASTER][COGMAC]: EXCEPTION"
-
+                #print e
                 exc_type, exc_obj, exc_tb = sys.exc_info()
                 fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
                 print(exc_type, fname, exc_tb.tb_lineno)
                 i = 0
-
+                #while(i < len(freqFinal)):
                 finalMessage.append(freqFinal[0])
-
+                #        i = i + 1
 
                 finalMessage.append('>')
                 stringFinal = ''.join(finalMessage)
@@ -283,7 +283,7 @@ class cogmac(gr.basic_block):
                 retorno = pmt.to_pmt(stringFinal)
                 print retorno
                 self.message_port_pub(pmt.intern("out"), retorno);
-
+            #time.sleep(0.4)
             time.sleep(1)
             os.remove("/tmp/res_sense.txt")
             os.remove("/tmp/neighbors_aux.txt")

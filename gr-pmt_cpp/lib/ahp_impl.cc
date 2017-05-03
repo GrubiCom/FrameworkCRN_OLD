@@ -73,7 +73,7 @@ namespace gr {
             char *message = new char[str.length() +1];
             strcpy(message,str.c_str());
             std::cout << "[AHP]: " << message << std::endl;
-            int tag = 0;;
+            int tag = 0;//isFreqRanked(message);
             if(tag == 0){
                 int channels = getNumberOfChannels(message);
                 float parameters[channels][MAX_PARAMETERS];
@@ -87,7 +87,15 @@ namespace gr {
             
         }
             
-
+ /**           self.f = open("/tmp/res_sense.txt", "r")
+            self.s = self.f.readline()
+            
+            #print "s: "+self.s
+            #self.pos = self.s.find(";")
+            #self.sub = self.s[self.pos+1:]
+            self.sub = self.s
+            print self.sub
+            #print "sub: "+self.sub**/
     }
 
     void ahp_impl::ahp(float parameters[][MAX_PARAMETERS], int channels) {
@@ -98,7 +106,7 @@ namespace gr {
 		result = parameters[i][table_RSSI] * AVERAGE_RSSI;
 		result += parameters[i][table_Time] * AVERAGE_TIME;
 		result += parameters[i][table_Owned] * AVERAGE_OWNED;
-
+		//std::cout << "AHP: "<< result << std::endl;
 		if(result > best[0]) {
 			best[4] = best[3];
 			frequencys[4] = frequencys[3];
@@ -280,14 +288,14 @@ namespace gr {
 		counter ++;
 		counter ++;
 		counter2 = 0;
-
-
+		//aux = convertStringToFloat(number);
+                //std::cout << "Number: "<< number << std::endl;
                 std::stringstream ss(number);
 
                 ss >> aux;
-
-
-
+                //std::cout << "ss: "<< ss << std::endl;
+                //std::cout << "aux: "<< aux << std::endl;
+		//aux = std::atof(number);
 		parameters[i][table_Freq] = aux;
 		aux = aux / 6.0;
 		aux = aux * 2.0;

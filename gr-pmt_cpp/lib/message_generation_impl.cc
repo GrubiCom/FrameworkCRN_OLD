@@ -56,7 +56,7 @@ namespace gr {
         neighbors_msg = false;
         d_interval = 120000;//30000; // 100 minutos 642026 10 minutos   240000 s
         d_nmsg_left = (int)4e9;//Virtualmente infinito
-
+        //d_msg = pmt::intern("<0:2:0,8:2,8>");
 	message_port_register_out(pmt::mp("msg"));
         message_port_register_out(pmt::mp("mp"));
         message_port_register_in(pmt::mp("signal"));
@@ -85,7 +85,7 @@ namespace gr {
         pmt::pmt_t key = pmt::dict_ref(pdu, pmt::string_to_symbol("signal"), pmt::PMT_NIL);
         old_freq = new_freq;
         if(cycle >= 5){
-
+            //new_freq = 0;
             cycle = 0;
         }
         new_freq = pmt::to_double(key);
@@ -158,10 +158,10 @@ namespace gr {
                         
 			gr::thread::scoped_lock(d_mutex);
 			
-
-
-
-
+			//if(d_finished || !d_nmsg_left) {
+				//d_finished = true;				
+				//break;
+			//}
                         
                         if(!neighbors_msg && d_finished){
                             
@@ -180,8 +180,8 @@ namespace gr {
                             }
                             
                             
-
-
+                            //std::fstream file;
+                            //sleep(2);
                             std::string filename = "/tmp/neighbors.txt";
                             
                             if(boost::filesystem::exists(filename)){
@@ -240,13 +240,13 @@ namespace gr {
                                 }
 
                                 send_sense();
-
+                                //usleep(2000000);
                                 j++;
                             }while(!boost::filesystem::exists("/tmp/acks_sense.txt") && j<5);
                             if(j > 4) {
                                 d_finished = true; 
                             }
-
+                            //d_nmsg_left--;
                             neighbors_msg = false;
                             d_finished = false;
                             //}
@@ -261,7 +261,7 @@ namespace gr {
 	} catch(boost::thread_interrupted) {
 		gr::thread::scoped_lock(d_mutex);
 		dout << "PMS: thread interrupted" << std::endl;
-
+		//d_finished = true;
 		
 	}
         
@@ -304,5 +304,52 @@ namespace gr {
   } /* namespace pmt_cpp */
 } /* namespace gr */
 
+//usleep(2000000);
+                            /*bool loop_controler = true;
+                            while (loop_controler){//parte nova :p
+                                std::fstream file;
+                                bool equals;
+                                std::string line_f,line_n;
+                                int id;
+                                id = -1;
+                                std::fstream neighbors;
+                                neighbors.open("/tmp/neighbors.txt");
+                                if(neighbors.is_open()){
+                                    while(getline(neighbors,line_n)){
+                                        equals = false;
+                                        std::string filename = "/tmp/acks_sense.txt";
+                                        file.open(filename.c_str());
+                                        std::cout << "[MASTER][MESSAGE GENERATION]: line_f"<< line_f << std::endl;
+                                        std::cout << "[MASTER][MESSAGE GENERATION]: line_n"<< line_n << std::endl;
+                                        while(getline(file,line_f)){
+                                            if(line_f.compare(line_n)){
+                                                equals = true;
 
+                                            }
+                                        }
+                                        file.close();
+                                        if(!equals){
+                                            if(new_freq == 0){
+                                                d_msg = pmt::intern("<"+line_n+":2:0,8:5,8>");
+                                                message_port_pub( pmt::mp("msg"), d_msg );
+                                                usleep(200000);
+                                            }else {
+                                                d_msg = pmt::intern("<"+line_n+":2:"+boost::to_string(min)+":"+boost::to_string(max)+">");
+                                                message_port_pub( pmt::mp("msg"), d_msg );
+                                                usleep(200000);
+                                            }
+                                             
+                                            id = 0;
+                                        }
+
+                                    }
+                                    neighbors.close();
+                                    if (id == -1){
+                                        loop_controler = false;
+                                    }
+                                
+                                }
+
+                                
+                                usleep(2000000);*/
                             //dout << "PMS: number of messages left: " << d_nmsg_left << std::endl;
