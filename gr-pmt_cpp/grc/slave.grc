@@ -2874,6 +2874,12 @@
   </connection>
   <connection>
     <source_block_id>pmt_cpp_pmt_extract2_0</source_block_id>
+    <sink_block_id>pmt_cpp_ACK_0</sink_block_id>
+    <source_key>Ack</source_key>
+    <sink_key>Ack</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>pmt_cpp_pmt_extract2_0</source_block_id>
     <sink_block_id>IEEE_802_15_4_0</sink_block_id>
     <source_key>info_neighbor</source_key>
     <sink_key>msg</sink_key>
