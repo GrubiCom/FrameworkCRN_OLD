@@ -77,7 +77,7 @@ namespace gr {
               time_t timer2;
               time(&timer2);
               double sec = difftime(timer2,timer);
-              if(sec > 260){
+              if(sec > 400){
                   message_port_pub(pmt::mp("ccc"), pmt::cons(pmt::mp("freq"),pmt::mp(6000000000)));
                   pmt::pmt_t p_dict  = pmt::make_dict();
                   p_dict = pmt::dict_add(p_dict, pmt::string_to_symbol("signal"), pmt::from_double(6));
