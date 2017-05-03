@@ -58,7 +58,7 @@ class PDU_json(gr.sync_block):
     def handler2(self,pdu):
         if (not(pmt.to_bool(pdu))):
             self.message_port_pub(pmt.intern("file_ready"),pdu)
-            #os.system("./home/ariel/Documentos/gr-pmt_cpp/driver1/unload_gcc116")
+
             
         
     #handler
@@ -66,7 +66,7 @@ class PDU_json(gr.sync_block):
     def handler(self, pdu):
         
         
-        #meta = pmt.to_python(pmt.car(pdu))
+
         meta_pdu = pmt.car(pdu)
         fre = pmt.dict_ref(meta_pdu,pmt.intern("rx_freq"),pmt.PMT_NIL)
         power = pmt.dict_ref(meta_pdu,pmt.intern("power"),pmt.PMT_NIL)
@@ -75,8 +75,8 @@ class PDU_json(gr.sync_block):
         if( -float('inf') != pmt.to_double(power) ):
             self.f = open(self.filename, "a")
             metaj = str(pmt.to_uint64(time))+":"+str(pmt.to_double(fre))+":"+str(pmt.to_double(power))
-            #os.system( "echo "+metaj+"> /dev/gcc116")
-            #os.system( "echo "+" "+"> /dev/gcc116")
+
+
             self.f.write(metaj)
             self.f.write("\n")
             self.f.flush()

@@ -37,21 +37,21 @@ class annp(gr.basic_block):
         self.message_port_register_in(pmt.intern("in"))           
         self.set_msg_handler(pmt.intern("in"), self.handler) 
         self.message_port_register_out(pmt.intern("out")) 
-        #self.message_port_register_out(pmt.intern("out"))
+
         
         
     def handler(self, pdu):
          if (pmt.is_bool(pdu) and (pmt.to_bool(pdu))):
-            #self.s = pmt.to_python(pdu);
+
             self.f = open("/tmp/res_sense.txt", "r")
             self.s = self.f.readline()
             
-            #print "s: "+self.s
-            #self.pos = self.s.find(";")
-            #self.sub = self.s[self.pos+1:]
+
+
+
             self.sub = self.s
             print "[ANNP]: res_sense: "+self.sub
-            #print "sub: "+self.sub
+
             pattern = re.compile(r'(:)') # caractere - e numeros 0 a 9
             tag = 1
             i = 0;
@@ -72,7 +72,7 @@ class annp(gr.basic_block):
 			l = 0
 			f = open("/tmp/rankANN.txt", "r")
 			sRank = f.readline()
-                        #print "sRank: "+ sRank
+
 			f.close()
 			while(j < len(sRank)):
 				while(sRank[j] != ":"):
@@ -125,8 +125,8 @@ class annp(gr.basic_block):
 				power = []
                                 j = 0
 				for j in range(0, 4):
-                                        #print (j)
-                                        #print (floatFreq, rankedFreq)
+
+
 					if((floatFreq == rankedFreq[j])& (rankedFreq[j] !="Not")):
                                                 print (j)
                                                 print (floatFreq, rankedFreq[j])
@@ -134,14 +134,14 @@ class annp(gr.basic_block):
 						tag = 0
 						f = open("/tmp/rankANN.txt", "w")
 						k = 0
-						#while(k < len(frequency)):
+
                                                 finalMessage.append(str(floatFreq))
                                                 
-						#	k = k + 1
+
 
 						finalMessage.append('>')
 						stringFinal = ''.join(finalMessage)
-						#print "ANN FINISH"
+
 						retorno = pmt.to_pmt(stringFinal)
 						for k in range(0, 4):
                                                         print(k,j)
@@ -220,8 +220,8 @@ class annp(gr.basic_block):
 					    floatHour = floatHour - 0.5
 					    
                                             
-					    #print("[MASTER][ANNP]: Mark 0")
-					    #print"[MASTER][ANNP]: Hour1: %d" % (floatHour)
+
+
 					    freq = []
 					    power = []
 					    hour = []
@@ -232,8 +232,8 @@ class annp(gr.basic_block):
 					    floatResult = float(result[0])
 					    if (floatResult > 0.2):                              
 						floatResult = floatResult - 0.3
-                                    #print "RESULT"
-				    #print (result)
+
+
 				    if(floatResult > bestPower[0]):
 								bestPower[4] = bestPower[3]
 								freqFinal[4] = freqFinal[3]
@@ -273,11 +273,11 @@ class annp(gr.basic_block):
 								    if(floatResult > bestPower[4]):
 									    bestPower[4] = floatResult
 									    freqFinal[4] = frequency
-			    #print "[MASTER][ANNP]: Result " + floatResult+ " Power: "+bestPower+ " Final: "+ freqFinal
+
 			i = 0
-			#while(i < len(freqFinal)):
+
                         finalMessage.append(freqFinal[0]) #Qualquer coisa vou trocar pra freqFinal[0][i]
-                        #    i = i + 1
+
 
 			finalMessage.append('>')
 			stringFinal = ''.join(finalMessage)
@@ -308,10 +308,10 @@ class annp(gr.basic_block):
                 fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
                 print(exc_type, fname, exc_tb.tb_lineno)
                 i = 0
-                #while(i < len(freqFinal)):
+
                 finalMessage.append(freqFinal[0])
                 
-                #        i = i + 1
+
 
                 finalMessage.append('>')
                 stringFinal = ''.join(finalMessage)
