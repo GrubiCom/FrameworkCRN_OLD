@@ -12,10 +12,10 @@ gnuplot <<PDF_PLOT
 	set grid back linestyle 81
 	set datafile separator ":"
 	set nokey
-	set xlabel "Frequency (Hz)"
+	set xlabel "Frequency (GHz)"
 	set ylabel "Noise Level (dBm)" center offset 0.8,0 
 	set output 'slave_freq.pdf'
-	plot '$INPUT_LOG' using 2:3 t "x" ls 101 axes x1y1
+	plot '$INPUT_LOG' using (\$2/1000000000):3 t "x" ls 101 axes x1y1
 PDF_PLOT
 
 gnuplot <<TERMINAL_PLOT
@@ -23,7 +23,7 @@ gnuplot <<TERMINAL_PLOT
 	set datafile separator ":"
 	set nokey
 	set tics scale 0
-	set xlabel "Frequency (Hz)"
+	set xlabel "Frequency (GHz)"
 	set ylabel "Noise Level (dBm)" center
-	plot '$INPUT_LOG' using 2:3 w points pt "*" axes x1y1
+	plot '$INPUT_LOG' using (\$2/1000000000):3 w points pt "*" axes x1y1
 TERMINAL_PLOT
