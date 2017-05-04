@@ -82,6 +82,12 @@ namespace gr {
         //std::cout << "[SLAVE][SET NEW CONFIG]: MSG: " << "<S:0:1:"<<boost::to_string(newChannel/1e9)<<">"<< std::endl;
         usleep(time);
         message_port_pub(pmt::mp("bool"), pmt::intern("<S:0:3:"+boost::to_string(newChannel/1e9)+">"));
+	usleep(time);
+        message_port_pub(pmt::mp("bool"), pmt::intern("<S:0:3:"+boost::to_string(newChannel/1e9)+">"));
+	usleep(time);
+        message_port_pub(pmt::mp("bool"), pmt::intern("<S:0:3:"+boost::to_string(newChannel/1e9)+">"));
+	usleep(time);
+        message_port_pub(pmt::mp("bool"), pmt::intern("<S:0:3:"+boost::to_string(newChannel/1e9)+">"));
         std::cout << "[SLAVE][SET NEW CONFIG]: MSG: " << "<S:0:3:"<<boost::to_string(newChannel/1e9)<<">"<< std::endl;
         message_port_pub(pmt::mp("testeRX"), pmt::intern("<S:0:3:"+boost::to_string(newChannel/1e9)+">"));
         std::cout << "[SLAVE][SET NEW CONFIG]:testeRX MSG: " << "<S:0:3:"<<boost::to_string(newChannel/1e9)<<">"<< std::endl;

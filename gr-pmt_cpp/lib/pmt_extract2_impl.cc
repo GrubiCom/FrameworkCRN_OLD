@@ -209,9 +209,9 @@ namespace gr {
                    // std::cout << "SubString: "<< st.substr(pos+1,((terminal)-(pos+1))) << std::endl;
                     std::string su = st.substr(pos+1,((terminal)-(pos+1)));
                     //std::string::size_type sz;
-                    size_t f = su.find(".");
+                    size_t f = su.find(",");
                     if (f != std::string::npos){
-                        su.replace(f, std::string(".").length(), ",");
+                        su.replace(f, std::string(",").length(), ".");
                     }
                     std::cout << "SubString:su "<< su << std::endl;
                     std::stringstream ss(su);
@@ -239,9 +239,9 @@ namespace gr {
                     //std::cout << "String: " << st << " POS: " << pos<< std::endl;
                     //std::cout << "SubString: "<< st.substr(pos+1,terminal) << std::endl;
                     //std::string::size_type sz;
-                    size_t f = st.find(".");
+                    size_t f = st.find(",");
                     if (f != std::string::npos){
-                        st.replace(f, std::string(".").length(), ",");
+                        st.replace(f, std::string(",").length(), ".");
                     }
                     nChannel = std::strtod(st.substr(pos+1,terminal).c_str(),&pEnd);
                     std::cout << "[SLAVE][MESSAGE PARSER]:nChannel: " << nChannel<< std::endl;

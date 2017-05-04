@@ -38,7 +38,7 @@
     </param>
     <param>
       <key>generate_options</key>
-      <value>wx_gui</value>
+      <value>no_gui</value>
     </param>
     <param>
       <key>hier_block_src_path</key>
@@ -218,7 +218,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1040, 208)</value>
+      <value>(1048, 176)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2926,12 +2926,6 @@
   <connection>
     <source_block_id>pmt_cpp_preprocessor_master_0</source_block_id>
     <sink_block_id>uhd_usrp_sink_0</sink_block_id>
-    <source_key>tuned</source_key>
-    <sink_key>command</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pmt_cpp_preprocessor_master_0</source_block_id>
-    <sink_block_id>uhd_usrp_source_0</sink_block_id>
     <source_key>tuned</source_key>
     <sink_key>command</sink_key>
   </connection>
