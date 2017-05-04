@@ -102,69 +102,72 @@ namespace gr {
                    // std::cout << "Time: "<< time << std::endl;
                    /// std::cout << "pos0: "<< pos0 << std::endl;
                     //std::cout << "pos1: "<< pos1 << std::endl;
-                    if (start){
-                        time2=time;                       
-                        freqAnt = freq;
-                        avg = std::strtod(power.c_str(),&sz);
-                        //std::cout << "MEDIA: "<< freqAnt<< std::endl;
-                        //std::cout << "MEDIA1: "<< avg<< std::endl;
-                        if(avg < -130 ){
-                            avg = -50;
-                            //std::cout << "MEDIA2: "<< avg<< std::endl;
-                        }
-                        cont++;
-                        start = false;
-                    }else{
-                      //  std::cout << "Compare freqA com Freq " << freqAnt<< " "<< freq<< std::endl;
-                        if (freqAnt.compare(freq) == 0){
-                      //      std::cout << "ENTROU: A e f  " << freqAnt<< " "<< freq<< std::endl;
-                            double tod = std::strtod(power.c_str(),&sz);
-                            //std::cout << "power2: "<< power << std::endl;
-                            //if(tod < -130 ){
-                            //    tod = -130;
-                            //    std::cout << "MEDIA2: "<< avg<< std::endl;
-                            //}
-                            if (tod > avg ) {
-                               // std::cout << "MEDIA88: "<< freqAnt<< std::endl;
-                               // std::cout << "MEDIA3: "<< avg<< std::endl;
-                                avg = tod;
-                               // std::cout << "MEDIA4: "<< avg<< std::endl;
-                         //       std::cout << "avg: "<< avg << std::endl;
-                                time2=time;                           
-                            }                       
-                            freqAnt = freq;
-                            cont++;
-                        }else {
-                            //std::cout << "MEDIA44: "<< freqAnt<< std::endl;
-                            //std::cout << "MEDIA44: "<< avg<< std::endl;
-                            double t = std::atof(freqAnt.c_str())/(double)1.0e9;
-                            //std::cout << "std::atoi(freqAnt.c_str()): " << std::atoi(freqAnt.c_str()) << std::endl;
-                            //std::cout << "t: " << t << " freqAnt: "<<std::atof(freqAnt.c_str())<< std::endl;
-                            //std::cout << "freq: "<< freq << std::endl;
-                            //std::cout << "power: "<< power << std::endl;
-                            //std::cout << "Time: "<< time << std::endl;
-                            std::ostringstream ss;
-                            ss << time2;
-                            send.append(ss.str());
-                            send.append(":");
-                            std::ostringstream sstream;
-                            sstream << t;
-                            send.append(sstream.str());
-                            //send.append(freqAnt);l
-                            send.append(":");
-                            send.append(boost::lexical_cast<std::string>(avg));
-                            send.append(";");
+                  if (freq.compare("6000000000.0")!= 0){
+   
+			  if (start){
+		                time2=time;                       
+		                freqAnt = freq;
+		                avg = std::strtod(power.c_str(),&sz);
+		                //std::cout << "MEDIA: "<< freqAnt<< std::endl;
+		                //std::cout << "MEDIA1: "<< avg<< std::endl;
+		                if(avg < -130 ){
+		                    avg = -50;
+		                    //std::cout << "MEDIA2: "<< avg<< std::endl;
+		                }
+		                cont++;
+		                start = false;
+		            }else{
+		              //  std::cout << "Compare freqA com Freq " << freqAnt<< " "<< freq<< std::endl;
+		                if (freqAnt.compare(freq) == 0){
+		              //      std::cout << "ENTROU: A e f  " << freqAnt<< " "<< freq<< std::endl;
+		                    double tod = std::strtod(power.c_str(),&sz);
+		                    //std::cout << "power2: "<< power << std::endl;
+		                    //if(tod < -130 ){
+		                    //    tod = -130;
+		                    //    std::cout << "MEDIA2: "<< avg<< std::endl;
+		                    //}
+		                    if (tod > avg ) {
+		                       // std::cout << "MEDIA88: "<< freqAnt<< std::endl;
+		                       // std::cout << "MEDIA3: "<< avg<< std::endl;
+		                        avg = tod;
+		                       // std::cout << "MEDIA4: "<< avg<< std::endl;
+		                 //       std::cout << "avg: "<< avg << std::endl;
+		                        time2=time;                           
+		                    }                       
+		                    freqAnt = freq;
+		                    cont++;
+		                }else {
+		                    //std::cout << "MEDIA44: "<< freqAnt<< std::endl;
+		                    //std::cout << "MEDIA44: "<< avg<< std::endl;
+		                    double t = std::atof(freqAnt.c_str())/(double)1.0e9;
+		                    //std::cout << "std::atoi(freqAnt.c_str()): " << std::atoi(freqAnt.c_str()) << std::endl;
+		                    //std::cout << "t: " << t << " freqAnt: "<<std::atof(freqAnt.c_str())<< std::endl;
+		                    //std::cout << "freq: "<< freq << std::endl;
+		                    //std::cout << "power: "<< power << std::endl;
+		                    //std::cout << "Time: "<< time << std::endl;
+		                    std::ostringstream ss;
+		                    ss << time2;
+		                    send.append(ss.str());
+		                    send.append(":");
+		                    std::ostringstream sstream;
+		                    sstream << t;
+		                    send.append(sstream.str());
+		                    //send.append(freqAnt);l
+		                    send.append(":");
+		                    send.append(boost::lexical_cast<std::string>(avg));
+		                    send.append(";");
 
-                           // std::cout << send << std::endl;
-                            avg = 0;
-                            avg += std::strtod(power.c_str(),&sz);
-                            //std::cout << "MEDIA: "<< freqAnt<< std::endl;
-                            //std::cout << "MEDIA5: "<< avg<< std::endl;
-                            freqAnt = freq;
-                            time2 = time;
-                            cont = 0;
-                        }
-                    }
+		                   // std::cout << send << std::endl;
+		                    avg = 0;
+		                    avg += std::strtod(power.c_str(),&sz);
+		                    //std::cout << "MEDIA: "<< freqAnt<< std::endl;
+		                    //std::cout << "MEDIA5: "<< avg<< std::endl;
+		                    freqAnt = freq;
+		                    time2 = time;
+		                    cont = 0;
+		                }
+		            }
+			}
                 }
                 //file.clear();
                 file.close();

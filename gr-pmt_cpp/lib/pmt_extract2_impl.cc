@@ -239,9 +239,9 @@ namespace gr {
                     //std::cout << "String: " << st << " POS: " << pos<< std::endl;
                     //std::cout << "SubString: "<< st.substr(pos+1,terminal) << std::endl;
                     //std::string::size_type sz;
-                    size_t f = st.find(".");
+                    size_t f = st.find(",");
                     if (f != std::string::npos){
-                        st.replace(f, std::string(".").length(), ",");
+                        st.replace(f, std::string(",").length(), ".");
                     }
                     nChannel = std::strtod(st.substr(pos+1,terminal).c_str(),&pEnd);
                     std::cout << "[SLAVE][MESSAGE PARSER]:nChannel: " << nChannel<< std::endl;
