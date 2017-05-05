@@ -58,7 +58,7 @@ namespace gr {
     preprocessor_master_impl::~preprocessor_master_impl()
     {
     }
-    //(neighbor_f.compare(neighbor_aux)  != 0) && ((neighbor_f.compare("") != 0) || (neighbor_f != "") || neighbor_f.empty())
+
 
     void preprocessor_master_impl::handle(pmt::pmt_t p) {
         if(pmt::dict_has_key(p,pmt::intern("ID"))){
@@ -75,10 +75,10 @@ namespace gr {
             file.seekp(file.beg);
             
            
-            //std::cout<< "[MASTER][PREPROCESSOR MASTER]: Vem do bloco: " << id_neighbor <<std::endl;
+
             int id,f;
             id = std::atoi(id_neighbor.c_str());
-            //std::cout<< "[MASTER][PREPROCESSOR MASTER]: Vem do bloco convert: " << id <<std::endl;
+
             
             if(file.is_open()){
                 while(getline(file,neighbor_f)){
@@ -92,8 +92,8 @@ namespace gr {
                         if(id == f ){
                             aux.open(auxname.c_str(), std::ios::in | std::ios::out| std::ios::app );
                             aux << id << ";" ;
-                            //std::cout<< "[MASTER][PREPROCESSOR MASTER]: Gravadondo no aux id: " << id <<std::endl;
-                            //neighbor_f.erase();
+
+
                             aux.close();
                         }
                     }
@@ -103,11 +103,10 @@ namespace gr {
             }
             file.open(filename.c_str(), std::ios::in | std::ios::out);
             aux.open(auxname.c_str(), std::ios::in | std::ios::out);
-            //getline(file,neighbor_f);
+
             
             getline(aux,neighbor_aux); 
-            //std::cout << "[MASTER][PREPROCESSOR MASTER]: COMPARE: "<< lines.length() << " AUX: "<< neighbor_aux.length()<< std::endl;
-            //std::cout << "[MASTER][PREPROCESSOR MASTER]: COMPARE: "<< lines << " AUX: "<< neighbor_aux<< std::endl;
+            
             file.close();
             aux.close();
            
@@ -115,7 +114,7 @@ namespace gr {
             if(neighbor_aux.length() == lines.length()){
                 DIR *dir = 0;
                 struct dirent *entrada = 0;
-                //unsigned char isDir = 0x4;
+
                 unsigned char isFile = 0x8;
 
                 dir = opendir ("/tmp/results/");
@@ -135,31 +134,28 @@ namespace gr {
                         std::cout << filename << std::endl;
                         std::ifstream file;
                         file.open(filename.c_str());
-                        //std::cout << "[MASTER][PREPROCESSOR MASTER]: MARK 0" <<std::endl;
+
                        if(file.is_open()){
-                           // std::cout << "[MASTER][PREPROCESSOR MASTER]: MARK 1" <<std::endl;
+
                             std::string line;
                             getline(file,line);
                             int pos = line.find(";");
                             std::string sub = line.substr(pos+1);
                             out.open("/tmp/res_sense.txt", std::ios::app);
                             out << sub;
-                            //std::cout << "[MASTER][PREPROCESSOR MASTER]: line: "<< line<< std::endl;
+
                             
                         }
                         out.close();
                         file.close();
-                        //std::remove(filename.c_str());
+
                     }
                 }
                
                 std::cout << "[MASTER][PREPROCESSOR MASTER]: Init RNA" << std::endl;
                 message_port_pub(pmt::mp("rna_file"),pmt::from_bool(true)); 
                 
-                //std::cout << "Init-ed RNA" << std::endl;
-                //usleep(100000);
-                //std::cout << "tuned 2.4G" << std::endl;
-                //message_port_pub(pmt::mp("tuned"), pmt::cons(pmt::mp("freq"),pmt::mp(2400000000)));
+                
                 
                 closedir (dir);
                 
@@ -167,30 +163,7 @@ namespace gr {
         }
     }
 
-    /* if(file.is_open()){
-                while(getline(file,neighbor_f)){   
-                    f = std::atoi(neighbor_f.c_str());
-                        if(id != f ){
-                            aux.open(auxname.c_str(), std::ios::in | std::ios::out| std::ios::app );
-                            aux << f << std::endl ;
-                            std::cout<< "Gravadondo no aux: " << f <<std::endl;
-                            neighbor_f.erase();
-                            aux.close();
-                        }
-                }
-                file.close();
-            }
-            */
-            //std::remove("/tmp/neighbors.txt");
-            //std::rename("/tmp/neighbors_aux.txt","/tmp/neighbors.txt");
-            //sleep(5);
-            //std::remove("/tmp/neighbors_aux.txt");
-
-            //file.open(filename.c_str(), std::ios::in);
-            //std::cout << "bla "<< getline(file,neighbor_f) << std::endl;
-            //getline(file,neighbor_f);
-            //std::cout << "neghbor_f: "<< neighbor_f << std::endl;
-            //if(neighbor_f.empty() || neighbor_f == ""){
+    
 
   } /* namespace pmt_cpp */
 } /* namespace gr */

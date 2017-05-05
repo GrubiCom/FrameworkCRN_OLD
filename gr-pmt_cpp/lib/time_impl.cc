@@ -63,9 +63,9 @@ namespace gr {
     }
     void time_impl::handle_msg(pmt::pmt_t msg) {
         if(pmt::is_dict(msg)){
-            //std::cout << "Wait ACK" << std::endl;
+
             
-            //std::cout << "time 2 " << std::endl;
+
             pmt::pmt_t ack =  pmt::dict_ref(msg, pmt::string_to_symbol("ack"), pmt::PMT_NIL);
             pmt::pmt_t a_t =  pmt::dict_ref(msg, pmt::string_to_symbol("acks_total"), pmt::PMT_NIL);
             pmt::pmt_t id =  pmt::dict_ref(msg, pmt::string_to_symbol("id"), pmt::PMT_NIL);
@@ -73,22 +73,19 @@ namespace gr {
             long number = pmt::to_long(ack);
             
             long acks_total = pmt::to_long(a_t); 
-            //long id1 = pmt::to_long(id);
+
             std::string id1 = pmt::symbol_to_string(id);
-            //std::cout << "number "<< number << std::endl;
+
             std::string line;
             std::ifstream file; // open file
-            //std::cout << "ACK  " << number<<" Received from ID " <<id1<< std::endl;
+
             std::string filename = "/tmp/Acknowledgement/acks";
             filename.append(id1);
 
             filename.append(".txt");
             
             file.open(filename.c_str());
-            //sleep(0.4);
-            //file.t
-            //file.seekg(0,std::ios_base::end);   
-            //std::cout << "filename: " << filename << std::endl;
+            
             bool found = false;
             while(getline(file,line)){              
                 if(std::atoi(line.c_str()) == (number+1)){
@@ -98,7 +95,7 @@ namespace gr {
             file.close();
             if(!found && ((number+1)<acks_total)){
                 std::cout << "[MASTER][TEMPORIZE ACK]: Enviando Do Time:  "<< "<A:"<<boost::to_string(id1)<<":"<<boost::to_string(number+1)<<">" << std::endl;
-                //sleep(0.4);
+
                 message_port_pub(pmt::mp("Ack_repeat"), pmt::intern("<A:"+boost::to_string(id1)+":"+boost::to_string(number+1)+">")); 
                 usleep(200000);
                 message_port_pub(pmt::mp("Feed_back"),msg);
@@ -110,7 +107,7 @@ namespace gr {
                 
                 
         
-                //pmt::pmt_t boolean = pmt::from_bool(true);
+
                 
                 
                 pmt::pmt_t p_dict  = pmt::make_dict();

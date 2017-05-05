@@ -49,7 +49,7 @@ namespace gr {
         message_port_register_out(pmt::mp("out_signal"));
         time(&timer);
         set_msg_handler(pmt::mp("in_signal"), boost::bind(&time_transmission_cycle_impl::handle, this, _1));
-        //d_thread = new boost::thread(boost::bind(&time_transmission_cycle_impl::run, this, this));
+
     
     }
 

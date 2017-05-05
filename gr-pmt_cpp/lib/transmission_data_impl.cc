@@ -79,8 +79,8 @@ namespace gr {
         double dif = difftime(t2,timer1);
         int i = 0;
         int a = 0;
-        //pmt::pmt_t p_dict = pmt::make_dict();
-        //p_dict = pmt::dict_add(p_dict, pmt::string_to_symbol("sense"), pmt::PMT_T);
+
+
         std::string data = "00011110000000000000000000000000000000000000000000";
         int time_sleep = 8000;//std::rand()%  100000 + 50000;
         char idUsrp = '4';
@@ -102,7 +102,7 @@ namespace gr {
                 
                 if(line.empty()){
                     
-                   // srand (time(NULL));
+
                     
                     usleep(time_sleep);
                     boost::posix_time::ptime t;            
@@ -113,14 +113,14 @@ namespace gr {
                     std::cout <<"[SLAVE][TRANSMISSION DATA]: 1" <<std::endl;
                                              
                 }else{
-                    //srand (time(NULL));
+
                     
                     usleep(time_sleep);
                     boost::posix_time::ptime t;            
 
                     t = boost::posix_time::microsec_clock::local_time();
                     std::string s = boost::posix_time::to_iso_string(t);
-                     ///std::cout <<"[SLAVE][TRANSMISSION DATA]: <"<<boost::to_string('0')<<":4:"+boost::to_string(idUsrp)+":"<<boost::to_string(i) <<":"<<data<<":"<<boost::to_string(s)<<">" <<std::endl;
+
                     std::cout <<"[SLAVE][TRANSMISSION DATA]: 2" <<std::endl;
                     message_port_pub(pmt::mp("packet"), pmt::intern("<"+boost::to_string('0')+":4:"+idUsrp+":"+boost::to_string(i)+":"+data+":"+boost::to_string(s)+">"));
                 }
@@ -133,7 +133,7 @@ namespace gr {
 
                     arq.open("/tmp/time.txt");
                     while(getline(arq,cu)){
-                        //std::cout<<"BLAAAAAA: "<< cu.c_str() << " "<< i << std::endl;
+
                         if(std::atoi(cu.c_str()) == i){
                             achou = true;
                         }
@@ -147,7 +147,7 @@ namespace gr {
                             std::cout <<"[SLAVE][TRANSMISSION DATA]: d_power: "<<d_power <<std::endl;
                         } 
                         if (d_power < -90){
-                            //srand (time(NULL));
+
 
                             usleep(time_sleep);
                             a++;
@@ -156,11 +156,11 @@ namespace gr {
                             std::string s = boost::posix_time::to_iso_string(t1);
                             std::cout <<"[SLAVE][TRANSMISSION DATA]: 3" <<std::endl;
                             message_port_pub(pmt::mp("packet"), pmt::intern("<"+boost::to_string('0')+":4:"+idUsrp+":"+boost::to_string(i)+":"+data+":"+boost::to_string(s)+">"));
-                          // std::cout <<"[SLAVE][TRANSMISSION DATA]: RETRANS: <"<<boost::to_string('0')<<":4:1:"<<boost::to_string(i) <<":"<<data<<":"<<boost::to_string(s)<<">" <<std::endl;
+
                             
                         }else{
                             std::cout <<"[SLAVE][TRANSMISSION DATA]: BUSY CHANNEL>> "<<d_power <<std::endl;
-                            //std::cout <<"[SLAVE][TRANSMISSION DATA]: DIF" << dif<<std::endl;  
+
                             srand (time(NULL));
                             int time_sleep_power = std::rand()%  13000 + 9000;
                             usleep(time_sleep_power);
@@ -170,7 +170,7 @@ namespace gr {
                     arq.close();
                     time(&t2);
                     dif = difftime(t2,timer1);    
-                    //std::cout <<"[SLAVE][TRANSMISSION DATA]: DIF" << dif<<std::endl;    
+
                 }
                 
                 file.close();
@@ -208,7 +208,7 @@ namespace gr {
         file.open("/tmp/power.txt",  std::ios::in);
         while(getline(file,line)) line_p = line;
         file.close();
-        //std::cout << "[SLAVE][TRANSMISSION DATA]:IF "<< line_p<< std::endl;
+
         int pos = line_p.find_last_of(":");
         return std::atof(line_p.substr(pos+1).c_str());
     }

@@ -103,14 +103,14 @@ namespace gr {
             std::string lut = "0123456789:.,;-ANT<>";//17 caracteres regex
             int count = 0;
             char str[50];
-            //std::cout << "End: " << &str << std::endl;
+
             const uint8_t* d = (const uint8_t*) pmt::uniform_vector_elements(vector, offset);
             for(size_t i=0; i<len; i+=16){
                     for(size_t j=i; j<std::min(i+16,len); j++){
                             for (size_t x=0; x<20; x++){
                                     if (lut[x] == d[j]) {
                                             str[count] = d[j];
-                                            //std::cout<< str[count];
+
                                             count++;
                                     }
                             }
@@ -118,8 +118,8 @@ namespace gr {
                     
             }
             
-            //std::cout <<"[SLAVE][MESSAGE PARSER]:Info: "<<str<< std::endl;
-            //std::cout <<"[SLAVE][MESSAGE PARSER]:Sense_tag: "<<sense<< std::endl;  
+
+
             char idUsrp = '4';
             size_t idMaster = -1;
             char* pEnd;
@@ -129,7 +129,7 @@ namespace gr {
             while(str[pos]!= '<' ){
                 pos++;
             }
-            //std::cout <<"Info: "<<str<< std::endl;
+
             if (str[pos] =='<' && (str[pos+1] == idUsrp || str[pos+1] == '0' ) ){ //1
                 if (str[pos+1] == '0') {
                     //std::cout <<"[SLAVE][MESSAGE PARSER]:Info: "<<str<< std::endl;
@@ -148,10 +148,10 @@ namespace gr {
                         out.close();
                     }
                     packet_received = 0;
-                    //message_port_pub(pmt::mp("info_neighbor"), pmt::intern("<N:"+boost::to_string(idUsrp)+">"));
+
                     srand (time(NULL));
                     int time = std::rand()% 400000 + 100000;
-                    //std::cout << "[SLAVE][MESSAGE PARSER]: RAND: "<< time << std::endl;
+
                     usleep(time);
                     message_port_pub(pmt::mp("info_neighbor"), pmt::intern("<N:"+boost::to_string(idUsrp)+">"));
                    // sense = false;
@@ -164,7 +164,7 @@ namespace gr {
                     sense = true;
                     share = false;
                     std::cout << "[SLAVE][MESSAGE PARSER]:SENSE" << std::endl;
-                    //std::cout << "[SLAVE][MESSAGE PARSER]:"<< "<s:"<<boost::to_string(idUsrp)<<">" << std::endl;
+
                     message_port_pub(pmt::mp("info_neighbor"), pmt::intern("<s:"+boost::to_string(idUsrp)+">"));//linha nova
                     usleep(1000000);
                     message_port_pub(pmt::mp("info_neighbor"), pmt::intern("<s:"+boost::to_string(idUsrp)+">"));//linha nova
@@ -183,30 +183,20 @@ namespace gr {
                         sub_str.replace(f1, std::string(",").length(), ".");
                     }
                     std::stringstream sss(sub_str.substr(sub_str.find_last_of(":")+1,p1+1));
-                    //std::cout <<"[SLAVE][MESSAGE PARSER]:teste: " <<sss.str()<< " "<<sub_str <<std::endl;
-                    /*value[0] = str[pos+5];                    
-                    value[1] = ',';
-                    value[2] = str[pos+7];
-                    if(str[pos+8]!= ':') value[3] = str[pos+8];
-                    std::cout <<"[SLAVE][MESSAGE PARSER]:value: " << value[0] << value[1] << value[2] << " atof "<<std::atof(value)<<std::endl;
-                    fMim = std::strtod (value,&pEnd); */
-                    //sss>> fMim;
+                    
                     fMim = std::atof(sss.str().c_str());
                     std::cout << "FMIm: " << fMim << std::endl;
                     fMim *= (double)1.0e9;
-                   // std::cout << "[SLAVE][MESSAGE PARSER]: FMIm: " << fMim << std::endl; 
+
                     pmt::pmt_t p_dict  = pmt::make_dict();
                     p_dict = pmt::dict_add(p_dict, pmt::string_to_symbol("mim"), pmt::from_double(fMim));
-                    //value[0] = str[pos+9];
-                   // value[1] = ',';
-                   // value[2] = str[pos+11];
+                    
                     
                     std::string st(str); //<1:2:2:3,0>
                     
                     std::size_t pos = st.find_last_of(":");//<1:2:2(:)3,0>
                     std::size_t terminal = st.find_last_of(">");//<1:2:2:3,0(>)
-                    //std::cout << "String: " << st << " POS: " << terminal<< std::endl;
-                   // std::cout << "SubString: "<< st.substr(pos+1,((terminal)-(pos+1))) << std::endl;
+                    
                     std::string su = st.substr(pos+1,((terminal)-(pos+1)));
                     //std::string::size_type sz;
                     size_t f = su.find(",");
@@ -215,12 +205,12 @@ namespace gr {
                     }
                     std::cout << "SubString:su "<< su << std::endl;
                     std::stringstream ss(su);
-                    //ss >> fMax;
+
                     fMax = std::atof(ss.str().c_str());
-                    //fMax = std::strtod(st.substr(pos+1,terminal).c_str(),&pEnd);
+
                     std::cout <<"[SLAVE][MESSAGE PARSER]:value: " << ss.str()<<std::endl;
-                    //fMax = std::strtod (value,&pEnd); 
-                    //str = NULL; std::free(str);
+
+
                     fMax *= 1e9;     
                     std::cout << "[SLAVE][MESSAGE PARSER]: FMax: " << fMax << std::endl;
                     p_dict = pmt::dict_add(p_dict, pmt::string_to_symbol("max"), pmt::from_double(fMax));
@@ -236,24 +226,19 @@ namespace gr {
                     std::string st(str); 
                     std::size_t pos = st.find_last_of(":");
                     std::size_t terminal = st.find_last_of(">");
-                    //std::cout << "String: " << st << " POS: " << pos<< std::endl;
-                    //std::cout << "SubString: "<< st.substr(pos+1,terminal) << std::endl;
-                    //std::string::size_type sz;
+                    
                     size_t f = st.find(",");
                     if (f != std::string::npos){
                         st.replace(f, std::string(",").length(), ".");
                     }
                     nChannel = std::strtod(st.substr(pos+1,terminal).c_str(),&pEnd);
                     std::cout << "[SLAVE][MESSAGE PARSER]:nChannel: " << nChannel<< std::endl;
-                    //std::free(str);
-                    //nChannel = std::strtod (value,&pEnd); 
+
+
                     
                     message_port_pub(pmt::mp("info_neighbor"), pmt::intern("<0:3:"+boost::to_string(nChannel)+">"));
                     nChannel *= 1e9;
-                    //std::ofstream micro;
-                    //micro.open("/tmp/total_microseconds.txt",  std::ios::app);
-                    //micro << nChannel<< std::endl;
-                    //micro.close();
+                    
                     pmt::pmt_t p_dict  = pmt::make_dict();
                     p_dict = pmt::dict_add(p_dict, pmt::string_to_symbol("nChannel"), pmt::from_double(nChannel));
                     share = true;
@@ -262,18 +247,17 @@ namespace gr {
                     sense = false;
                     share = false;
                     boost::posix_time::ptime t,t2;            
-                    //boost::posix_time::ptime tt;
+
                     t = boost::posix_time::microsec_clock::local_time();
                     
-                    /*Fazendo a porra do ack de merda
-                     */
+                    
                     
                     
                     std::cout << "[SLAVE][MASSAGE PARSER]: RECEIVED PACKET DATA TRANSMISSION " <<packet_received << std::endl;
-                    //std::cout << "MSG: "<< str << std::endl;
+
                     std::string st(str);
                     std::size_t po = st.find(":",7);
-                    //std::cout << " st " << st<< std::endl;
+
                     
                     std::string cu = st.substr(7,po-7);
                     std::ofstream arq;
@@ -283,15 +267,12 @@ namespace gr {
                     std::size_t p = st.find_last_of(":");
                     std::size_t terminal = st.find(">");
                     std::string sub = st.substr(p+1,terminal-(p+1));
-                    //std::cout << " sub " << sub<< std::endl;
-                    //std::cout << "time: "<< boost::posix_time::to_iso_string(t) << std::endl;
+
+
                     try{
                         t2 = boost::posix_time::from_iso_string(sub);
                         boost::posix_time::time_duration t1 = t - t2;
-                       // std::cout << t1.fractional_seconds() << std::endl;
-                        //std::cout << t1.ticks_per_second() << std::endl;
-                        //std::cout << t1.total_microseconds() << std::endl;
-                        //std::cout << t1.total_nanoseconds() << std::endl;
+                       
                         std::ofstream micro;
                         micro.open("/tmp/total_microseconds.txt",  std::ios::app);
                         micro << t1.total_microseconds()<< std::endl;
@@ -313,17 +294,17 @@ namespace gr {
                     //std::cout << "[SLAVE][MASSAGE PARSER]: RECEIVED PACKET DATA TRANSMISSION " <<received << std::endl;
                     packet_received++;
 
-                    //cochar id = str[pos+5];
+
                     std::string filename = "/tmp/";
 
                     filename.append("received_pack");
                     filename.push_back(str[pos+5]);
                     filename.append(".txt");
-                   // std::remove(filename.c_str());
+
                     std::fstream arq;
-                    //arq.open(filename.c_str(), std::ios::out | std::ios::app);
-                    ////arq << received<< std::endl;
-                    //arq.close();
+
+
+
                     std::string sub = st.substr(p+1,terminal-(p+1));
 
 
@@ -331,44 +312,34 @@ namespace gr {
                     std::string str2(str);
                     str2[pos+1] = str[pos+5];
                     str2[pos+5] = str[pos+1];
-                    //std::cout << "terminal: " << terminal << std::endl;
+
                     std::cout << "<"<<str[pos+5]<<":4:"<<"0:"<< su<<":00011110000000000000000000000000000000000000000000000:"<<sub<<">"<<std::endl;
-                    //usleep(10000);
-                    //t2 = boost::posix_time::microsec_clock::local_time();
-                    /*boost::posix_time::time_duration t1 = t2 - t;
-                            std::cout << t1.fractional_seconds() << std::endl;
-                            std::cout << t1.ticks_per_second() << std::endl;
-                            std::cout << t1.total_microseconds() << std::endl;
-                            std::cout << t1.total_nanoseconds() << std::endl;*/
+                    
                     if((int)packet_received % 53 == 0){
                         message_port_pub(pmt::mp("info_neighbor"), pmt::intern("<"+boost::to_string(str[pos+5])+":5:"+idUsrp+":"+su+":00011110000000000000000000000000000000000000000000000:"+sub+">"));
                     
-                    }//message_port_pub(pmt::mp("Ack"), pmt::intern(boost::to_string(str2)));
-                    //std::cout << "SUB: " << sub << std::endl;
+                    }
                     std::string filename1 = "/tmp/";
                     sent1++;
                     filename1.append("sent_pack");
                     filename1.push_back(str[pos+5]);
                     filename1.append(".txt");
-                    //std::remove(filename1.c_str());
+
                     std::fstream se;
                     se.open(filename1.c_str(), std::ios::out | std::ios::app);
                     se << sent1<< std::endl;
                     se.close();
                 }
             }else if(str[pos] =='<' && str[pos+1] == 'A' && str[pos+3] == idUsrp){
-               // sense = false;
-                //std::cout << "ACK" << std::endl;
-                //int a = str[pos+5] - '0';
+               
                 std::string st(str); 
-                //std::free(str);
+                
                 std::size_t pos = st.find_last_of(":");
                 std::size_t terminal = st.find_last_of(">");
-                //std::cout << "[SLAVE][MESSAGE PARSER]: String: " << st << " POS: " << pos<< std::endl;
-               // std::cout << "[SLAVE][MESSAGE PARSER]: SubString: "<< st.substr(pos+1,terminal) << std::endl;
+                
                 std::string::size_type sz;
                 int bla = std::atoi(st.substr(pos+1,terminal).c_str());
-                //std::cout << "[SLAVE][MESSAGE PARSER]: Bla: " << bla<< std::endl;
+
                 int a = bla;
                 if (a == 1){// Salva a primeira mensagem recebida
                     std::fstream out;
@@ -385,14 +356,14 @@ namespace gr {
                 pmt::pmt_t dict  = pmt::make_dict();
                 dict = pmt::dict_add(dict, pmt::string_to_symbol("ack"), pmt::from_long(a));
                 std::cout << "[SLAVE][MESSAGE PARSER]: ACK" << std::endl;
-                //sleep(1);
+
                 message_port_pub(pmt::mp("Ack"), dict);
                 sense = false;
                 share = false;
             }else if(str[pos+1] == 'N'){
-                //sense = false;
+
                 //Descobertas dos vizinhos<N:ID_neighbor>
-                //std::cout<< "VIZINHOS" << std::endl;
+
                 std::fstream file1;
                 std::string filename = "/tmp/neighbors_slave.txt";
                 std::string neighbor_f;
@@ -402,7 +373,7 @@ namespace gr {
                 bool contained = false;
                 if(file.is_open()){
                     while(getline(file,neighbor_f)){
-                        //std::cout<< "VIZINHOS1" << std::endl;
+
 
                         if(neighbor_f.compare(id_neighbor) == 0 ){
                             contained = true;
@@ -412,7 +383,7 @@ namespace gr {
                     
                 }
                 if(!contained  && (id_neighbor.compare(boost::to_string(idUsrp))!= 0)){
-                   // std::cout<< "VIZINHOS2" << std::endl;
+
                     std::cout << "[SLAVE][MESSAGE PARSER]: Saved "<<str << std::endl;
                     file1.open(filename.c_str(), std::ios::in | std::ios::out | std::ios::app); 
                     if(file1.is_open()){
@@ -422,7 +393,7 @@ namespace gr {
                 }       
                 
             }else if (str[pos+1] != idUsrp && str[pos+1] != '0'){
-                //str = NULL; std::free(str);
+
                 //std::cout << "[SLAVE][MESSAGE PARSER]: Pacote nao destinado a usrp de ID: "<<idUsrp << std::endl;                  
             }else{
                 //str = NULL; std::free(str);

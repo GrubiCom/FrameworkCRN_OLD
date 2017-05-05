@@ -37,21 +37,19 @@ class annp(gr.basic_block):
         self.message_port_register_in(pmt.intern("in"))           
         self.set_msg_handler(pmt.intern("in"), self.handler) 
         self.message_port_register_out(pmt.intern("out")) 
-        #self.message_port_register_out(pmt.intern("out"))
+
         
         
     def handler(self, pdu):
          if (pmt.is_bool(pdu) and (pmt.to_bool(pdu))):
-            #self.s = pmt.to_python(pdu);
+
             self.f = open("/tmp/res_sense.txt", "r")
             self.s = self.f.readline()
             
-            #print "s: "+self.s
-            #self.pos = self.s.find(";")
-            #self.sub = self.s[self.pos+1:]
+            
             self.sub = self.s
             print "[ANNP]: res_sense: "+self.sub
-            #print "sub: "+self.sub
+
             pattern = re.compile(r'(:)') # caractere - e numeros 0 a 9
             tag = 1
             i = 0;
@@ -275,9 +273,9 @@ class annp(gr.basic_block):
 									    freqFinal[4] = frequency
 			    #print "[MASTER][ANNP]: Result " + floatResult+ " Power: "+bestPower+ " Final: "+ freqFinal
 			i = 0
-			#while(i < len(freqFinal)):
+
                         finalMessage.append(freqFinal[0]) #Qualquer coisa vou trocar pra freqFinal[0][i]
-                        #    i = i + 1
+
 
 			finalMessage.append('>')
 			stringFinal = ''.join(finalMessage)

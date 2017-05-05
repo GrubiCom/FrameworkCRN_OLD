@@ -92,21 +92,21 @@ namespace gr {
                             std::cout << filename << std::endl;
                             std::ifstream file;
                             file.open(filename.c_str());
-                            //std::cout << "[MASTER][TIMER]: MARK 0" <<std::endl;
+
                            if(file.is_open()){
-                                //std::cout << "[MASTER][TIMER]: MARK 1" <<std::endl;
+
                                 std::string line;
                                 getline(file,line);
                                 int pos = line.find(";");
                                 std::string sub = line.substr(pos+1);
                                 out.open("/tmp/res_sense.txt", std::ios::app);
                                 out << sub;
-                                //std::cout << "[MASTER][TIMER]: line: "<< line<< std::endl;
+
 
                             }
                             out.close();
                             file.close();
-                            //std::remove(filename.c_str());
+
                         }
                     }
                
