@@ -2,12 +2,15 @@
 
 # Plot results on master node
 
-INPUT_LOG="fwcrn/res_sense.txt"
+INPUT_LOG="/tmp/res_sense.txt"
 TMP_DAT=".tmp_res_sense.dat"
 
 cp $INPUT_LOG ./$TMP_DAT
 
 sed -i 's/;/\n/g' $TMP_DAT
+sed -i 's/\.:/./g' $TMP_DAT
+sed -i 's/:\././g' $TMP_DAT
+sed -i '/^[0-9]\+:[0-9]\+\(\.[0-9]\+\)*:\(-\)*[0-9]\+\(\.[0-9]\+\)*$/!d' $TMP_DAT
 sed -i 's/^[0-9]*://g' $TMP_DAT
 
 gnuplot <<PDF_PLOT
