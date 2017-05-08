@@ -2,9 +2,9 @@
 
 # Plot the best frequency selected and spectrum sensing
 
-SLAVE_SENSE="fwcrn/senseERR.txt"
-MASTER_SENSE="fwcrn/res_sense.txt"
-BEST_CHANNEL="fwcrn/master_channels.txt"
+SLAVE_SENSE="/tmp/sense.txt"
+MASTER_SENSE="tmp/res_sense.txt"
+BEST_CHANNEL="/tmp/master_channels.txt"
 SENSE_DATA=".tmp_res_sense.dat"
 CH_RESULT=".tmp_best_channel.dat"
 
@@ -58,6 +58,9 @@ elif [ -e $MASTER_SENSE ]; then
 	
 	cp $MASTER_SENSE ./$SENSE_DATA
 	sed -i 's/;/\n/g' $SENSE_DATA
+	sed -i 's/\.:/./g' $SENSE_DATA
+	sed -i 's/:\././g' $SENSE_DATA
+	sed -i '/^[0-9]\+:[0-9]\+\(\.[0-9]\+\)*:\(-\)*[0-9]\+\(\.[0-9]\+\)*$/!d' $SENSE_DATA
 	
 gnuplot <<PDF_PLOT
 	set terminal pdf size 6,3 font "Courier Bold"
