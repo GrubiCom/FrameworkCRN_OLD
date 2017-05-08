@@ -36,7 +36,7 @@ if ! [ -x "$(command -v uhd_images_downloader)" ]; then
 	fi
 
 	cd uhd
-	git checkout release_003_008_000
+	git checkout release_003_009_002
 	cd host
 	mkdir build
 	cd build
