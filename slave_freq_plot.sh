@@ -2,7 +2,7 @@
 
 # Plot sensing results
 
-INPUT_LOG="sense.txt"
+INPUT_LOG="/tmp/sense.txt"
 
 gnuplot <<PDF_PLOT
 	set terminal pdf size 6,3 font "Courier Bold"
